@@ -13,6 +13,7 @@
       - [How to clip parts of elements using clip-path?](#how-to-clip-parts-of-elements-using-clip-path)
     - [7. Building the Header - Part 2](#7-building-the-header---part-2)
     - [8. Creating Cool CSS Animations](#8-creating-cool-css-animations)
+      - [How to create CSS animations using @keyframes and the animation property?](#how-to-create-css-animations-using-keyframes-and-the-animation-property)
     - [9. Building a Complex Animated Button - Part 1](#9-building-a-complex-animated-button---part-1)
     - [10. Building a Complex Animated Button - Part 2](#10-building-a-complex-animated-button---part-2)
   - [**Section 3: How CSS Works: A Look Behind the Scenes**](#section-3-how-css-works-a-look-behind-the-scenes)
@@ -158,6 +159,57 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 8. Creating Cool CSS Animations
+
+#### How to create CSS animations using @keyframes and the animation property?
+
+```css
+.heading-primary {
+  backface-visibility: hidden;
+}
+
+.heading-primary-main {
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); 
+  }
+  
+  80% {
+    transform: translateX(10px); 
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); 
+  } 
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); 
+  }
+  
+  80% {
+    transform: translateX(-10px); 
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); 
+  } 
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 9. Building a Complex Animated Button - Part 1
