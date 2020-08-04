@@ -95,6 +95,66 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 7. Building the Header - Part 2
+
+```html
+<body>
+  <header class="header">
+    <div class="logo-box">
+      <img src="img/logo-white.png" alt="Logo" class="logo">
+    </div>
+    <div class="text-box">
+      <h1 class="heading-primary">
+        <span class="heading-primary-main">Outdoors</span>
+        <span class="heading-primary-sub">is where life happens</span>
+      </h1>
+    </div>
+  </header>
+</body>
+```
+
+```css
+.header {
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+/* The easiest way to center anything with the transform, top and left properties. */
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 8. Creating Cool CSS Animations
