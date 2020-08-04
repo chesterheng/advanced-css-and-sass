@@ -21,6 +21,17 @@
       - [What pseudo-elements are?](#what-pseudo-elements-are)
       - [How and why to use the ::after pseudoelement;](#how-and-why-to-use-the-after-pseudoelement)
   - [**Section 3: How CSS Works: A Look Behind the Scenes**](#section-3-how-css-works-a-look-behind-the-scenes)
+    - [11. Section Intro](#11-section-intro)
+    - [12. Three Pillars of Writing Good HTML and CSS (Never Forget Them!)](#12-three-pillars-of-writing-good-html-and-css-never-forget-them)
+    - [13. How CSS Works Behind the Scenes: An Overview](#13-how-css-works-behind-the-scenes-an-overview)
+    - [14. How CSS is Parsed, Part 1: The Cascade and Specificity](#14-how-css-is-parsed-part-1-the-cascade-and-specificity)
+    - [15. Specificity in Practice](#15-specificity-in-practice)
+    - [16. How CSS is Parsed, Part 2: Value Processing](#16-how-css-is-parsed-part-2-value-processing)
+    - [17. How CSS is Parsed, Part 3: Inheritance](#17-how-css-is-parsed-part-3-inheritance)
+    - [18. Converting px to rem: An Effective Workflow](#18-converting-px-to-rem-an-effective-workflow)
+    - [19. How CSS Renders a Website: The Visual Formatting Model](#19-how-css-renders-a-website-the-visual-formatting-model)
+    - [20. CSS Architecture, Components and BEM](#20-css-architecture-components-and-bem)
+    - [21. Implementing BEM in the Natours Project](#21-implementing-bem-in-the-natours-project)
   - [**Section 4: Introduction to Sass and NPM**](#section-4-introduction-to-sass-and-npm)
   - [**Section 5: Natours Project — Using Advanced CSS and Sass (Part 2)**](#section-5-natours-project--using-advanced-css-and-sass-part-2)
   - [**Section 6: Natours Project — Advanced Responsive Design (Part 3)**](#section-6-natours-project--advanced-responsive-design-part-3)
@@ -324,6 +335,38 @@ In CSS, ::after creates a pseudo-element that is the last child of the selected 
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 3: How CSS Works: A Look Behind the Scenes**
+
+### 11. Section Intro
+**[⬆ back to top](#table-of-contents)**
+
+### 12. Three Pillars of Writing Good HTML and CSS (Never Forget Them!)
+**[⬆ back to top](#table-of-contents)**
+
+### 13. How CSS Works Behind the Scenes: An Overview
+**[⬆ back to top](#table-of-contents)**
+
+### 14. How CSS is Parsed, Part 1: The Cascade and Specificity
+**[⬆ back to top](#table-of-contents)**
+
+### 15. Specificity in Practice
+**[⬆ back to top](#table-of-contents)**
+
+### 16. How CSS is Parsed, Part 2: Value Processing
+**[⬆ back to top](#table-of-contents)**
+
+### 17. How CSS is Parsed, Part 3: Inheritance
+**[⬆ back to top](#table-of-contents)**
+
+### 18. Converting px to rem: An Effective Workflow
+**[⬆ back to top](#table-of-contents)**
+
+### 19. How CSS Renders a Website: The Visual Formatting Model
+**[⬆ back to top](#table-of-contents)**
+
+### 20. CSS Architecture, Components and BEM
+**[⬆ back to top](#table-of-contents)**
+
+### 21. Implementing BEM in the Natours Project
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 4: Introduction to Sass and NPM**
