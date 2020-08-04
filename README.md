@@ -18,6 +18,8 @@
       - [What pseudo-classes are?](#what-pseudo-classes-are)
       - [How to create a creative hover animation effect using the transition property?](#how-to-create-a-creative-hover-animation-effect-using-the-transition-property)
     - [10. Building a Complex Animated Button - Part 2](#10-building-a-complex-animated-button---part-2)
+      - [What pseudo-elements are?](#what-pseudo-elements-are)
+      - [How and why to use the ::after pseudoelement;](#how-and-why-to-use-the-after-pseudoelement)
   - [**Section 3: How CSS Works: A Look Behind the Scenes**](#section-3-how-css-works-a-look-behind-the-scenes)
   - [**Section 4: Introduction to Sass and NPM**](#section-4-introduction-to-sass-and-npm)
   - [**Section 5: Natours Project — Using Advanced CSS and Sass (Part 2)**](#section-5-natours-project--using-advanced-css-and-sass-part-2)
@@ -260,6 +262,65 @@ For example, :link, :visited, :hover, :active
 **[⬆ back to top](#table-of-contents)**
 
 ### 10. Building a Complex Animated Button - Part 2
+
+#### What pseudo-elements are?
+
+A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). 
+
+For example, ::after
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How and why to use the ::after pseudoelement; 
+
+In CSS, ::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default.
+
+```css
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); 
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); 
+  } 
+}
+
+.btn:link,
+.btn:visited {
+  position: relative;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 3: How CSS Works: A Look Behind the Scenes**
