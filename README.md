@@ -15,6 +15,8 @@
     - [8. Creating Cool CSS Animations](#8-creating-cool-css-animations)
       - [How to create CSS animations using @keyframes and the animation property?](#how-to-create-css-animations-using-keyframes-and-the-animation-property)
     - [9. Building a Complex Animated Button - Part 1](#9-building-a-complex-animated-button---part-1)
+      - [What pseudo-classes are?](#what-pseudo-classes-are)
+      - [How to create a creative hover animation effect using the transition property?](#how-to-create-a-creative-hover-animation-effect-using-the-transition-property)
     - [10. Building a Complex Animated Button - Part 2](#10-building-a-complex-animated-button---part-2)
   - [**Section 3: How CSS Works: A Look Behind the Scenes**](#section-3-how-css-works-a-look-behind-the-scenes)
   - [**Section 4: Introduction to Sass and NPM**](#section-4-introduction-to-sass-and-npm)
@@ -213,6 +215,48 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 9. Building a Complex Animated Button - Part 1
+
+#### What pseudo-classes are?
+
+A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s)
+
+For example, :link, :visited, :hover, :active
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to create a creative hover animation effect using the transition property?
+
+```html
+<a href="" class="btn btn-white">Discover our tours</a>
+```
+
+```css
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 10. Building a Complex Animated Button - Part 2
