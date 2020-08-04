@@ -15,6 +15,11 @@
   - [**Section 10: That's It, Everyone!**](#section-10-thats-it-everyone)
 
 ## **Section 1: Welcome, Welcome, Welcome!**
+
+- [Course Material and FAQ for my Advanced CSS Course](https://github.com/jonasschmedtmann/advanced-css-course)
+- [Jonas' resources page](http://codingheroes.io/resources)
+- [Jonas Schmedtmann](https://www.youtube.com/channel/UCNsU-y15AwmU2Q8QTQJG1jw)
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 2: Natours Project — Setup and First Steps (Part 1)**
