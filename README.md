@@ -8,6 +8,9 @@
     - [4. Section Intro](#4-section-intro)
     - [5. Project Overview](#5-project-overview)
     - [6. Building the Header - Part 1](#6-building-the-header---part-1)
+      - [The best way to perform a basic reset using the universal selector](#the-best-way-to-perform-a-basic-reset-using-the-universal-selector)
+      - [How to set project-wide font definitions?](#how-to-set-project-wide-font-definitions)
+      - [How to clip parts of elements using clip-path?](#how-to-clip-parts-of-elements-using-clip-path)
     - [7. Building the Header - Part 2](#7-building-the-header---part-2)
     - [8. Creating Cool CSS Animations](#8-creating-cool-css-animations)
     - [9. Building a Complex Animated Button - Part 1](#9-building-a-complex-animated-button---part-1)
@@ -44,6 +47,51 @@
 **[⬆ back to top](#table-of-contents)**
 
 ### 6. Building the Header - Part 1
+
+#### The best way to perform a basic reset using the universal selector
+
+```html
+<body>
+  <header class="header">
+
+  </header>
+</body>
+```
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to set project-wide font definitions?
+
+```css
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to clip parts of elements using clip-path?
+
+- [CSS clip-path maker](https://bennettfeely.com/clippy/)
+```css
+.header {
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 7. Building the Header - Part 2
