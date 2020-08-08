@@ -66,6 +66,9 @@
       - [How to use the outline-offset property together with outline?](#how-to-use-the-outline-offset-property-together-with-outline)
       - [How to style elements that are NOT hovered while others are?](#how-to-style-elements-that-are-not-hovered-while-others-are)
     - [38. Building the Features Section](#38-building-the-features-section)
+      - [How to include and use an icon font?](#how-to-include-and-use-an-icon-font)
+      - [Another way of creating the "skewed section"](#another-way-of-creating-the-skewed-section)
+      - [How and when to use the direct child selector?](#how-and-when-to-use-the-direct-child-selector)
     - [39. Building the Tours Section - Part 1](#39-building-the-tours-section---part-1)
     - [40. Building the Tours Section - Part 2](#40-building-the-tours-section---part-2)
     - [41. Building the Tours Section - Part 3](#41-building-the-tours-section---part-3)
@@ -1191,6 +1194,30 @@ To change styles on certain viewport widths (breakpoints), allowing us to create
 
 ### 35. Building the About Section - Part 1
 
+```html
+      <section class="section-about">
+        <div class="u-center-text u-margin-bottom-big">
+          <h2 class="heading-secondary">
+            Exciting tours for adventurous people
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-1-of-2"></div>
+          <div class="col-1-of-2"></div>
+        </div>
+      </section>
+```
+
+```css
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 #### Thinking about components
 
 - Secondary Heading
@@ -1252,8 +1279,8 @@ Secondary Heading component
 
 ```scss
 .heading-secondary {
+  display: inline-block;
   background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -1452,6 +1479,143 @@ Image Composition component
 **[⬆ back to top](#table-of-contents)**
 
 ### 38. Building the Features Section
+
+```html
+<section class="section-features">
+  <div class="row">
+    <div class="col-1-of-4">
+      <div class="feature-box">
+        <i class="feature-box__icon icon-basic-world"></i>
+        <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
+        <p class="feature-box__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum commodi atque, natus inventore.
+        </p>
+      </div>
+    </div>
+    <div class="col-1-of-4">
+      <div class="feature-box">
+        <i class="feature-box__icon icon-basic-compass"></i>
+        <h3 class="heading-tertiary u-margin-bottom-small">Meet nature</h3>
+        <p class="feature-box__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum commodi atque, natus inventore.
+        </p>
+      </div>
+    </div>
+    <div class="col-1-of-4">
+      <div class="feature-box">
+        <i class="feature-box__icon icon-basic-map"></i>
+        <h3 class="heading-tertiary u-margin-bottom-small">Find your way</h3>
+        <p class="feature-box__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum commodi atque, natus inventore.
+        </p>
+      </div>
+    </div>
+    <div class="col-1-of-4">
+      <div class="feature-box">
+        <i class="feature-box__icon icon-basic-heart"></i>
+        <h3 class="heading-tertiary u-margin-bottom-small">Live a healther life</h3>
+        <p class="feature-box__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae rerum commodi atque, natus inventore.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```scss
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/nat-4.jpg);
+  background-size: cover;
+
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  // select all direct child: row selector in this case
+  & > * {
+    transform: skewY(7deg);
+  }
+}
+```
+
+```scss
+.feature-box {
+  background-color: rgba($color-white, .8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+  transition: transform .3s;
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+
+  &__text {
+
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to include and use an icon font?
+
+![](section-05/css.jpg)
+
+- Goto [Linea Icon](https://linea.io/)
+- Download linea_complete_1.0.zip
+- Unzip linea_complete_1.0.zip
+- Goto _basic/_ICONFONT/ folder
+- Rename styles.css to icon-font.css
+- Copy fonts folder to css project folder
+- Copy icon-font.css file to css project folder
+- Include icon-font.css in index.html
+- Refer to linea_complete_1.0/_basic/_ICONFONT/icons-reference.html for icon name
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Another way of creating the "skewed section"
+
+```scss
+.section-features {
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How and when to use the direct child selector?
+
+```html
+<section class="section-features">
+  <div class="row">
+  </div>
+</section>
+```
+
+```scss
+.section-features {
+  // select all direct child of section-features
+  // Example: row selector
+  & > * {
+    transform: skewY(7deg);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 39. Building the Tours Section - Part 1
