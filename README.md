@@ -356,6 +356,23 @@ In CSS, ::after creates a pseudo-element that is the last child of the selected 
 **[⬆ back to top](#table-of-contents)**
 
 ### 14. How CSS is Parsed, Part 1: The Cascade and Specificity
+
+![](section-03/a-css-rule.jpg)
+![](section-03/cascade.jpg)
+![](section-03/important.jpg)
+![](section-03/specificity.jpg)
+
+Maintainable and scalable code
+
+- CSS declarations marked with !important have the highest priority;
+- But, only use !important as a last resource. It’s better to use correct specificities — *more maintainable code!*
+- Inline styles will always have priority over styles in external stylesheets;
+- A selector that contains *1* ID is more specific than one with *1000* classes;
+- A selector that contains *1* class is more specific than one with *1000* elements;
+- The universal selector * has no specificity value (0, 0, 0, 0);
+- Rely more on *specificity* than on the *order* of selectors;
+- But, rely on order when using 3rd-party stylesheets — always put your author stylesheet last.
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 15. Specificity in Practice
