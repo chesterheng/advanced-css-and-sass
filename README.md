@@ -54,11 +54,17 @@
     - [33. Review: Basic Principles of Responsive Design and Layout Types](#33-review-basic-principles-of-responsive-design-and-layout-types)
     - [34. Building a Custom Grid with Floats](#34-building-a-custom-grid-with-floats)
     - [35. Building the About Section - Part 1](#35-building-the-about-section---part-1)
+      - [Thinking about components](#thinking-about-components)
       - [How and why to use utility classes?](#how-and-why-to-use-utility-classes)
       - [How to use the background-clip property?](#how-to-use-the-background-clip-property)
       - [How to transform multiple properties simultaneously?](#how-to-transform-multiple-properties-simultaneously)
     - [36. Building the About Section - Part 2](#36-building-the-about-section---part-2)
+      - [Tertiary Heading component](#tertiary-heading-component)
+      - [Paragraph component](#paragraph-component)
+      - [Text Button component](#text-button-component)
     - [37. Building the About Section - Part 3](#37-building-the-about-section---part-3)
+      - [How to use the outline-offset property together with outline?](#how-to-use-the-outline-offset-property-together-with-outline)
+      - [How to style elements that are NOT hovered while others are?](#how-to-style-elements-that-are-not-hovered-while-others-are)
     - [38. Building the Features Section](#38-building-the-features-section)
     - [39. Building the Tours Section - Part 1](#39-building-the-tours-section---part-1)
     - [40. Building the Tours Section - Part 2](#40-building-the-tours-section---part-2)
@@ -1185,34 +1191,25 @@ To change styles on certain viewport widths (breakpoints), allowing us to create
 
 ### 35. Building the About Section - Part 1
 
-- Thinking about components;
+#### Thinking about components
+
+- Secondary Heading
+- Tertiary Heading
+- Paragraph
+- Text Button
+- Image Composition
 
 **[⬆ back to top](#table-of-contents)**
 
-#### How and why to use utility classes?
+Secondary Heading component
 
 ```html
-  <div class="u-center-text u-margin-bottom-8">
-    <h2 class="heading-secondary">
-      Exciting tours for adventurous people
-    </h2>
-  </div>
+<div class="u-center-text u-margin-bottom-big">
+  <h2 class="heading-secondary">
+    Exciting tours for adventurous people
+  </h2>
+</div>
 ```
-
-```scss
-.u-center-text {
-  // center inline-block child
-  text-align: center;
-}
-
-.u-margin-bottom-8 {
-  margin-bottom: 8rem;
-}
-```
-
-**[⬆ back to top](#table-of-contents)**
-
-#### How to use the background-clip property?
 
 ```scss
 .heading-secondary {
@@ -1225,8 +1222,44 @@ To change styles on certain viewport widths (breakpoints), allowing us to create
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: .2rem;
+  transition: all .2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+  }
 }
 ```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How and why to use utility classes?
+
+```scss
+.u-center-text {
+  // center inline-block child
+  text-align: center;
+}
+
+.u-margin-bottom-small { margin-bottom: 2rem; }
+.u-margin-bottom-medium { margin-bottom: 4rem; }
+.u-margin-bottom-big { margin-bottom: 8rem; }
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use the background-clip property?
+
+```scss
+.heading-secondary {
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
 
 #### How to transform multiple properties simultaneously?
 
@@ -1245,12 +1278,177 @@ To change styles on certain viewport widths (breakpoints), allowing us to create
 
 ### 36. Building the About Section - Part 2
 
-- How to use the outline-offset property together with outline;
-- How to style elements that are NOT hovered while others are.
+```html
+<h3 class="heading-tertiary u-margin-bottom-small">You are going to fall in love with nature</h3>
+<p class="paragraph">
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste rerum ullam accusantium omnis officia, repellendus qui quae, maxime itaque dolores corporis provident. Illo temporibus magnam praesentium, maiores ipsa beatae dolor?
+</p>
+<h3 class="heading-tertiary u-margin-bottom-small">Live adventures like you never have before</h3>
+<p class="paragraph">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quos, reiciendis perspiciatis rem quis velit quae deleniti itaque? Modi harum voluptates minus? Molestiae, id libero impedit consequatur quae amet inventore?
+</p>
+
+<a href="#" class="btn-text">
+  Learn more &rarr;
+</a>
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Tertiary Heading component
+
+```scss
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Paragraph component
+
+```scss
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Text Button component
+
+```scss
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+    transform: translateY(0);
+  }
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
 ### 37. Building the About Section - Part 3
+
+Image Composition component
+
+```html
+<div class="composition">
+  <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+  <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+  <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+</div>
+```
+
+```scss
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all .2s;
+    outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      outline: 1.5rem solid $color-primary;
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      z-index: 20;
+    }
+  }
+
+  // composition:hover composition__photo:not(:hover)
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use the outline-offset property together with outline?
+
+```scss
+.composition {
+  position: relative;
+
+  &__photo {
+    outline-offset: 2rem;
+
+    &:hover {
+      outline: 1.5rem solid $color-primary;
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to style elements that are NOT hovered while others are?
+
+```scss
+.composition {
+  position: relative;
+
+  &__photo {
+    &:hover {
+      outline: 1.5rem solid $color-primary;
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      z-index: 20;
+    }
+  }
+
+  // composition:hover composition__photo:not(:hover)
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 38. Building the Features Section
