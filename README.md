@@ -983,6 +983,14 @@ npm run compile:sass
 **[⬆ back to top](#table-of-contents)**
 
 ### 29. The Easiest Way of Automatically Reloading a Page on File Changes
+
+[Live Server](https://github.com/tapio/live-server)
+
+```console
+npm i live-server -g
+live-server
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 5: Natours Project — Using Advanced CSS and Sass (Part 2)**
