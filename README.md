@@ -45,7 +45,6 @@
     - [23. What is Sass?](#23-what-is-sass)
     - [24. First Steps with Sass: Variables and Nesting](#24-first-steps-with-sass-variables-and-nesting)
     - [25. First Steps with Sass: Mixins, Extends and Functions](#25-first-steps-with-sass-mixins-extends-and-functions)
-    - [26. A Brief Introduction to the Command Line](#26-a-brief-introduction-to-the-command-line)
     - [27. NPM Packages: Let's Install Sass Locally](#27-npm-packages-lets-install-sass-locally)
     - [28. NPM Scripts: Let's Write and Compile Sass Locally](#28-npm-scripts-lets-write-and-compile-sass-locally)
     - [29. The Easiest Way of Automatically Reloading a Page on File Changes](#29-the-easiest-way-of-automatically-reloading-a-page-on-file-changes)
@@ -969,13 +968,18 @@ nav {
 
 **[⬆ back to top](#table-of-contents)**
 
-### 26. A Brief Introduction to the Command Line
-**[⬆ back to top](#table-of-contents)**
-
 ### 27. NPM Packages: Let's Install Sass Locally
+
+[node-sass](https://github.com/sass/node-sass)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 28. NPM Scripts: Let's Write and Compile Sass Locally
+
+```console
+npm run compile:sass
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 29. The Easiest Way of Automatically Reloading a Page on File Changes
