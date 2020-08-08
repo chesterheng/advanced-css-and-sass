@@ -31,6 +31,10 @@
     - [17. How CSS is Parsed, Part 3: Inheritance](#17-how-css-is-parsed-part-3-inheritance)
     - [18. Converting px to rem: An Effective Workflow](#18-converting-px-to-rem-an-effective-workflow)
     - [19. How CSS Renders a Website: The Visual Formatting Model](#19-how-css-renders-a-website-the-visual-formatting-model)
+      - [The box model](#the-box-model)
+      - [Box types](#box-types)
+      - [Positioning Schemes](#positioning-schemes)
+      - [Stacking Contexts](#stacking-contexts)
     - [20. CSS Architecture, Components and BEM](#20-css-architecture-components-and-bem)
     - [21. Implementing BEM in the Natours Project](#21-implementing-bem-in-the-natours-project)
   - [**Section 4: Introduction to Sass and NPM**](#section-4-introduction-to-sass-and-npm)
@@ -504,6 +508,77 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 19. How CSS Renders a Website: The Visual Formatting Model
+
+The Visual Formatting Model
+
+![](section-03/website-rendering.jpg)
+
+Algorithm that calculates boxes and determines the layout of theses boxes, for each element in the render tree, in order to determine the final layout of the page.
+
+- *Dimensions of boxes*: the box model;
+- *Box type*: inline, block and inline-block; 
+- *Positioning scheme*: floats and positioning; 
+- *Stacking contexts*;
+- Other elements in the render tree;
+- Viewport size, dimensions of images, etc.
+
+**[⬆ back to top](#table-of-contents)**
+
+#### The box model
+
+![](section-03/box-model.jpg)
+
+- *Content*: text, images, etc;
+- *Padding*: transparent area around the content, inside of the box;
+- *Border*: goes around the padding and the content;
+- *Margin*: space between boxes;
+- Fill area: area that gets filled with background color or background image.
+
+The box model - Heights and Widths (default)
+
+- total width = right border + right padding + specified width + left padding + left border
+- total height = top border + top padding + specified height + bottom padding + bottom border 
+- Example: height = 0 + 20px + 100px + 20px + 0 = 140px
+
+The box model - Heights and Widths (box-sizing: border-box)
+
+![](section-03/border-box.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Box types
+
+| Block-level boxes                     | Inline-block boxes            | Inline boxes                                          |
+| ------------------------------------- | ----------------------------- | ----------------------------------------------------- |
+| Elements formatted visually as blocks | A mix of block and inline     | Content is distributed in lines                       |
+| 100% of parent’s width                | Occupies only content’s space | Occupies only content’s space                         |
+| Vertically, one after another         | No line-breaks                | No line-breaks                                        |
+| Box-model applies as showed           | Box-model applies as showed   | No heights and widths                                 |
+|                                       |                               | Paddings and margins only horizontal (left and right) |
+| display: block                        | display: inline-block         | display: inline                                       |
+| display: flex                         |                               |                                                       |
+| display: list-item                    |                               |                                                       |
+| display: table                        |                               |                                                       |
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Positioning Schemes
+
+| Normal flow                                        | Floats                                                         | Absolute positioning                                                                               |
+| -------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Default positioning scheme;                        | Element is removed from the normal flow;                       | Element is removed from the normal flow                                                            |
+| NOT floated;                                       | Text and inline elements will wrap around the floated element; | No impact on surrounding content or elements;                                                      |
+| NOT absolutely positioned;                         | The container will not adjust its height to the element.       | We use top, bottom, left and right to offset the element from its relatively positioned container. |
+| Elements laid out according to their source order. |                                                                |                                                                                                    |
+| default                                            | float: left                                                    | position: absolute                                                                                 |
+| position: relative                                 | float: right                                                   | position: fixed                                                                                    |
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Stacking Contexts
+
+![](section-03/stacking-contexts.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 20. CSS Architecture, Components and BEM
