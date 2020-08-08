@@ -466,6 +466,41 @@ Inheritance in CSS
 **[⬆ back to top](#table-of-contents)**
 
 ### 18. Converting px to rem: An Effective Workflow
+
+```css
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+}
+```
+
+- The inherit keyword specifies that a property should inherit its value from its parent element.
+- The * selector selects all elements.
+- All element will have the property `box-sizing: inherit;`
+- All Child elements will inherit the property `box-sizing: border-box;` from parent element `body` 
+
+```css
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; 
+}
+
+body {
+  box-sizing: border-box; 
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 19. How CSS Renders a Website: The Visual Formatting Model
