@@ -36,6 +36,9 @@
       - [Positioning Schemes](#positioning-schemes)
       - [Stacking Contexts](#stacking-contexts)
     - [20. CSS Architecture, Components and BEM](#20-css-architecture-components-and-bem)
+      - [Thinking about the layout](#thinking-about-the-layout)
+      - [Building with meaningful class names](#building-with-meaningful-class-names)
+      - [Architecting with files and folders](#architecting-with-files-and-folders)
     - [21. Implementing BEM in the Natours Project](#21-implementing-bem-in-the-natours-project)
   - [**Section 4: Introduction to Sass and NPM**](#section-4-introduction-to-sass-and-npm)
   - [**Section 5: Natours Project — Using Advanced CSS and Sass (Part 2)**](#section-5-natours-project--using-advanced-css-and-sass-part-2)
@@ -373,10 +376,10 @@ Maintainable and scalable code
 - CSS declarations marked with !important have the highest priority;
 - But, only use !important as a last resource. It’s better to use correct specificities — *more maintainable code!*
 - Inline styles will always have priority over styles in external stylesheets;
-- A selector that contains *1* ID is more specific than one with *1000* classes;
-- A selector that contains *1* class is more specific than one with *1000* elements;
+- A selector that contains **1** ID is more specific than one with *1000* classes;
+- A selector that contains **1** class is more specific than one with *1000* elements;
 - The universal selector * has no specificity value (0, 0, 0, 0);
-- Rely more on *specificity* than on the *order* of selectors;
+- Rely more on **specificity** than on the **order** of selectors;
 - But, rely on order when using 3rd-party stylesheets — always put your author stylesheet last.
 
 **[⬆ back to top](#table-of-contents)**
@@ -443,13 +446,13 @@ a {
 **[⬆ back to top](#table-of-contents)**
 
 - Each property has an initial value, used if nothing is declared (and if there is no inheritance — see next lecture); 
-- Browsers specify a *root font-size* for each page (usually 16px);
+- Browsers specify a **root font-size** for each page (usually 16px);
 - Percentages and relative values are always converted to pixels;
-- Percentages are measured relative to their parent’s *font-size*, if used to specify font-size;
-- Percentages are measured relative to their parent’s *width*, if used to specify lengths; 
-- em are measured relative to their *parent* font-size, if used to specify font-size; 
-- em are measured relative to the *current* font-size, if used to specify lengths;
-- rem are always measured relative to the *document’s root* font-size;
+- Percentages are measured relative to their parent’s **font-size**, if used to specify font-size;
+- Percentages are measured relative to their parent’s **width**, if used to specify lengths; 
+- em are measured relative to their **parent** font-size, if used to specify font-size; 
+- em are measured relative to the **current** font-size, if used to specify lengths;
+- rem are always measured relative to the **document’s root** font-size;
 - vh and vw are simply percentage measurements of the viewport’s height and width.
 
 **[⬆ back to top](#table-of-contents)**
@@ -460,9 +463,9 @@ Inheritance in CSS
 
 ![](section-03/inheritance.jpg)
 
-- Inheritance passes the values for some specific properties from parents to children — *more maintainable code*;
+- Inheritance passes the values for some specific properties from parents to children — **more maintainable code**;
 - Properties related to text are inherited: font-family, font-size, color, etc; 
-- The computed value of a property is what gets inherited, *not* the declared value. 
+- The computed value of a property is what gets inherited, **not** the declared value. 
 - Inheritance of a property only works if no one declares a value for that property; 
 - The inherit keyword forces inheritance on a certain property;
 - The initial keyword resets a property to its initial value.
@@ -515,10 +518,10 @@ The Visual Formatting Model
 
 Algorithm that calculates boxes and determines the layout of theses boxes, for each element in the render tree, in order to determine the final layout of the page.
 
-- *Dimensions of boxes*: the box model;
-- *Box type*: inline, block and inline-block; 
-- *Positioning scheme*: floats and positioning; 
-- *Stacking contexts*;
+- **Dimensions of boxes**: the box model;
+- **Box type**: inline, block and inline-block; 
+- **Positioning scheme**: floats and positioning; 
+- **Stacking contexts**;
 - Other elements in the render tree;
 - Viewport size, dimensions of images, etc.
 
@@ -528,10 +531,10 @@ Algorithm that calculates boxes and determines the layout of theses boxes, for e
 
 ![](section-03/box-model.jpg)
 
-- *Content*: text, images, etc;
-- *Padding*: transparent area around the content, inside of the box;
-- *Border*: goes around the padding and the content;
-- *Margin*: space between boxes;
+- **Content**: text, images, etc;
+- **Padding**: transparent area around the content, inside of the box;
+- **Border**: goes around the padding and the content;
+- **Margin**: space between boxes;
 - Fill area: area that gets filled with background color or background image.
 
 The box model - Heights and Widths (default)
@@ -582,6 +585,59 @@ The box model - Heights and Widths (box-sizing: border-box)
 **[⬆ back to top](#table-of-contents)**
 
 ### 20. CSS Architecture, Components and BEM
+
+The Think - Build - Architect Mindset
+
+| Responsive design | Maintainable and scalable code | Web performance |
+| ----------------- | ------------------------------ | --------------- |
+|                   | Clean                          |                 |
+|                   | Modular                        |                 |
+|                   | Reusable                       |                 |
+|                   | Ready for growth               |                 |
+
+Think -> Build -> Architect
+
+- **Think** about the layout of your webpage or web app before writing code.
+- **Build** your layout in HTML and CSS with a consistent structure for naming classes.
+- Create a logical **architecture** for your CSS with files and folders.
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Thinking about the layout
+
+![](section-03/atomic-design.jpg)
+
+Component-driven design
+
+- **Modular building blocks** that make up interfaces;
+- Held together by the **layout** of the page;
+- **Re-usable** across a project, and between different projects; 
+- **Independent**, allowing us to use them anywhere on the page.
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Building with meaningful class names
+
+![](section-03/bem.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Architecting with files and folders
+
+The 7-1 pattern
+
+- 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stylesheet.
+
+The 7 Folders
+
+- base/ 
+- components/ 
+- layout/ 
+- pages/ 
+- themes/ 
+- abstracts/ 
+- vendors/
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 21. Implementing BEM in the Natours Project
