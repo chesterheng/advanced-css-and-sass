@@ -1067,6 +1067,23 @@ $color-black: #000;
 **[⬆ back to top](#table-of-contents)**
 
 ### 33. Review: Basic Principles of Responsive Design and Layout Types
+
+Basic Responsive Design Principles
+
+- Fluid Grids And Layouts
+
+To allow content to easily adapt to the current viewport width used to browse the website. Uses % rather than px for all layout-related lengths.
+
+- Flexible/Responsive Images
+
+Images behave differently than text content, and so we need to ensure that they also adapt nicely to the current viewport.
+
+- Media Queries
+
+To change styles on certain viewport widths (breakpoints), allowing us to create different version of our website for different widths.
+
+![](section-05/layout-types.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 34. Building a Custom Grid with Floats
