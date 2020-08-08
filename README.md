@@ -49,6 +49,30 @@
     - [28. NPM Scripts: Let's Write and Compile Sass Locally](#28-npm-scripts-lets-write-and-compile-sass-locally)
     - [29. The Easiest Way of Automatically Reloading a Page on File Changes](#29-the-easiest-way-of-automatically-reloading-a-page-on-file-changes)
   - [**Section 5: Natours Project — Using Advanced CSS and Sass (Part 2)**](#section-5-natours-project--using-advanced-css-and-sass-part-2)
+    - [30. Section Intro](#30-section-intro)
+    - [31. Converting Our CSS Code to Sass: Variables and Nesting](#31-converting-our-css-code-to-sass-variables-and-nesting)
+    - [32. Implementing the 7-1 CSS Architecture with Sass](#32-implementing-the-7-1-css-architecture-with-sass)
+    - [33. Review: Basic Principles of Responsive Design and Layout Types](#33-review-basic-principles-of-responsive-design-and-layout-types)
+    - [34. Building a Custom Grid with Floats](#34-building-a-custom-grid-with-floats)
+    - [35. Building the About Section - Part 1](#35-building-the-about-section---part-1)
+    - [36. Building the About Section - Part 2](#36-building-the-about-section---part-2)
+    - [37. Building the About Section - Part 3](#37-building-the-about-section---part-3)
+    - [38. Building the Features Section](#38-building-the-features-section)
+    - [39. Building the Tours Section - Part 1](#39-building-the-tours-section---part-1)
+    - [40. Building the Tours Section - Part 2](#40-building-the-tours-section---part-2)
+    - [41. Building the Tours Section - Part 3](#41-building-the-tours-section---part-3)
+    - [42. Building the Stories Section - Part 1](#42-building-the-stories-section---part-1)
+    - [43. Building the Stories Section - Part 2](#43-building-the-stories-section---part-2)
+    - [44. Building the Stories Section - Part 3](#44-building-the-stories-section---part-3)
+    - [45. Building the Booking Section - Part 1](#45-building-the-booking-section---part-1)
+    - [46. Building the Booking Section - Part 2](#46-building-the-booking-section---part-2)
+    - [47. Building the Booking Section - Part 3](#47-building-the-booking-section---part-3)
+    - [48. Building the Footer](#48-building-the-footer)
+    - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
+    - [50. Building the Navigation - Part 2](#50-building-the-navigation---part-2)
+    - [51. Building the Navigation - Part 3](#51-building-the-navigation---part-3)
+    - [52. Building a Pure CSS Popup - Part 1](#52-building-a-pure-css-popup---part-1)
+    - [53. Building a Pure CSS Popup - Part 2](#53-building-a-pure-css-popup---part-2)
   - [**Section 6: Natours Project — Advanced Responsive Design (Part 3)**](#section-6-natours-project--advanced-responsive-design-part-3)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
@@ -994,6 +1018,77 @@ live-server
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 5: Natours Project — Using Advanced CSS and Sass (Part 2)**
+
+### 30. Section Intro
+**[⬆ back to top](#table-of-contents)**
+
+### 31. Converting Our CSS Code to Sass: Variables and Nesting
+**[⬆ back to top](#table-of-contents)**
+
+### 32. Implementing the 7-1 CSS Architecture with Sass
+**[⬆ back to top](#table-of-contents)**
+
+### 33. Review: Basic Principles of Responsive Design and Layout Types
+**[⬆ back to top](#table-of-contents)**
+
+### 34. Building a Custom Grid with Floats
+**[⬆ back to top](#table-of-contents)**
+
+### 35. Building the About Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 36. Building the About Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 37. Building the About Section - Part 3
+**[⬆ back to top](#table-of-contents)**
+
+### 38. Building the Features Section
+**[⬆ back to top](#table-of-contents)**
+
+### 39. Building the Tours Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 40. Building the Tours Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 41. Building the Tours Section - Part 3
+**[⬆ back to top](#table-of-contents)**
+
+### 42. Building the Stories Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 43. Building the Stories Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 44. Building the Stories Section - Part 3
+**[⬆ back to top](#table-of-contents)**
+
+### 45. Building the Booking Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 46. Building the Booking Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 47. Building the Booking Section - Part 3
+**[⬆ back to top](#table-of-contents)**
+
+### 48. Building the Footer
+**[⬆ back to top](#table-of-contents)**
+
+### 49. Building the Navigation - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 50. Building the Navigation - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 51. Building the Navigation - Part 3
+**[⬆ back to top](#table-of-contents)**
+
+### 52. Building a Pure CSS Popup - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 53. Building a Pure CSS Popup - Part 2
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 6: Natours Project — Advanced Responsive Design (Part 3)**
