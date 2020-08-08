@@ -451,6 +451,18 @@ a {
 **[⬆ back to top](#table-of-contents)**
 
 ### 17. How CSS is Parsed, Part 3: Inheritance
+
+Inheritance in CSS
+
+![](section-03/inheritance.jpg)
+
+- Inheritance passes the values for some specific properties from parents to children — *more maintainable code*;
+- Properties related to text are inherited: font-family, font-size, color, etc; 
+- The computed value of a property is what gets inherited, *not* the declared value. 
+- Inheritance of a property only works if no one declares a value for that property; 
+- The inherit keyword forces inheritance on a certain property;
+- The initial keyword resets a property to its initial value.
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 18. Converting px to rem: An Effective Workflow
