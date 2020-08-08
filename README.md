@@ -26,6 +26,8 @@
     - [14. How CSS is Parsed, Part 1: The Cascade and Specificity](#14-how-css-is-parsed-part-1-the-cascade-and-specificity)
     - [15. Specificity in Practice](#15-specificity-in-practice)
     - [16. How CSS is Parsed, Part 2: Value Processing](#16-how-css-is-parsed-part-2-value-processing)
+      - [How CSS values are processed?](#how-css-values-are-processed)
+      - [How units are converted from relative to absolute?](#how-units-are-converted-from-relative-to-absolute)
     - [17. How CSS is Parsed, Part 3: Inheritance](#17-how-css-is-parsed-part-3-inheritance)
     - [18. Converting px to rem: An Effective Workflow](#18-converting-px-to-rem-an-effective-workflow)
     - [19. How CSS Renders a Website: The Visual Formatting Model](#19-how-css-renders-a-website-the-visual-formatting-model)
@@ -423,6 +425,29 @@ a {
 **[⬆ back to top](#table-of-contents)**
 
 ### 16. How CSS is Parsed, Part 2: Value Processing
+
+#### How CSS values are processed?
+
+![](section-03/css-values.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How units are converted from relative to absolute?
+
+![](section-03/units.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+- Each property has an initial value, used if nothing is declared (and if there is no inheritance — see next lecture); 
+- Browsers specify a *root font-size* for each page (usually 16px);
+- Percentages and relative values are always converted to pixels;
+- Percentages are measured relative to their parent’s *font-size*, if used to specify font-size;
+- Percentages are measured relative to their parent’s *width*, if used to specify lengths; 
+- em are measured relative to their *parent* font-size, if used to specify font-size; 
+- em are measured relative to the *current* font-size, if used to specify lengths;
+- rem are always measured relative to the *document’s root* font-size;
+- vh and vw are simply percentage measurements of the viewport’s height and width.
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 17. How CSS is Parsed, Part 3: Inheritance
