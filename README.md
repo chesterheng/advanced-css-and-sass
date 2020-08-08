@@ -54,6 +54,9 @@
     - [33. Review: Basic Principles of Responsive Design and Layout Types](#33-review-basic-principles-of-responsive-design-and-layout-types)
     - [34. Building a Custom Grid with Floats](#34-building-a-custom-grid-with-floats)
     - [35. Building the About Section - Part 1](#35-building-the-about-section---part-1)
+      - [How and why to use utility classes?](#how-and-why-to-use-utility-classes)
+      - [How to use the background-clip property?](#how-to-use-the-background-clip-property)
+      - [How to transform multiple properties simultaneously?](#how-to-transform-multiple-properties-simultaneously)
     - [36. Building the About Section - Part 2](#36-building-the-about-section---part-2)
     - [37. Building the About Section - Part 3](#37-building-the-about-section---part-3)
     - [38. Building the Features Section](#38-building-the-features-section)
@@ -1181,9 +1184,70 @@ To change styles on certain viewport widths (breakpoints), allowing us to create
 **[⬆ back to top](#table-of-contents)**
 
 ### 35. Building the About Section - Part 1
+
+- Thinking about components;
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How and why to use utility classes?
+
+```html
+  <div class="u-center-text u-margin-bottom-8">
+    <h2 class="heading-secondary">
+      Exciting tours for adventurous people
+    </h2>
+  </div>
+```
+
+```scss
+.u-center-text {
+  // center inline-block child
+  text-align: center;
+}
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use the background-clip property?
+
+```scss
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+}
+```
+
+#### How to transform multiple properties simultaneously?
+
+```scss
+.heading-secondary {
+  transition: all .2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 36. Building the About Section - Part 2
+
+- How to use the outline-offset property together with outline;
+- How to style elements that are NOT hovered while others are.
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 37. Building the About Section - Part 3
