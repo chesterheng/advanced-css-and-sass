@@ -350,6 +350,9 @@ In CSS, ::after creates a pseudo-element that is the last child of the selected 
 **[⬆ back to top](#table-of-contents)**
 
 ### 13. How CSS Works Behind the Scenes: An Overview
+
+![](section-03/how-css-works.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 14. How CSS is Parsed, Part 1: The Cascade and Specificity
