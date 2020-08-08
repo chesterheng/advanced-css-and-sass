@@ -896,6 +896,77 @@ nav {
 **[⬆ back to top](#table-of-contents)**
 
 ### 25. First Steps with Sass: Mixins, Extends and Functions
+
+- Mixins allow you to define styles that can be re-used throughout your stylesheet.
+- Extends allows you to share styles between two selectors.
+- Functions allow you to define complex operations on SassScript values that you can re-use throughout your stylesheet.
+
+```scss
+$color-text-dark: #333; //dark grey
+$color-text-light: #eee; //light grey
+
+@mixin clearfix {
+   &::after{
+    content:"";
+    clear:both;
+    display:table;
+  }
+}
+
+@mixin style-link-text($color) {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $color;
+}
+
+@function divide($a, $b) {
+  @return $a / $b;
+}
+
+nav {
+  margin: divide(60, 2) * 1px; // 30px
+  background-color: $color-primary;
+
+  @include clearfix
+}
+
+.navigation {
+  list-style: none;
+  float: left;
+
+  li {
+    a:link, 
+    a:active {
+      @include style-link-text($color-text-dark)
+    }
+  }
+}
+
+// both .btn-main:link, .btn-hot:link will share styles
+%btn-placeholder {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 100px;
+  width: $width-button;
+  @include style-link-text($color-text-light)
+}
+
+.btn-main {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-secondary;
+  }
+}
+
+.btn-hot {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-tertiary;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 26. A Brief Introduction to the Command Line
