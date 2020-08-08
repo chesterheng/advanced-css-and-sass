@@ -21,7 +21,6 @@
       - [What pseudo-elements are?](#what-pseudo-elements-are)
       - [How and why to use the ::after pseudoelement;](#how-and-why-to-use-the-after-pseudoelement)
   - [**Section 3: How CSS Works: A Look Behind the Scenes**](#section-3-how-css-works-a-look-behind-the-scenes)
-    - [11. Section Intro](#11-section-intro)
     - [12. Three Pillars of Writing Good HTML and CSS (Never Forget Them!)](#12-three-pillars-of-writing-good-html-and-css-never-forget-them)
     - [13. How CSS Works Behind the Scenes: An Overview](#13-how-css-works-behind-the-scenes-an-overview)
     - [14. How CSS is Parsed, Part 1: The Cascade and Specificity](#14-how-css-is-parsed-part-1-the-cascade-and-specificity)
@@ -336,10 +335,18 @@ In CSS, ::after creates a pseudo-element that is the last child of the selected 
 
 ## **Section 3: How CSS Works: A Look Behind the Scenes**
 
-### 11. Section Intro
-**[⬆ back to top](#table-of-contents)**
-
 ### 12. Three Pillars of Writing Good HTML and CSS (Never Forget Them!)
+
+| Responsive design             | Maintainable and scalable code | Web performance        |
+| ----------------------------- | ------------------------------ | ---------------------- |
+| Fluid layouts                 | Clean                          | Less HTTP requests     |
+| Media queries                 | Easy-to-understand             | Less code              |
+| Responsive images             | Growth                         | Compress code          |
+| Correct units                 | Reusable                       | Use a CSS preprocessor |
+| Desktop-first vs mobile-first | How to organize files          | Less images            |
+|                               | How to name classes            | Compress images        |
+|                               | How to structure HTML          |                        |
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 13. How CSS Works Behind the Scenes: An Overview
