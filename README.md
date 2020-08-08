@@ -769,6 +769,24 @@ The 7 Folders
 **[⬆ back to top](#table-of-contents)**
 
 ### 23. What is Sass?
+
+Sass is a CSS preprocessor, an extension of CSS that adds power and elegance to the basic language.
+
+![](section-04/sass.jpg)
+
+Main SASS features
+
+- **Variables**: for reusable values such as colors, font-sizes, spacing, etc;
+- **Nesting**: to nest selectors inside of one another, allowing us to write less code;
+- **Operators**: for mathematical operations right inside of CSS;
+- **Partials and imports**: to write CSS in different files and importing them all into one single file;
+- **Mixins**: to write reusable pieces of CSS code;
+- **Functions**: similar to mixins, with the difference that they produce a value that can than be used; 
+- **Extends**: to make different selectors inherit declarations that are common to all of them;
+- **Control directives**: for writing complex code using conditionals and loops (not covered in this course).
+
+![](section-04/sass-syntax.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 24. First Steps with Sass: Variables and Nesting
