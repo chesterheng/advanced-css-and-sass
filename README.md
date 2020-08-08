@@ -1061,6 +1061,9 @@ $color-black: #000;
 **[⬆ back to top](#table-of-contents)**
 
 ### 32. Implementing the 7-1 CSS Architecture with Sass
+
+![](section-05/sass-architecture.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 33. Review: Basic Principles of Responsive Design and Layout Types
