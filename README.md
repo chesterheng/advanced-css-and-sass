@@ -376,6 +376,50 @@ Maintainable and scalable code
 **[⬆ back to top](#table-of-contents)**
 
 ### 15. Specificity in Practice
+
+- [Specificity Calculator](https://specificity.keegan.st)
+- [CSS Specificity calculator](https://polypane.app/css-specificity-calculator)
+
+```html
+<nav id="nav">
+  <div class="pull-right">
+    <a class="button button-danger" href="link.html">Don't click here!</a>
+  </div>
+</nav>
+```
+
+```css
+body {
+  padding: 50px;
+}
+
+.button {
+  font-size: 20px;
+  color: white;
+  background-color: blue e
+}
+
+a {
+  background-color: purple;
+}
+
+/* (Inline, IDs, Classes, Elements) */
+/* (0, 1, 2, 2) */
+#nav div.pull-right a.button {
+  background-color: orangered;
+}
+
+/* (0, 1, 3, 2) */
+#nav div.pull-right a.button:hover {
+  background-color: green;
+}
+
+/* (0, 1, 2, 1) */
+#nav a.button:hover {
+  background-color: yellow;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 16. How CSS is Parsed, Part 2: Value Processing
