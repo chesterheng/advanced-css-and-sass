@@ -86,10 +86,11 @@
       - [Story component](#story-component)
       - [How to make text flow around shapes with shape-outside and float?](#how-to-make-text-flow-around-shapes-with-shape-outside-and-float)
     - [43. Building the Stories Section - Part 2](#43-building-the-stories-section---part-2)
+      - [Story Shape component - Figure Caption](#story-shape-component---figure-caption)
+    - [44. Building the Stories Section - Part 3](#44-building-the-stories-section---part-3)
       - [How to create a background video covering an entire section?](#how-to-create-a-background-video-covering-an-entire-section)
       - [How to use the <video> HTML element?](#how-to-use-the-video-html-element)
       - [How and when to use the object-fit property?](#how-and-when-to-use-the-object-fit-property)
-    - [44. Building the Stories Section - Part 3](#44-building-the-stories-section---part-3)
     - [45. Building the Booking Section - Part 1](#45-building-the-booking-section---part-1)
     - [46. Building the Booking Section - Part 2](#46-building-the-booking-section---part-2)
     - [47. Building the Booking Section - Part 3](#47-building-the-booking-section---part-3)
@@ -2293,6 +2294,65 @@ The [shape-outside](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outsi
 
 ### 43. Building the Stories Section - Part 2
 
+#### Story Shape component - Figure Caption
+
+The HTML [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) or Figure Caption element represents a caption or legend describing the rest of the contents of its parent <figure> element.
+
+```html
+<div class="story">
+  <figure class="story__shape">
+    <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img">
+    <figcaption class="story__caption">
+      Mary Smith
+    </figcaption>
+  </figure>
+</div>
+```
+
+```scss
+.story {
+  &__shape {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+### 44. Building the Stories Section - Part 3
+
 #### How to create a background video covering an entire section?
 **[⬆ back to top](#table-of-contents)**
 
@@ -2300,9 +2360,6 @@ The [shape-outside](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outsi
 **[⬆ back to top](#table-of-contents)**
 
 #### How and when to use the object-fit property?
-**[⬆ back to top](#table-of-contents)**
-
-### 44. Building the Stories Section - Part 3
 **[⬆ back to top](#table-of-contents)**
 
 ### 45. Building the Booking Section - Part 1
