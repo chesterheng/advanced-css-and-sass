@@ -93,7 +93,12 @@
       - [How to create a background video covering an entire section?](#how-to-create-a-background-video-covering-an-entire-section)
       - [How and when to use the object-fit property?](#how-and-when-to-use-the-object-fit-property)
     - [45. Building the Booking Section - Part 1](#45-building-the-booking-section---part-1)
+      - [How to implement "solid-color gradients"?](#how-to-implement-solid-color-gradients)
     - [46. Building the Booking Section - Part 2](#46-building-the-booking-section---part-2)
+      - [How the general and adjacent sibling selectors work and why we need them?](#how-the-general-and-adjacent-sibling-selectors-work-and-why-we-need-them)
+      - [How to use the ::input-placeholder pseudo-element?](#how-to-use-the-input-placeholder-pseudo-element)
+      - [How and when to use the :focus, :invalid, placeholder-shown and :checked pseudo- classes?](#how-and-when-to-use-the-focus-invalid-placeholder-shown-and-checked-pseudo--classes)
+      - [Techniques to build custom radio buttons.](#techniques-to-build-custom-radio-buttons)
     - [47. Building the Booking Section - Part 3](#47-building-the-booking-section---part-3)
     - [48. Building the Footer](#48-building-the-footer)
     - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
@@ -2303,7 +2308,7 @@ The [shape-outside](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outsi
 
 #### Story Shape component - Figure Caption
 
-The HTML [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) or Figure Caption element represents a caption or legend describing the rest of the contents of its parent <figure> element.
+The HTML [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) or Figure Caption element represents a caption or legend describing the rest of the contents of its parent `<figure>` element.
 
 ```html
 <div class="story">
@@ -2476,9 +2481,94 @@ The [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) CS
 **[⬆ back to top](#table-of-contents)**
 
 ### 45. Building the Booking Section - Part 1
+
+```html
+<section class="section-book">
+  <div class="row">
+    <div class="book">
+      <div class="book__form">
+        <form action="" class="form">
+          <div class="u-margin-bottom-medium">
+            <h2 class="heading-secondary">
+              Start booking now
+            </h2>
+          </div>
+          <div class="form__group">
+            <input type="text" class="form__input" placeholder="Full Name" id="name" required>
+            <label for="name" class="form__label">Full name</label>
+          </div>
+          <div class="form__group">
+            <input type="email" class="form__input" placeholder="Email address" id="email" required>
+            <label for="email" class="form__label">Email address</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```scss
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+  background-image: 
+    linear-gradient(
+      105deg, 
+      rgba($color-white, 0.9) 0%, 
+      rgba($color-white, 0.9) 50%, 
+      transparent 50%), 
+    url(../img/nat-10.jpg);
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+
+  height: 50rem;
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}
+```
+
+#### How to implement "solid-color gradients"?
+
+The [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient) CSS function creates an image consisting of a progressive transition between two or more colors along a straight line. Its result is an object of the `<gradient>` data type, which is a special kind of `<image>`.
+
+```scss
+.book {
+  background-image: 
+    linear-gradient(
+      105deg, 
+      rgba($color-white, 0.9) 0%, 
+      rgba($color-white, 0.9) 50%, 
+      transparent 50%), 
+    url(../img/nat-10.jpg);
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+  height: 50rem;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 46. Building the Booking Section - Part 2
+
+#### How the general and adjacent sibling selectors work and why we need them?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use the ::input-placeholder pseudo-element?
+**[⬆ back to top](#table-of-contents)**
+
+#### How and when to use the :focus, :invalid, placeholder-shown and :checked pseudo- classes?
+**[⬆ back to top](#table-of-contents)**
+
+#### Techniques to build custom radio buttons.
 **[⬆ back to top](#table-of-contents)**
 
 ### 47. Building the Booking Section - Part 3
