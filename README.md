@@ -105,6 +105,7 @@
       - [Green button](#green-button-1)
       - [How and when to use the :checked pseudo-classes?](#how-and-when-to-use-the-checked-pseudo-classes)
     - [48. Building the Footer](#48-building-the-footer)
+      - [How to design a simple website footer?](#how-to-design-a-simple-website-footer)
     - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
     - [50. Building the Navigation - Part 2](#50-building-the-navigation---part-2)
     - [51. Building the Navigation - Part 3](#51-building-the-navigation---part-3)
@@ -2847,6 +2848,103 @@ The [:checked](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) CSS ps
 **[⬆ back to top](#table-of-contents)**
 
 ### 48. Building the Footer
+
+#### How to design a simple website footer?
+
+![](section-05/footer.jpg)
+
+```html
+<footer class="footer">
+  <div class="footer__logo-box">
+    <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+  </div>
+  <div class="row">
+    <div class="col-1-of-2">
+      <div class="footer__navigation">
+        <ul class="footer__list">
+          <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+          <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+          <li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
+          <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
+          <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-1-of-2">
+      <p class="footer__copyright">
+        Built by <a href="#" class="footer__link">Jonas Schmedtmann</a> for his online course <a href="#" class="footer__link">Advanced CSS and Sass</a>.
+        Copyright &copy; by Jonas Schmedtmann. You are 100% allowed to use this webpage for both personal
+        and commercial use, but NOT to claim it as your own design. A credit to the original author, Jonas
+        Schmedtmann, is of course highly appreciated!
+      </p>
+    </div>
+  </div>
+</footer>
+```
+
+```scss
+.footer {
+  background-color: $color-grey-dark-3;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  color: $color-grey-light-1;
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  &__logo {
+    width: 15rem;
+    height: auto
+  }
+  
+  &__navigation {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    display: inline-block;
+  }
+  
+  &__list {
+    list-style: none;
+  }
+  
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+  
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-grey-light-1;
+      background-color: $color-grey-dark-3;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all .2s;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, .4);
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+  
+  &__copyright {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    width: 80%;
+    float: right;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 49. Building the Navigation - Part 1
