@@ -82,7 +82,13 @@
       - [Back Side Card component: CTA](#back-side-card-component-cta)
       - [Green Button](#green-button)
     - [42. Building the Stories Section - Part 1](#42-building-the-stories-section---part-1)
+      - [Thinking about components](#thinking-about-components-2)
+      - [Story component](#story-component)
+      - [How to make text flow around shapes with shape-outside and float?](#how-to-make-text-flow-around-shapes-with-shape-outside-and-float)
     - [43. Building the Stories Section - Part 2](#43-building-the-stories-section---part-2)
+      - [How to create a background video covering an entire section?](#how-to-create-a-background-video-covering-an-entire-section)
+      - [How to use the <video> HTML element?](#how-to-use-the-video-html-element)
+      - [How and when to use the object-fit property?](#how-and-when-to-use-the-object-fit-property)
     - [44. Building the Stories Section - Part 3](#44-building-the-stories-section---part-3)
     - [45. Building the Booking Section - Part 1](#45-building-the-booking-section---part-1)
     - [46. Building the Booking Section - Part 2](#46-building-the-booking-section---part-2)
@@ -2175,9 +2181,125 @@ The [box-decoration-break](https://developer.mozilla.org/en-US/docs/Web/CSS/box-
 **[⬆ back to top](#table-of-contents)**
 
 ### 42. Building the Stories Section - Part 1
+
+#### Thinking about components
+
+- Secondary Heading
+- Story
+  - Shape
+  - Text
+ 
+![](section-05/story-part-1.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Story component
+
+```html
+<section class="section-stories">
+  <div class="u-center-text u-margin-bottom-big">
+    <h2 class="heading-secondary">
+      We make people genuinely happy
+    </h2>
+  </div>
+  <div class="row">
+    <div class="story">
+      <figure class="story__shape">
+        <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img">
+      </figure>
+      <div class="story__text">
+        <h3 class="heading-tertiary u-margin-bottom-small">I had the best week ever with my family</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, facilis impedit perspiciatis voluptatum iure odio earum in tenetur explicabo beatae, quas minima iste provident omnis quod deleniti sed pariatur quibusdam!</p>
+      </div> 
+    </div>
+  </div>
+</section>
+```
+
+```scss
+.section-stories {
+  padding: 15rem 0;
+  background-color: $color-grey-light-1;
+}
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__img {
+    height: 100%;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to make text flow around shapes with shape-outside and float?
+
+The [shape-outside](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside) CSS property defines a shape—which may be non-rectangular—around which adjacent inline content should wrap.
+
+```scss
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__img {
+    height: 100%;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 43. Building the Stories Section - Part 2
+
+#### How to create a background video covering an entire section?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use the <video> HTML element?
+**[⬆ back to top](#table-of-contents)**
+
+#### How and when to use the object-fit property?
 **[⬆ back to top](#table-of-contents)**
 
 ### 44. Building the Stories Section - Part 3
