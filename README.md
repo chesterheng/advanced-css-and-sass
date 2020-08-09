@@ -88,8 +88,9 @@
     - [43. Building the Stories Section - Part 2](#43-building-the-stories-section---part-2)
       - [Story Shape component - Figure Caption](#story-shape-component---figure-caption)
     - [44. Building the Stories Section - Part 3](#44-building-the-stories-section---part-3)
-      - [How to create a background video covering an entire section?](#how-to-create-a-background-video-covering-an-entire-section)
+      - [Story component - Background video](#story-component---background-video)
       - [How to use the <video> HTML element?](#how-to-use-the-video-html-element)
+      - [How to create a background video covering an entire section?](#how-to-create-a-background-video-covering-an-entire-section)
       - [How and when to use the object-fit property?](#how-and-when-to-use-the-object-fit-property)
     - [45. Building the Booking Section - Part 1](#45-building-the-booking-section---part-1)
     - [46. Building the Booking Section - Part 2](#46-building-the-booking-section---part-2)
@@ -2189,6 +2190,8 @@ The [box-decoration-break](https://developer.mozilla.org/en-US/docs/Web/CSS/box-
 - Story
   - Shape
   - Text
+  - Background video
+- Text button
  
 ![](section-05/story-part-1.jpg)
 
@@ -2294,6 +2297,10 @@ The [shape-outside](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outsi
 
 ### 43. Building the Stories Section - Part 2
 
+![](section-05/story-figure-caption.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
 #### Story Shape component - Figure Caption
 
 The HTML [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) or Figure Caption element represents a caption or legend describing the rest of the contents of its parent <figure> element.
@@ -2353,13 +2360,119 @@ The HTML [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Elem
 
 ### 44. Building the Stories Section - Part 3
 
-#### How to create a background video covering an entire section?
+![](section-05/bg-video.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
+#### Story component - Background video
+
+[Coverr: Free Stock Footage | Royalty Free Videos for Download](https://coverr.co)
+
+```html
+<div class="bg-video">
+  <video class="bg-video__content" autoplay muted>
+    <source src="img/video.mp4" type="video/mp4" />
+    <source src="img/video.webm" type="video/webm" />
+    Your browser is not supported!
+  </video>
+</div>
+```
+
+```scss
+.section-stories {
+  position: relative;
+}
+
+.story {
+  background-color: rgba($color-white, .6);
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+```
+
 #### How to use the <video> HTML element?
+
+```html
+<div class="bg-video">
+  <video class="bg-video__content" autoplay muted>
+    <source src="img/video.mp4" type="video/mp4" />
+    <source src="img/video.webm" type="video/webm" />
+    Your browser is not supported!
+  </video>
+</div>
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to create a background video covering an entire section?
+
+```scss
+.section-stories {
+  position: relative;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### How and when to use the object-fit property?
+
+The [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) CSS property sets how the content of a replaced element, such as an <img> or <video>, should be resized to fit its container.
+
+```scss
+.section-stories {
+  position: relative;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 45. Building the Booking Section - Part 1
