@@ -70,8 +70,17 @@
       - [Another way of creating the "skewed section"](#another-way-of-creating-the-skewed-section)
       - [How and when to use the direct child selector?](#how-and-when-to-use-the-direct-child-selector)
     - [39. Building the Tours Section - Part 1](#39-building-the-tours-section---part-1)
+      - [Thinking about components](#thinking-about-components-1)
+      - [How to build an amazing, rotating card?](#how-to-build-an-amazing-rotating-card)
     - [40. Building the Tours Section - Part 2](#40-building-the-tours-section---part-2)
+      - [Front Side Card component: Picture, Heading, Details](#front-side-card-component-picture-heading-details)
+      - [How to use perspective in CSS?](#how-to-use-perspective-in-css)
+      - [How to use the backface-visibility property?](#how-to-use-the-backface-visibility-property)
+      - [Using background blend modes?](#using-background-blend-modes)
+      - [How and when to use box-decoration-break;](#how-and-when-to-use-box-decoration-break)
     - [41. Building the Tours Section - Part 3](#41-building-the-tours-section---part-3)
+      - [Back Side Card component: CTA](#back-side-card-component-cta)
+      - [Green Button](#green-button)
     - [42. Building the Stories Section - Part 1](#42-building-the-stories-section---part-1)
     - [43. Building the Stories Section - Part 2](#43-building-the-stories-section---part-2)
     - [44. Building the Stories Section - Part 3](#44-building-the-stories-section---part-3)
@@ -1194,6 +1203,16 @@ To change styles on certain viewport widths (breakpoints), allowing us to create
 
 ### 35. Building the About Section - Part 1
 
+#### Thinking about components
+
+![](section-05/about-section.jpg)
+
+- Secondary Heading
+- Tertiary Heading
+- Paragraph
+- Text Button
+- Image Composition
+
 ```html
       <section class="section-about">
         <div class="u-center-text u-margin-bottom-big">
@@ -1215,16 +1234,6 @@ To change styles on certain viewport widths (breakpoints), allowing us to create
   margin-top: -20vh;
 }
 ```
-
-**[⬆ back to top](#table-of-contents)**
-
-#### Thinking about components
-
-- Secondary Heading
-- Tertiary Heading
-- Paragraph
-- Text Button
-- Image Composition
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1480,6 +1489,8 @@ Image Composition component
 
 ### 38. Building the Features Section
 
+![](section-05/features-section.jpg)
+
 ```html
 <section class="section-features">
   <div class="row">
@@ -1619,12 +1630,548 @@ Image Composition component
 **[⬆ back to top](#table-of-contents)**
 
 ### 39. Building the Tours Section - Part 1
+
+#### Thinking about components
+
+- Secondary Heading
+- 3 Cards
+  - Front: Picture, Heading, Details
+  - Back: CTA
+- Green Button
+
+![](section-05/section-tours-front.jpg)
+![](section-05/section-tours-back.jpg)
+
+```html
+<section class="section-tours">
+  <div class="u-center-text u-margin-bottom-big">
+    <h2 class="heading-secondary">
+      Most popular tours
+    </h2>
+  </div>
+  <div class="row">
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front">
+          <div class="card__picture card__picture--1">&nbsp</div>
+          <h4 class="card__heading">
+            <span class="card__heading-span card__heading-span--1">
+              The Sea Explorer
+            </span>
+          </h4>
+          <div class="card__details">
+            <ul>
+              <li>3 day tours</li>
+              <li>Up to 30 people</li>
+              <li>2 tour guides</li>
+              <li>Sleep in cozy hotel</li>
+              <li>Difficulty: easy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back--1">
+          <div class="card__cta">
+            <div class="card__price-box">
+              <p class="card__price-only">Only</p>
+              <p class="card__price-value">$297</p>
+            </div>
+            <a href="" class="btn btn--white">Book now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="u-center-text u-margin-top-huge">
+    <a href="#" class="btn btn--green">Discover all tours</a>
+  </div>
+</section>
+```
+
+```scss
+.section-tours {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0 15rem 0;
+  margin-top: -10rem;
+}
+
+.card {
+  // FUNCTIONALITY
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 52rem;
+
+  &__side {
+    height: 52rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &--1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  // BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to build an amazing, rotating card?
+
+```html
+<div class="card">
+  <div class="card__side card__side--front">
+    FRONT
+  </div>
+  <div class="card__side card__side--back card__side--back--1">
+    BACK
+  </div>
+</div>
+```
+
+```scss
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 52rem;
+
+  &__side {
+    height: 52rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 40. Building the Tours Section - Part 2
+
+#### Front Side Card component: Picture, Heading, Details
+
+```html
+<section class="section-tours">
+  <div class="u-center-text u-margin-bottom-big">
+    <h2 class="heading-secondary">
+      Most popular tours
+    </h2>
+  </div>
+  <div class="row">
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front">
+          <div class="card__picture card__picture--1">&nbsp</div>
+          <h4 class="card__heading">
+            <span class="card__heading-span card__heading-span--1">
+              The Sea Explorer
+            </span>
+          </h4>
+          <div class="card__details">
+            <ul>
+              <li>3 day tours</li>
+              <li>Up to 30 people</li>
+              <li>2 tour guides</li>
+              <li>Sleep in cozy hotel</li>
+              <li>Difficulty: easy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back--1">
+          BACK
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="u-center-text u-margin-top-huge">
+    <a href="#" class="btn btn--green">Discover all tours</a>
+  </div>
+</section>
+```
+
+```scss
+.card {
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use perspective in CSS?
+
+The [perspective](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective) CSS property determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.
+
+The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.
+
+When defining the perspective property for an element, it is the CHILD elements that get the perspective view, NOT the element itself.
+
+```scss
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use the backface-visibility property?
+
+The [backface-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility) CSS property sets whether the back face of an element is visible when turned towards the user.
+
+This div element has "backface-visibility: hidden", and the back face of the div element is invisible:
+
+![](section-05/backface-visibility-hidden.jpg)
+
+This div element has "backface-visibility: visible", and the back face of the div element shows a mirror image of the front face:
+
+![](section-05/backface-visibility-visible.jpg)
+
+```html
+<div class="card">
+  <div class="card__side card__side--front">
+    
+  </div>
+  <div class="card__side card__side--back card__side--back--1">
+    
+  </div>
+</div>
+```
+
+```scss
+.card {
+  &__side {
+    backface-visibility: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Using background blend modes?
+
+The [background-blend-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/background-blend-mode) CSS property sets how an element's background images should blend with each other and with the element's background color.
+
+![](section-05/box-decoration-break-slice.jpg)
+![](section-05/box-decoration-break-clone.jpg)
+
+```scss
+.card {
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How and when to use box-decoration-break;
+
+The [box-decoration-break](https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break) CSS property specifies how an element's fragments should be rendered when broken across multiple lines, columns, or pages.
+
+```scss
+.card {
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 41. Building the Tours Section - Part 3
+
+#### Back Side Card component: CTA
+
+```html
+<section class="section-tours">
+  <div class="u-center-text u-margin-bottom-big">
+    <h2 class="heading-secondary">
+      Most popular tours
+    </h2>
+  </div>
+  <div class="row">
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front">
+          FRONT
+        </div>
+        <div class="card__side card__side--back card__side--back--1">
+          <div class="card__cta">
+            <div class="card__price-box">
+              <p class="card__price-only">Only</p>
+              <p class="card__price-value">$297</p>
+            </div>
+            <a href="" class="btn btn--white">Book now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```scss
+.card {
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Green Button
+
+```html
+<div class="u-center-text u-margin-top-huge">
+  <a href="#" class="btn btn--green">Discover all tours</a>
+</div>
+```
+
+```scss
+.btn {
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 42. Building the Stories Section - Part 1
