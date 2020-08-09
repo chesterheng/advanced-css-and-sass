@@ -107,13 +107,13 @@
     - [48. Building the Footer](#48-building-the-footer)
       - [How to design a simple website footer?](#how-to-design-a-simple-website-footer)
     - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
-      - [What the "checkbox hack" is and how it works?](#what-the-checkbox-hack-is-and-how-it-works)
     - [50. Building the Navigation - Part 2](#50-building-the-navigation---part-2)
+      - [What the "checkbox hack" is and how it works?](#what-the-checkbox-hack-is-and-how-it-works)
       - [How to create custom animation timing functions using cubic bezier curves?](#how-to-create-custom-animation-timing-functions-using-cubic-bezier-curves)
+    - [51. Building the Navigation - Part 3](#51-building-the-navigation---part-3)
       - [How to animate "solid-color gradients"?](#how-to-animate-solid-color-gradients)
       - [How and why to use transform-origin?](#how-and-why-to-use-transform-origin)
       - [In general: create an amazingly creative effect?](#in-general-create-an-amazingly-creative-effect)
-    - [51. Building the Navigation - Part 3](#51-building-the-navigation---part-3)
     - [52. Building a Pure CSS Popup - Part 1](#52-building-a-pure-css-popup---part-1)
     - [53. Building a Pure CSS Popup - Part 2](#53-building-a-pure-css-popup---part-2)
   - [**Section 6: Natours Project — Advanced Responsive Design (Part 3)**](#section-6-natours-project--advanced-responsive-design-part-3)
@@ -3069,17 +3069,80 @@ Think in components
 
 **[⬆ back to top](#table-of-contents)**
 
+### 50. Building the Navigation - Part 2
+
 #### What the "checkbox hack" is and how it works?
 
 - label element is link to checkbox with id navi-toggle
 - click label element will check/uncheck checkbox with id navi-toggle
+- if checkbox is checked, scale background by 80 times
+- if checkbox is checked, show Navigation list
+
+```html
+<div class="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+  <label for="navi-toggle" class="navigation__button">MENU</label>
+  <div class="navigation__background">&nbsp;</div>
+  <nav class="navigation__nav">
+  </nav>
+</div>
+```
+
+```scss
+.navigation {
+  &__background {
+    height: 6rem;
+    width: 6rem;
+  }
+
+  &__nav {
+    z-index: 1500;
+    opacity: 0;
+    width: 0;
+  }
+
+  &__checkbox:checked ~ &__background{
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav{
+    opacity: 1;
+    width: 100%;
+  }
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
-
-### 50. Building the Navigation - Part 2
 
 #### How to create custom animation timing functions using cubic bezier curves?
+
+- [Easing functions ](https://easings.net)
+- [cubic-bezier](https://cubic-bezier.com)
+
+```scss
+.navigation {
+  &__background {
+    transition: transform .8s cubic-bezier(0.83, 0, 0.17, 1);
+  }
+
+  &__nav {
+    transition: all .8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  &__checkbox:checked ~ &__background{
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav{
+    opacity: 1;
+    width: 100%;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
+
+### 51. Building the Navigation - Part 3
 
 #### How to animate "solid-color gradients"?
 **[⬆ back to top](#table-of-contents)**
@@ -3088,9 +3151,6 @@ Think in components
 **[⬆ back to top](#table-of-contents)**
 
 #### In general: create an amazingly creative effect?
-**[⬆ back to top](#table-of-contents)**
-
-### 51. Building the Navigation - Part 3
 **[⬆ back to top](#table-of-contents)**
 
 ### 52. Building a Pure CSS Popup - Part 1
