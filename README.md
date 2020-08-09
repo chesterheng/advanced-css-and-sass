@@ -93,14 +93,17 @@
       - [How to create a background video covering an entire section?](#how-to-create-a-background-video-covering-an-entire-section)
       - [How and when to use the object-fit property?](#how-and-when-to-use-the-object-fit-property)
     - [45. Building the Booking Section - Part 1](#45-building-the-booking-section---part-1)
+      - [Thinking about components](#thinking-about-components-3)
       - [How to implement "solid-color gradients"?](#how-to-implement-solid-color-gradients)
     - [46. Building the Booking Section - Part 2](#46-building-the-booking-section---part-2)
+      - [Input component: Full name and Email address](#input-component-full-name-and-email-address)
       - [How the general and adjacent sibling selectors work and why we need them?](#how-the-general-and-adjacent-sibling-selectors-work-and-why-we-need-them)
       - [How to use the ::input-placeholder pseudo-element?](#how-to-use-the-input-placeholder-pseudo-element)
       - [How and when to use the :focus, :invalid, :placeholder-shown?](#how-and-when-to-use-the-focus-invalid-placeholder-shown)
     - [47. Building the Booking Section - Part 3](#47-building-the-booking-section---part-3)
+      - [Techniques to build custom radio buttons](#techniques-to-build-custom-radio-buttons)
+      - [Green button](#green-button-1)
       - [How and when to use the :checked pseudo-classes?](#how-and-when-to-use-the-checked-pseudo-classes)
-      - [Techniques to build custom radio buttons.](#techniques-to-build-custom-radio-buttons)
     - [48. Building the Footer](#48-building-the-footer)
     - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
     - [50. Building the Navigation - Part 2](#50-building-the-navigation---part-2)
@@ -2483,6 +2486,14 @@ The [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) CS
 
 ### 45. Building the Booking Section - Part 1
 
+#### Thinking about components
+
+- Form
+  - Secondary Heading
+  - Input: Full name and Email address
+  - Radio button
+  - Green button
+
 ![](section-05/book-part-1.jpg)
 
 ```html
@@ -2538,6 +2549,8 @@ The [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) CS
 }
 ```
 
+**[⬆ back to top](#table-of-contents)**
+
 #### How to implement "solid-color gradients"?
 
 The [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient) CSS function creates an image consisting of a progressive transition between two or more colors along a straight line. Its result is an object of the `<gradient>` data type, which is a special kind of `<image>`.
@@ -2561,6 +2574,8 @@ The [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-
 **[⬆ back to top](#table-of-contents)**
 
 ### 46. Building the Booking Section - Part 2
+
+#### Input component: Full name and Email address
 
 ![](section-05/book-part-2.jpg)
 
@@ -2704,10 +2719,131 @@ The [:placeholder-shown](https://developer.mozilla.org/en-US/docs/Web/CSS/:place
 
 ### 47. Building the Booking Section - Part 3
 
-#### How and when to use the :checked pseudo-classes?
+#### Techniques to build custom radio buttons
+
+![](section-05/book-part-3.jpg)
+
+```html
+<div class="form__group u-margin-bottom-medium">
+  <div class="form__radio-group">
+    <input type="radio" class="form__radio-input" id="small" name="size">
+    <label for="small" class="form__radio-label">
+      <span class="form__radio-button"></span>
+      Small tour group
+    </label>
+  </div>
+  <div class="form__radio-group">
+    <input type="radio" class="form__radio-input" id="large" name="size">
+    <label for="large" class="form__radio-label">
+      <span class="form__radio-button"></span>
+      Large tour group
+    </label>
+  </div>
+</div>
+```
+
+```scss
+.form {
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -.4rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+  }
+
+  // form__radio-input:checked
+  // form__radio-label is sibling of form__radio-input:checked
+  // form__radio-button::after is child of form__radio-label
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
-#### Techniques to build custom radio buttons.
+#### Green button
+
+```html
+<div class="form__group">
+  <button class="btn btn--green">Next step &rarr;</button>
+</div>
+```
+
+```scss
+.btn {
+  // add & for the <button> element
+  &,
+  &:link,
+  &:visited {
+    ...
+
+    // change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+
+  // add :focus for the <button> element
+  &:active,
+  &:focus {
+    outline: none;
+    ...
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How and when to use the :checked pseudo-classes?
+
+The [:checked](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) CSS pseudo-class selector represents any radio (`<input type="radio">`), checkbox (`<input type="checkbox">`), or option (`<option>` in a `<select>`) element that is checked or toggled to an on state.
+
+```scss
+.form {
+  // form__radio-input:checked
+  // form__radio-label is sibling of form__radio-input:checked
+  // form__radio-button::after is child of form__radio-label
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 48. Building the Footer
