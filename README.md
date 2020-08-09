@@ -97,9 +97,10 @@
     - [46. Building the Booking Section - Part 2](#46-building-the-booking-section---part-2)
       - [How the general and adjacent sibling selectors work and why we need them?](#how-the-general-and-adjacent-sibling-selectors-work-and-why-we-need-them)
       - [How to use the ::input-placeholder pseudo-element?](#how-to-use-the-input-placeholder-pseudo-element)
-      - [How and when to use the :focus, :invalid, placeholder-shown and :checked pseudo- classes?](#how-and-when-to-use-the-focus-invalid-placeholder-shown-and-checked-pseudo--classes)
-      - [Techniques to build custom radio buttons.](#techniques-to-build-custom-radio-buttons)
+      - [How and when to use the :focus, :invalid, :placeholder-shown?](#how-and-when-to-use-the-focus-invalid-placeholder-shown)
     - [47. Building the Booking Section - Part 3](#47-building-the-booking-section---part-3)
+      - [How and when to use the :checked pseudo-classes?](#how-and-when-to-use-the-checked-pseudo-classes)
+      - [Techniques to build custom radio buttons.](#techniques-to-build-custom-radio-buttons)
     - [48. Building the Footer](#48-building-the-footer)
     - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
     - [50. Building the Navigation - Part 2](#50-building-the-navigation---part-2)
@@ -2482,6 +2483,8 @@ The [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) CS
 
 ### 45. Building the Booking Section - Part 1
 
+![](section-05/book-part-1.jpg)
+
 ```html
 <section class="section-book">
   <div class="row">
@@ -2559,19 +2562,152 @@ The [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-
 
 ### 46. Building the Booking Section - Part 2
 
+![](section-05/book-part-2.jpg)
+
+```scss
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .2);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 #### How the general and adjacent sibling selectors work and why we need them?
+
+The [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) (~) separates two selectors and matches the second element only if it follows the first element (though not necessarily immediately), and both are children of the same parent element.
+
+The [adjacent sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator) (+) separates two selectors and matches the second element only if it immediately follows the first element, and both are children of the same parent element.
+
+```html
+<form action="" class="form">
+  <div class="form__group">
+    <input type="text" class="form__input" placeholder="Full Name" id="name" required>
+    <label for="name" class="form__label">Full name</label>
+  </div>
+</div>
+```
+
+```scss
+.form {
+  // form__input and form__label are adjacent siblings
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### How to use the ::input-placeholder pseudo-element?
+
+```scss
+.form {
+  &__input {
+    // customise placeholder text
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
-#### How and when to use the :focus, :invalid, placeholder-shown and :checked pseudo- classes?
-**[⬆ back to top](#table-of-contents)**
+#### How and when to use the :focus, :invalid, :placeholder-shown?
 
-#### Techniques to build custom radio buttons.
+The [:focus](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) CSS pseudo-class represents an element (such as a form input) that has received focus. It is generally triggered when the user clicks or taps on an element or selects it with the keyboard's "tab" key.
+
+The [:invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid) CSS pseudo-class represents any `<input>` or other `<form>` element whose contents fail to validate.
+
+The [:placeholder-shown](https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown) CSS pseudo-class represents any `<input>` or `<textarea>` element that is currently displaying placeholder text.
+
+```scss
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .2);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  // css property is applied when placeholder is shown
+  // css property is remove when placeholder is gone, user key in value
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 47. Building the Booking Section - Part 3
+
+#### How and when to use the :checked pseudo-classes?
+**[⬆ back to top](#table-of-contents)**
+
+#### Techniques to build custom radio buttons.
 **[⬆ back to top](#table-of-contents)**
 
 ### 48. Building the Footer
