@@ -107,7 +107,12 @@
     - [48. Building the Footer](#48-building-the-footer)
       - [How to design a simple website footer?](#how-to-design-a-simple-website-footer)
     - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
+      - [What the "checkbox hack" is and how it works?](#what-the-checkbox-hack-is-and-how-it-works)
     - [50. Building the Navigation - Part 2](#50-building-the-navigation---part-2)
+      - [How to create custom animation timing functions using cubic bezier curves?](#how-to-create-custom-animation-timing-functions-using-cubic-bezier-curves)
+      - [How to animate "solid-color gradients"?](#how-to-animate-solid-color-gradients)
+      - [How and why to use transform-origin?](#how-and-why-to-use-transform-origin)
+      - [In general: create an amazingly creative effect?](#in-general-create-an-amazingly-creative-effect)
     - [51. Building the Navigation - Part 3](#51-building-the-navigation---part-3)
     - [52. Building a Pure CSS Popup - Part 1](#52-building-a-pure-css-popup---part-1)
     - [53. Building a Pure CSS Popup - Part 2](#53-building-a-pure-css-popup---part-2)
@@ -2948,9 +2953,141 @@ The [:checked](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) CSS ps
 **[⬆ back to top](#table-of-contents)**
 
 ### 49. Building the Navigation - Part 1
+
+Think in components
+
+- Navigation button
+- Navigation list
+- Navigation background
+
+![](section-05/nav-part-1.jpg)
+
+| component             | css selector           | z-index |
+| --------------------- | ---------------------- | ------- |
+| Navigation button     | navigation__button     | 2000    |
+| Navigation list       | navigation__nav        | 1500    |
+| Navigation background | navigation__background | 1000    |
+
+```html
+<div class="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+  <label for="navi-toggle" class="navigation__button">MENU</label>
+  <div class="navigation__background">&nbsp;</div>
+  <nav class="navigation__nav">
+    <ul class="navigation__list">
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natous</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+    </ul>
+  </nav>
+</div>
+```
+
+```scss
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    z-index: 1000;
+
+    transform: scale(80);
+  }
+
+  &__nav {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  
+  &__item {
+    margin: 1rem;
+  }
+  
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+      background-size: 220%;
+      transition: all .4s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### What the "checkbox hack" is and how it works?
+
+- label element is link to checkbox with id navi-toggle
+- click label element will check/uncheck checkbox with id navi-toggle
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 50. Building the Navigation - Part 2
+
+#### How to create custom animation timing functions using cubic bezier curves?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to animate "solid-color gradients"?
+**[⬆ back to top](#table-of-contents)**
+
+#### How and why to use transform-origin?
+**[⬆ back to top](#table-of-contents)**
+
+#### In general: create an amazingly creative effect?
 **[⬆ back to top](#table-of-contents)**
 
 ### 51. Building the Navigation - Part 3
