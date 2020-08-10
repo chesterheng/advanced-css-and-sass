@@ -7,8 +7,19 @@
 }
 
 html {
-  // define 1rem
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem = 10px
+
+  @include respond(tab-land) {  // width < 1200px ?
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include respond(tab-port) {  // width < 900px ?
+    font-size: 50%; // 1rem = 8px
+  }
+
+  @include respond(big-desktop) { // width > 1800px ?
+    font-size: 75%; // 1rem = 12px
+  }
 }
 
 body {

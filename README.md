@@ -125,6 +125,8 @@
   - [**Section 6: Natours Project — Advanced Responsive Design (Part 3)**](#section-6-natours-project--advanced-responsive-design-part-3)
     - [55. Mobile-First vs Desktop-First and Breakpoints](#55-mobile-first-vs-desktop-first-and-breakpoints)
     - [56. Let's Use the Power of Sass Mixins to Write Media Queries](#56-lets-use-the-power-of-sass-mixins-to-write-media-queries)
+      - [How to use the @content and @if Sass directives?](#how-to-use-the-content-and-if-sass-directives)
+      - [Taking advantage of Chrome DevTools for responsive design.](#taking-advantage-of-chrome-devtools-for-responsive-design)
     - [57. Writing Media Queries - Base, Typography and Layout](#57-writing-media-queries---base-typography-and-layout)
     - [58. Writing Media Queries - Layout, About and Features Sections](#58-writing-media-queries---layout-about-and-features-sections)
     - [59. Writing Media Queries - Tours, Stories and Booking Sections](#59-writing-media-queries---tours-stories-and-booking-sections)
@@ -3546,6 +3548,14 @@ Thinking in components
 
 ## **Section 6: Natours Project — Advanced Responsive Design (Part 3)**
 
+Order to write media queries
+
+- base + typography
+- general layout + grid
+- components
+
+**[⬆ back to top](#table-of-contents)**
+
 ### 55. Mobile-First vs Desktop-First and Breakpoints
 
 ![](section-06/responsive-1.jpg)
@@ -3559,6 +3569,77 @@ Thinking in components
 **[⬆ back to top](#table-of-contents)**
 
 ### 56. Let's Use the Power of Sass Mixins to Write Media Queries
+
+#### How to use the @content and @if Sass directives?
+
+Media Query Manager
+
+| Device Group     | Resolution   | $breakpoint | max-width | min-width |
+| ---------------- | ------------ | ----------- | --------- | --------- |
+| Phone            | 0 - 600px    | phone       | 37.5em    |           |
+| Tablet portrait  | 600 - 900px  | tab-port    | 56.25em   |           |
+| Tablet landscape | 900 - 1200px | tab-land    | 75em      |           |
+| Desktop          | 1200 - 1800  |             |           |           |
+| Big desktop      | 1800 - ~     | big-desktop |           | 112.5em   |
+
+Note: 1em = 16px
+
+```scss
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content };
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content };
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content };
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content };
+  }
+}
+```
+
+| Device Group     | Resolution (px) | $breakpoint | width     | font-size (%) | font-size    |
+| ---------------- | --------------- | ----------- | --------- | ------------- | ------------ |
+| Desktop          | 1200 - 1800     |             |           | 62.5          | 1rem = 10px  |
+| Tablet landscape | 900 - 1200      | tab-land    | <= 1200px | 56.25         | 1rem = 9px   |
+| Tablet portrait  | 600 - 900       | tab-port    | <= 900px  | 50            | 1rem = 8px   |
+| Phone            | 0 - 600         | phone       | <= 600px  | 30            | 1rem = 4.8px |
+| Big desktop      | 1800 - ~        | big-desktop | >= 1800px | 75            | 1rem = 12px  |
+
+```scss
+html {
+  font-size: 62.5%; 
+
+  @include respond(tab-land) {  
+    font-size: 56.25%; 
+  }
+
+  @include respond(tab-port) {  
+    font-size: 50%; 
+  }
+
+  @include respond(phone) {  
+    font-size: 30%; 
+  }
+
+  @include respond(big-desktop) { 
+    font-size: 75%; 
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Taking advantage of Chrome DevTools for responsive design.
+
+![](section-06/show-media-query.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 57. Writing Media Queries - Base, Typography and Layout
