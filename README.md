@@ -123,6 +123,18 @@
     - [53. Building a Pure CSS Popup - Part 2](#53-building-a-pure-css-popup---part-2)
       - [How to use the :target pseudo-class?](#how-to-use-the-target-pseudo-class)
   - [**Section 6: Natours Project — Advanced Responsive Design (Part 3)**](#section-6-natours-project--advanced-responsive-design-part-3)
+    - [55. Mobile-First vs Desktop-First and Breakpoints](#55-mobile-first-vs-desktop-first-and-breakpoints)
+    - [56. Let's Use the Power of Sass Mixins to Write Media Queries](#56-lets-use-the-power-of-sass-mixins-to-write-media-queries)
+    - [57. Writing Media Queries - Base, Typography and Layout](#57-writing-media-queries---base-typography-and-layout)
+    - [58. Writing Media Queries - Layout, About and Features Sections](#58-writing-media-queries---layout-about-and-features-sections)
+    - [59. Writing Media Queries - Tours, Stories and Booking Sections](#59-writing-media-queries---tours-stories-and-booking-sections)
+    - [60. An Overview of Responsive Images](#60-an-overview-of-responsive-images)
+    - [61. Responsive Images in HTML - Art Direction and Density Switching](#61-responsive-images-in-html---art-direction-and-density-switching)
+    - [62. Responsive Images in HTML - Density and Resolution Switching](#62-responsive-images-in-html---density-and-resolution-switching)
+    - [63. Responsive Images in CSS](#63-responsive-images-in-css)
+    - [64. Testing for Browser Support with @supports](#64-testing-for-browser-support-with-supports)
+    - [65. Setting up a Simple Build Process with NPM Scripts](#65-setting-up-a-simple-build-process-with-npm-scripts)
+    - [66. Wrapping up the Natours Project: Final Considerations](#66-wrapping-up-the-natours-project-final-considerations)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
   - [**Section 9: Nexter Project — Master CSS Grid Layouts!**](#section-9-nexter-project--master-css-grid-layouts)
@@ -3533,6 +3545,50 @@ Thinking in components
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 6: Natours Project — Advanced Responsive Design (Part 3)**
+
+### 55. Mobile-First vs Desktop-First and Breakpoints
+
+![](section-06/responsive-1.jpg)
+![](section-06/responsive-2.jpg)
+![](section-06/responsive-3.jpg)
+![](section-06/responsive-4.jpg)
+![](section-06/responsive-5.jpg)
+
+[Screen Resolution Stats Worldwide](https://gs.statcounter.com/screen-resolution-stats#monthly-201907-202007-bar)
+
+**[⬆ back to top](#table-of-contents)**
+
+### 56. Let's Use the Power of Sass Mixins to Write Media Queries
+**[⬆ back to top](#table-of-contents)**
+
+### 57. Writing Media Queries - Base, Typography and Layout
+**[⬆ back to top](#table-of-contents)**
+
+### 58. Writing Media Queries - Layout, About and Features Sections
+**[⬆ back to top](#table-of-contents)**
+
+### 59. Writing Media Queries - Tours, Stories and Booking Sections
+**[⬆ back to top](#table-of-contents)**
+
+### 60. An Overview of Responsive Images
+**[⬆ back to top](#table-of-contents)**
+
+### 61. Responsive Images in HTML - Art Direction and Density Switching
+**[⬆ back to top](#table-of-contents)**
+
+### 62. Responsive Images in HTML - Density and Resolution Switching
+**[⬆ back to top](#table-of-contents)**
+
+### 63. Responsive Images in CSS
+**[⬆ back to top](#table-of-contents)**
+
+### 64. Testing for Browser Support with @supports
+**[⬆ back to top](#table-of-contents)**
+
+### 65. Setting up a Simple Build Process with NPM Scripts
+**[⬆ back to top](#table-of-contents)**
+
+### 66. Wrapping up the Natours Project: Final Considerations
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 7: Trillo Project — Master Flexbox!**
