@@ -132,6 +132,9 @@
       - [Typography](#typography)
       - [Layout](#layout)
     - [58. Writing Media Queries - About and Features Sections](#58-writing-media-queries---about-and-features-sections)
+      - [Home page](#home-page)
+      - [About Section](#about-section)
+      - [Features Section](#features-section)
     - [59. Writing Media Queries - Tours, Stories and Booking Sections](#59-writing-media-queries---tours-stories-and-booking-sections)
     - [60. An Overview of Responsive Images](#60-an-overview-of-responsive-images)
     - [61. Responsive Images in HTML - Art Direction and Density Switching](#61-responsive-images-in-html---art-direction-and-density-switching)
@@ -3657,6 +3660,22 @@ body {
     padding: 0;
   }
 }
+
+.u-margin-bottom-medium { 
+  margin-bottom: 4rem !important; 
+
+  @include respond(tab-port) {  // width < 900px ?
+    margin-bottom: 3rem !important; 
+  }
+}
+
+.u-margin-bottom-big { 
+  margin-bottom: 8rem !important; 
+
+  @include respond(tab-port) {  // width < 900px ?
+    margin-bottom: 5rem !important; 
+  }
+}
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -3818,6 +3837,126 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 58. Writing Media Queries - About and Features Sections
+
+#### Home page
+
+```scss
+.section-about {
+  padding: 25rem 0;
+
+  @include respond(tab-port) {  // width < 900px ?
+    padding: 20rem 0;
+  }
+}
+
+.section-features {
+  padding: 20rem 0;
+
+  @include respond(tab-port) {  // width < 900px ?
+    padding: 10rem 0;
+  }
+}
+
+.section-tours {
+  padding: 25rem 0 15rem 0;
+
+  @include respond(tab-port) {  // width < 900px ?
+    padding: 20rem 0 10rem 0;
+  }
+}
+
+.section-stories {
+  padding: 15rem 0;
+
+  @include respond(tab-port) {  // width < 900px ?
+    padding: 10rem 0;
+  }
+}
+
+.section-book {
+  padding: 15rem 0;
+
+  @include respond(tab-port) {  // width < 900px ?
+    padding: 10rem 0;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### About Section 
+
+```scss
+.composition {
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    position: absolute;
+
+    @include respond(tab-port) {  // width < 900px ?
+      float: left;
+      position: relative;
+      width: 33.333333%;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+    }
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+
+      @include respond(tab-port) {  // width < 900px ?
+        top: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+
+      @include respond(tab-port) {  // width < 900px ?
+        top: -1rem;
+        transform: scale(1.3);
+        z-index: 100;
+      }
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+
+      @include respond(tab-port) {  // width < 900px ?
+        top: 1rem;
+        left: 0;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Features Section
+
+```scss
+.feature-box {
+  padding: 2.5rem;
+
+  @include respond(tab-port) {  // width < 900px ?
+    padding: 2rem;
+  }
+
+  &__icon {
+    margin-bottom: .5rem;
+
+    @include respond(tab-port) {  // width < 900px ?
+      margin-bottom: 0;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 59. Writing Media Queries - Tours, Stories and Booking Sections
