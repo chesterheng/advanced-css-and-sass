@@ -116,7 +116,12 @@
       - [How and why to use transform-origin?](#how-and-why-to-use-transform-origin)
       - [In general: create an amazingly creative effect?](#in-general-create-an-amazingly-creative-effect)
     - [52. Building a Pure CSS Popup - Part 1](#52-building-a-pure-css-popup---part-1)
+      - [How to build a nice popup with only CSS?](#how-to-build-a-nice-popup-with-only-css)
+      - [How to create boxes with equal height using display: table-cell?](#how-to-create-boxes-with-equal-height-using-display-table-cell)
+      - [How to create CSS text columns?](#how-to-create-css-text-columns)
+      - [How to automatically hyphenate words using hyphens?](#how-to-automatically-hyphenate-words-using-hyphens)
     - [53. Building a Pure CSS Popup - Part 2](#53-building-a-pure-css-popup---part-2)
+      - [How to use the :target pseudo-class;](#how-to-use-the-target-pseudo-class)
   - [**Section 6: Natours Project — Advanced Responsive Design (Part 3)**](#section-6-natours-project--advanced-responsive-design-part-3)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
@@ -3294,9 +3299,143 @@ The [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transfor
 **[⬆ back to top](#table-of-contents)**
 
 ### 52. Building a Pure CSS Popup - Part 1
+
+Thinking in components
+- Popup container
+- Popup content
+  - Left content: 2 tour photos
+  - Right content: secondary and tertiary heading, text, green button
+
+![](section-05/popup.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to build a nice popup with only CSS?
+
+```html
+<div class="popup">
+  <div class="popup__content">
+    <div class="popup__left">
+      <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+      <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+    </div>
+    <div class="popup__right">
+      <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+      <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+      <p class="popup__text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita repellendus quos magni voluptas autem corporis perferendis explicabo cum quidem beatae vero itaque, voluptatibus temporibus rerum labore ut soluta praesentium sit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita explicabo officiis ea minima molestiae dolorem fugit excepturi iste, ratione vitae vel accusamus corporis, ipsum qui iure, odio maxime quasi doloremque.
+      </p>
+      <a href="#" class="btn btn--green">Book now</a>
+    </div>
+  </div>
+</div>
+```
+
+```scss
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, .8);
+  z-index: 9999;
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden;
+  }
+
+  &__left {
+    width: 33.333333%;
+    display: table-cell;
+  }
+
+  &__right {
+    width: 66.666667%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    column-count: 2;
+    column-gap: 4rem; // 1em = 14px
+    column-rule: 1px solid $color-grey-light-2;
+
+    hyphens: auto;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+#### How to create boxes with equal height using display: table-cell?
+
+```scss
+.popup {
+  &__content {
+    display: table;
+  }
+
+  &__left {
+    width: 33.333333%;
+    display: table-cell;
+  }
+
+  &__right {
+    width: 66.666667%;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to create CSS text columns?
+
+```scss
+.popup {
+  &__text {
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light-2;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to automatically hyphenate words using hyphens?
+
+```scss
+.popup {
+  &__text {
+    hyphens: auto;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 53. Building a Pure CSS Popup - Part 2
+
+#### How to use the :target pseudo-class; 
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 6: Natours Project — Advanced Responsive Design (Part 3)**
