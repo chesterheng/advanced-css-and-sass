@@ -146,6 +146,9 @@
     - [62. Responsive Images in HTML - Resolution Switching](#62-responsive-images-in-html---resolution-switching)
     - [63. Responsive Images in CSS](#63-responsive-images-in-css)
     - [64. Testing for Browser Support with @supports](#64-testing-for-browser-support-with-supports)
+      - [How to use backdrop-filter? Only work in safari](#how-to-use-backdrop-filter-only-work-in-safari)
+      - [Safari 9 - 13 still require a prefix for the related backface-visibility property](#safari-9---13-still-require-a-prefix-for-the-related-backface-visibility-property)
+      - [Media Queries - Safari don't support standard min/max-resolution](#media-queries---safari-dont-support-standard-minmax-resolution)
     - [65. Setting up a Simple Build Process with NPM Scripts](#65-setting-up-a-simple-build-process-with-npm-scripts)
     - [66. Wrapping up the Natours Project: Final Considerations](#66-wrapping-up-the-natours-project-final-considerations)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
@@ -4295,6 +4298,62 @@ How to combine multiple conditions in media queries?
 **[⬆ back to top](#table-of-contents)**
 
 ### 64. Testing for Browser Support with @supports
+
+![](section-06/support.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use backdrop-filter? Only work in safari
+
+The [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) CSS property lets you apply graphical effects such as blurring or color shifting to the area behind an element. Because it applies to everything behind the element, to see the effect you must make the element or its background at least partially transparent.
+
+- use @supports feature queries to check for supported -webkit-backdrop-filter and backdrop-filter properties
+- Implement graceful degradation on selected
+
+```scss
+.popup {
+  background-color: rgba($color-black, .8);
+
+  @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    // only work in safari
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Safari 9 - 13 still require a prefix for the related backface-visibility property
+
+![](section-06/can-i-use.jpg)
+
+```scss
+.card {
+  &__side {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Media Queries - Safari don't support standard min/max-resolution
+
+[Media Queries: resolution feature](https://caniuse.com/#feat=css-media-resolution)
+
+```scss
+  @media  (min-resolution: 192dpi) and (min-width: 37.5em), 
+          (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+          (min-width: 125em) {
+    background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../img/hero.jpg);
+  }
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 65. Setting up a Simple Build Process with NPM Scripts
