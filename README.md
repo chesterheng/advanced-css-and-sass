@@ -4138,6 +4138,10 @@ body {
 
 Responsive design + Web performance
 
+- Art Direction for when you want to switch pictures at various points, using completely different ones
+- Resolution and density switching can be used together for both performance improvements and responsiveness.
+- [Responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+
 ![](section-06/responsive-image-1.jpg)
 ![](section-06/responsive-image-2.jpg)
 
@@ -4157,23 +4161,110 @@ Test density switching with chrome dev tool
 
 ![](section-06/density-switching.jpg)
 
+```console
+console.dir($0)
+$0.currentSrc
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### Art Direction
 
 - Use the `<picture>` element for art direction
 - Write media queries in HTML
+- Add src attribute in case old browser don't understand srcset
 
 ```html
 <picture class="footer__logo">
   <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
-  <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
+  <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo" src="img/logo-green-2x.png">
 </picture>
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ### 62. Responsive Images in HTML - Resolution Switching
+
+Allow the browser to decide the best image to download, using the srcset attribute, width descriptors, and the sizes attribute of the `<img>` element.
+
+```html
+<div class="composition">
+  <img 
+    srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" 
+    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw 300px"
+    alt="Photo 1" 
+    class="composition__photo composition__photo--p1"
+    src="img/nat-1-large.jpg"
+  >
+</div>
+```
+
+```scss
+.composition {
+  &__photo {
+    width: 55%;
+
+    @include respond(tab-port) {  // width < 900px ?
+      width: 33.333333%;
+    }
+
+    &--p1 {
+      @include respond(tab-port) {  // width < 900px ?
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+```
+
+[Device pixel ratio](https://docs.fastly.com/en/image-optimization-api/dpr)
+
+DPR = 1
+
+| Device Group     | Resolution    | vw range  | size = breakpoint * vw |
+| ---------------- | ------------- | --------- | ---------------------- |
+| Phone            | 0 - 600px     | <= 600px  | 600px * 0.3 = 180px    |
+| Tablet portrait  | 600 - 900px   | <= 900px  | 900px * 0.2 = 180px    |
+| Tablet landscape | 900 - 1200px  | <= 1200px | 300px                  |
+| Desktop          | 1200 - 1800px | <= 1800px | 300px                  |
+| Big desktop      | 1800 - ~      | >= 1800px | 300px                  |
+
+| Image           | width  |
+| --------------- | ------ |
+| nat-1.jpg       | 300px  |
+| nat-1-large.jpg | 1000px |
+
+| Device Group     | selected vw | composition | &__photo   | &--p1      | actual img width | selected by browser |
+| ---------------- | ----------- | ----------- | ---------- | ---------- | ---------------- | ------------------- |
+| Phone            | 600px       | 352px       | 33.333333% | scale(1.2) | 140.79           | nat-1.jpg           |
+| Tablet portrait  | 900px       | 352px       | 33.333333% | scale(1.2) | 140.79           | nat-1.jpg           |
+| Tablet landscape | 1200px      | 486px       | 55%        |            | 267px            | nat-1-large.jpg     |
+| Desktop          | 1800px      | 648px       | 55%        |            | 356.39px         | nat-1-large.jpg     |
+| Big desktop      | 1800px      | 648px       | 55%        |            | 356.39px         | nat-1-large.jpg     |
+
+DPR = 2
+
+| Device Group     | Resolution    | vw range  | size = breakpoint * vw |
+| ---------------- | ------------- | --------- | ---------------------- |
+| Phone            | 0 - 600px     | <= 600px  | 600px * 0.3 = 180px    |
+| Tablet portrait  | 600 - 900px   | <= 900px  | 900px * 0.2 = 180px    |
+| Tablet landscape | 900 - 1200px  | <= 1200px | 300px                  |
+| Desktop          | 1200 - 1800px | <= 1800px | 300px                  |
+| Big desktop      | 1800 - ~      | >= 1800px | 300px                  |
+
+| Image           | width  |
+| --------------- | ------ |
+| nat-1.jpg       | 300px  |
+| nat-1-large.jpg | 1000px |
+
+| Device Group     | selected vw | composition | &__photo   | &--p1      | actual img width | due to DPR | selected by browser |
+| ---------------- | ----------- | ----------- | ---------- | ---------- | ---------------- | ---------- | ------------------- |
+| Phone            | 600px       | 352px       | 33.333333% | scale(1.2) | 140.79           | 281.58px   | nat-1.jpg           |
+| Tablet portrait  | 900px       | 352px       | 33.333333% | scale(1.2) | 140.79           | 281.58px   | nat-1.jpg           |
+| Tablet landscape | 1200px      | 486px       | 55%        |            | 267px            | 534px      | nat-1-large.jpg     |
+| Desktop          | 1800px      | 648px       | 55%        |            | 356.39px         | 712.78px   | nat-1-large.jpg     |
+| Big desktop      | 1800px      | 648px       | 55%        |            | 356.39px         | 712.78px   | nat-1-large.jpg     |
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 63. Responsive Images in CSS
