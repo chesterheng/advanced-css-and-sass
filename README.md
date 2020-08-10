@@ -109,9 +109,10 @@
     - [49. Building the Navigation - Part 1](#49-building-the-navigation---part-1)
     - [50. Building the Navigation - Part 2](#50-building-the-navigation---part-2)
       - [What the "checkbox hack" is and how it works?](#what-the-checkbox-hack-is-and-how-it-works)
+      - [How to animate "solid-color gradients"?](#how-to-animate-solid-color-gradients)
       - [How to create custom animation timing functions using cubic bezier curves?](#how-to-create-custom-animation-timing-functions-using-cubic-bezier-curves)
     - [51. Building the Navigation - Part 3](#51-building-the-navigation---part-3)
-      - [How to animate "solid-color gradients"?](#how-to-animate-solid-color-gradients)
+      - [Navigation button animation](#navigation-button-animation)
       - [How and why to use transform-origin?](#how-and-why-to-use-transform-origin)
       - [In general: create an amazingly creative effect?](#in-general-create-an-amazingly-creative-effect)
     - [52. Building a Pure CSS Popup - Part 1](#52-building-a-pure-css-popup---part-1)
@@ -3114,6 +3115,51 @@ Think in components
 
 **[⬆ back to top](#table-of-contents)**
 
+#### How to animate "solid-color gradients"?
+
+```html
+<div class="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+  <label for="navi-toggle" class="navigation__button"></label>
+  <div class="navigation__background">&nbsp;</div>
+<div>
+```
+
+```scss
+.navigation {
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__background {
+    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    z-index: 1000;
+    transition: transform .8s cubic-bezier(0.83, 0, 0.17, 1);
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 #### How to create custom animation timing functions using cubic bezier curves?
 
 - [Easing functions ](https://easings.net)
@@ -3144,13 +3190,107 @@ Think in components
 
 ### 51. Building the Navigation - Part 3
 
-#### How to animate "solid-color gradients"?
+![](section-05/navigation-close.jpg)
+![](section-05/navigation-open.jpg)
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Navigation button animation
+
+```html
+<label for="navi-toggle" class="navigation__button">
+  <span class="navigation__icon">&nbsp;</span>
+</label>
+```
+
+```scss
+.navigation {
+  
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3.5rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .2s;
+    }
+
+    &::before { top: -.8rem; }
+    &::after { top: .8rem; }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### How and why to use transform-origin?
+
+The [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin) CSS property sets the origin for an element's transformations.
+
 **[⬆ back to top](#table-of-contents)**
 
 #### In general: create an amazingly creative effect?
+
+[Using CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+
+```html
+<div class="box">Sample</div>
+```
+
+```css
+.box {
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: #0000FF;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.box:hover {
+    background-color: #FFCCCC;
+    width: 200px;
+    height: 200px;
+    transform: rotate(180deg);
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 52. Building a Pure CSS Popup - Part 1
