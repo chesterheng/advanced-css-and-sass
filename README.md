@@ -140,8 +140,10 @@
       - [Stories section](#stories-section)
       - [Booking section](#booking-section)
     - [60. An Overview of Responsive Images](#60-an-overview-of-responsive-images)
-    - [61. Responsive Images in HTML - Art Direction and Density Switching](#61-responsive-images-in-html---art-direction-and-density-switching)
-    - [62. Responsive Images in HTML - Density and Resolution Switching](#62-responsive-images-in-html---density-and-resolution-switching)
+    - [61. Responsive Images in HTML - Density Switching and Art Direction](#61-responsive-images-in-html---density-switching-and-art-direction)
+      - [Density Switching](#density-switching)
+      - [Art Direction](#art-direction)
+    - [62. Responsive Images in HTML - Resolution Switching](#62-responsive-images-in-html---resolution-switching)
     - [63. Responsive Images in CSS](#63-responsive-images-in-css)
     - [64. Testing for Browser Support with @supports](#64-testing-for-browser-support-with-supports)
     - [65. Setting up a Simple Build Process with NPM Scripts](#65-setting-up-a-simple-build-process-with-npm-scripts)
@@ -4141,10 +4143,37 @@ Responsive design + Web performance
 
 **[⬆ back to top](#table-of-contents)**
 
-### 61. Responsive Images in HTML - Art Direction and Density Switching
+### 61. Responsive Images in HTML - Density Switching and Art Direction 
+
+#### Density Switching
+
+Use the srcset attribute on the `<img>` and `<source>` elements, together with density descriptors
+
+```html
+<img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
+```
+
+Test density switching with chrome dev tool
+
+![](section-06/density-switching.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
-### 62. Responsive Images in HTML - Density and Resolution Switching
+#### Art Direction
+
+- Use the `<picture>` element for art direction
+- Write media queries in HTML
+
+```html
+<picture class="footer__logo">
+  <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+  <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
+</picture>
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+### 62. Responsive Images in HTML - Resolution Switching
 **[⬆ back to top](#table-of-contents)**
 
 ### 63. Responsive Images in CSS
