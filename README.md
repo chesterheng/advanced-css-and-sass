@@ -121,7 +121,7 @@
       - [How to create CSS text columns?](#how-to-create-css-text-columns)
       - [How to automatically hyphenate words using hyphens?](#how-to-automatically-hyphenate-words-using-hyphens)
     - [53. Building a Pure CSS Popup - Part 2](#53-building-a-pure-css-popup---part-2)
-      - [How to use the :target pseudo-class;](#how-to-use-the-target-pseudo-class)
+      - [How to use the :target pseudo-class?](#how-to-use-the-target-pseudo-class)
   - [**Section 6: Natours Project — Advanced Responsive Design (Part 3)**](#section-6-natours-project--advanced-responsive-design-part-3)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
@@ -3435,7 +3435,101 @@ Thinking in components
 
 ### 53. Building a Pure CSS Popup - Part 2
 
-#### How to use the :target pseudo-class; 
+- Click "Discover our tours" button -> Section tours
+- Click "Book now" button -> open popup
+- Click "x" button -> close popup
+
+```html
+<section class="section-tours" id="section-tours">
+  <a href="#popup" class="btn btn--white">Book now</a>
+</section>
+
+<div class="popup" id="popup">
+  <div class="popup__content">
+    <div class="popup__left"></div>
+    <div class="popup__right">
+      <a href="#section-tours" class="popup__close">&times;</a>
+    </div>
+  </div>
+</div>
+```
+
+```scss
+.popup {
+  &__content {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .5s .2s;
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use the :target pseudo-class?
+
+- Click "Book now" button in tours section
+- `:target` pseudo-class with `id="popup"` -> open popup
+- Click "x" button in popup
+- `:target` pseudo-class with `id="section-tours"` -> open section-tours -> close popup
+
+```html
+<section class="section-tours" id="section-tours">
+  <a href="#popup" class="btn btn--white">Book now</a>
+</section>
+
+<div class="popup" id="popup">
+  <div class="popup__content">
+    <div class="popup__left"></div>
+    <div class="popup__right">
+      <a href="#section-tours" class="popup__close">&times;</a>
+    </div>
+  </div>
+</div>
+```
+
+```scss
+.popup {
+  &__content {
+    opacity: 0;
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 6: Natours Project — Advanced Responsive Design (Part 3)**
