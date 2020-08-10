@@ -4,7 +4,7 @@
   margin: 0 auto;
 
   @include respond(tab-port) {  // width < 900px ?
-    max-width: 50%;
+    max-width: 50rem;
     padding: 0 3rem;
   }
 

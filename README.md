@@ -136,6 +136,9 @@
       - [About Section](#about-section)
       - [Features Section](#features-section)
     - [59. Writing Media Queries - Tours, Stories and Booking Sections](#59-writing-media-queries---tours-stories-and-booking-sections)
+      - [Tours section](#tours-section)
+      - [Stories section](#stories-section)
+      - [Booking section](#booking-section)
     - [60. An Overview of Responsive Images](#60-an-overview-of-responsive-images)
     - [61. Responsive Images in HTML - Art Direction and Density Switching](#61-responsive-images-in-html---art-direction-and-density-switching)
     - [62. Responsive Images in HTML - Density and Resolution Switching](#62-responsive-images-in-html---density-and-resolution-switching)
@@ -3560,6 +3563,8 @@ Order to write media queries
 - general layout + grid
 - components
 
+[sizzy](https://sizzy.co)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 55. Mobile-First vs Desktop-First and Breakpoints
@@ -3766,7 +3771,7 @@ body {
   max-width: $grid-width;
 
   @include respond(tab-port) {  // width < 900px ?
-    max-width: 50%;
+    max-width: 50rem;
     padding: 0 3rem;
   }
 
@@ -3960,6 +3965,171 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 59. Writing Media Queries - Tours, Stories and Booking Sections
+
+#### Tours section
+
+```scss
+.card {
+
+  @include respond(tab-port) {  // width < 900px ?
+    // FUNCTIONALITY
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    // STYLING
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Stories section
+
+```scss
+.story {
+  width: 75%;
+  padding: 6rem;
+  padding-left: 9rem;
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {  // width < 900px ?
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {  // width < 600px ?
+    transform: skewX(0);
+  }
+
+  &__shape {
+    transform: translateX(-3rem) skewX(12deg);
+
+    @include respond(phone) {  // width < 600px ?
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+
+  &__text {
+    transform: skewX(12deg);
+    
+    @include respond(phone) {  // width < 600px ?
+      transform: skewX(0);
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Booking section
+
+```scss
+.book {
+  background-image: 
+    linear-gradient(
+      105deg, 
+      rgba($color-white, 0.9) 0%, 
+      rgba($color-white, 0.9) 50%, 
+      transparent 50%
+    ), 
+    url(../img/nat-10.jpg);
+  background-size: 100%;
+
+  @include respond(tab-land) {  // width < 1200px ?
+    background-image: 
+      linear-gradient(
+        105deg, 
+        rgba($color-white, 0.9) 0%, 
+        rgba($color-white, 0.9) 65%, 
+        transparent 65%
+      ), 
+      url(../img/nat-10.jpg);
+    background-size: cover;
+  }
+
+  @include respond(tab-port) {  // width < 900px ?
+    background-image: 
+      linear-gradient(
+        to right, 
+        rgba($color-white, 0.9) 0%, 
+        rgba($color-white, 0.9) 100%
+      ), 
+      url(../img/nat-10.jpg);
+  }
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+
+    @include respond(tab-land) {  // width < 1200px ?
+      width: 65%;
+    }
+
+    @include respond(tab-port) {  // width < 900px ?
+      width: 100%;
+    }
+  }
+}
+
+.form {
+
+  &__input {
+    width: 90%;
+
+    @include respond(tab-port) {  // width < 900px ?
+      width: 100%;
+    }
+  }
+
+  &__radio-group {
+    width: 49%;
+
+    @include respond(tab-port) {  // width < 900px ?
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 60. An Overview of Responsive Images
