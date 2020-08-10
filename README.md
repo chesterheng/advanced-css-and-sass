@@ -128,7 +128,10 @@
       - [How to use the @content and @if Sass directives?](#how-to-use-the-content-and-if-sass-directives)
       - [Taking advantage of Chrome DevTools for responsive design.](#taking-advantage-of-chrome-devtools-for-responsive-design)
     - [57. Writing Media Queries - Base, Typography and Layout](#57-writing-media-queries---base-typography-and-layout)
-    - [58. Writing Media Queries - Layout, About and Features Sections](#58-writing-media-queries---layout-about-and-features-sections)
+      - [Base](#base)
+      - [Typography](#typography)
+      - [Layout](#layout)
+    - [58. Writing Media Queries - About and Features Sections](#58-writing-media-queries---about-and-features-sections)
     - [59. Writing Media Queries - Tours, Stories and Booking Sections](#59-writing-media-queries---tours-stories-and-booking-sections)
     - [60. An Overview of Responsive Images](#60-an-overview-of-responsive-images)
     - [61. Responsive Images in HTML - Art Direction and Density Switching](#61-responsive-images-in-html---art-direction-and-density-switching)
@@ -3643,9 +3646,178 @@ html {
 **[⬆ back to top](#table-of-contents)**
 
 ### 57. Writing Media Queries - Base, Typography and Layout
+
+#### Base
+
+```scss
+body {
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
-### 58. Writing Media Queries - Layout, About and Features Sections
+#### Typography
+
+```scss
+.heading-primary {
+  &--main {
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+
+    @include respond(phone) {  // width < 600px ?
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+  }
+
+  &--sub {
+    letter-spacing: 1.75rem;
+
+    @include respond(phone) {  // width < 600px ?
+      letter-spacing: .5rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+
+  @include respond(tab-port) {  // width < 900px ?
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {  // width < 600px ?
+    font-size: 2.5rem;
+  }
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Layout
+
+```scss
+.navigation {
+  &__button {
+    top: 6rem;
+    right: 6rem;
+
+    @include respond(tab-port) {  // width < 900px ?
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {  // width < 600px ?
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+
+  &__background {
+    top: 6.5rem;
+    right: 6.5rem;
+
+    @include respond(tab-port) {  // width < 900px ?
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone) {  // width < 600px ?
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+  }
+}
+
+.header {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  @include respond(phone) {  // width < 600px ?
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+}
+
+.row {
+  max-width: $grid-width;
+
+  @include respond(tab-port) {  // width < 900px ?
+    max-width: 50%;
+    padding: 0 3rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {  // width < 900px ?
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {  // width < 900px ?
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {  // width < 900px ?
+      width: 100% !important;
+    }
+  }
+}
+
+.footer {
+  padding: 10rem 0;
+
+  @include respond(tab-port) {  // width < 900px ?
+    padding: 8rem 0;
+  }
+  
+  &__logo-box {
+    margin-bottom: 8rem;
+
+    @include respond(tab-port) {  // width < 900px ?
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+    display: inline-block;
+
+    @include respond(tab-port) {  // width < 900px ?
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  &__copyright {
+    width: 80%;
+    float: right;
+
+    @include respond(tab-port) {  // width < 900px ?
+      width: 100%;
+      float: none;
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+### 58. Writing Media Queries - About and Features Sections
 **[⬆ back to top](#table-of-contents)**
 
 ### 59. Writing Media Queries - Tours, Stories and Booking Sections
