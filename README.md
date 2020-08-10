@@ -4191,7 +4191,7 @@ Allow the browser to decide the best image to download, using the srcset attribu
 <div class="composition">
   <img 
     srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" 
-    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw 300px"
+    sizes="(max-width: 65.25em) 20vw, (max-width: 37.5em) 30vw 300px"
     alt="Photo 1" 
     class="composition__photo composition__photo--p1"
     src="img/nat-1-large.jpg"
@@ -4217,7 +4217,9 @@ Allow the browser to decide the best image to download, using the srcset attribu
 }
 ```
 
-[Device pixel ratio](https://docs.fastly.com/en/image-optimization-api/dpr)
+- [Device pixel ratio](https://docs.fastly.com/en/image-optimization-api/dpr)
+- 900px = 56.25em
+- 600px = 37.5em
 
 DPR = 1
 
@@ -4268,6 +4270,28 @@ DPR = 2
 **[⬆ back to top](#table-of-contents)**
 
 ### 63. Responsive Images in CSS
+
+- [dpi](http://uofgts.com/PS/dpi.html) 
+- 1x resolution -> 96 dpi
+- 2x resolution -> 192 dpi
+- condition 1 -> min-resolution: 192dpi and min-width: 37.5em (600px)
+- condition 1 -> min-width: 125em (2000px)
+
+How to implement responsive images in CSS?
+How to use resolution media queries to target high-resolution screens with 2x?
+How to combine multiple conditions in media queries?
+
+```scss
+.header {
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero-small.jpg);
+
+  @media  (min-resolution: 192dpi) and (min-width: 37.5em), 
+          (min-width: 125em) {
+    background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../img/hero.jpg);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 64. Testing for Browser Support with @supports
