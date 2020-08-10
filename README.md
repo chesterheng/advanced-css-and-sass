@@ -4133,6 +4133,12 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 60. An Overview of Responsive Images
+
+Responsive design + Web performance
+
+![](section-06/responsive-image-1.jpg)
+![](section-06/responsive-image-2.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 61. Responsive Images in HTML - Art Direction and Density Switching
