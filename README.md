@@ -162,6 +162,7 @@
     - [71. A Basic Intro to Flexbox: Adding More Flex Items](#71-a-basic-intro-to-flexbox-adding-more-flex-items)
     - [72. Project Overview](#72-project-overview)
     - [73. Defining Project Settings and Custom Properties](#73-defining-project-settings-and-custom-properties)
+      - [How and why to use CSS custom properties?](#how-and-why-to-use-css-custom-properties)
     - [74. Building the Overall Layout](#74-building-the-overall-layout)
     - [75. Building the Header - Part 1](#75-building-the-header---part-1)
     - [76. Building the Header - Part 2](#76-building-the-header---part-2)
@@ -4599,7 +4600,23 @@ Flexbox
 **[⬆ back to top](#table-of-contents)**
 
 ### 73. Defining Project Settings and Custom Properties
+
+#### How and why to use CSS custom properties?
+
+```scss
+// similar to html selector for css
+:root {
+  --color-primary-light: #FF3366;
+  --color-Primary-dark: #BA265D;
+}
+
+body {
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-Primary-dark));
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
+
 
 ### 74. Building the Overall Layout
 **[⬆ back to top](#table-of-contents)**
