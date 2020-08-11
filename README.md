@@ -156,6 +156,27 @@
       - [Change the style of selected text](#change-the-style-of-selected-text)
       - [Change media query to cater to touch and non-touch device](#change-media-query-to-cater-to-touch-and-non-touch-device)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
+    - [68. Why Flexbox: An Overview of the Philosophy Behind Flexbox](#68-why-flexbox-an-overview-of-the-philosophy-behind-flexbox)
+    - [69. A Basic Intro to Flexbox: The Flex Container](#69-a-basic-intro-to-flexbox-the-flex-container)
+    - [70. A Basic Intro to Flexbox: Flex Items](#70-a-basic-intro-to-flexbox-flex-items)
+    - [71. A Basic Intro to Flexbox: Adding More Flex Items](#71-a-basic-intro-to-flexbox-adding-more-flex-items)
+    - [72. Project Overview](#72-project-overview)
+    - [73. Defining Project Settings and Custom Properties](#73-defining-project-settings-and-custom-properties)
+    - [74. Building the Overall Layout](#74-building-the-overall-layout)
+    - [75. Building the Header - Part 1](#75-building-the-header---part-1)
+    - [76. Building the Header - Part 2](#76-building-the-header---part-2)
+    - [77. Building the Header - Part 3](#77-building-the-header---part-3)
+    - [78. Building the Navigation - Part 1](#78-building-the-navigation---part-1)
+    - [79. Building the Navigation - Part 2](#79-building-the-navigation---part-2)
+    - [80. Building the Hotel Overview - Part 1](#80-building-the-hotel-overview---part-1)
+    - [81. Building the Hotel Overview - Part 2](#81-building-the-hotel-overview---part-2)
+    - [82. Building the Description Section - Part 1](#82-building-the-description-section---part-1)
+    - [83. Building the Description Section - Part 2](#83-building-the-description-section---part-2)
+    - [84. Building the User Reviews Section](#84-building-the-user-reviews-section)
+    - [85. Building the CTA Section](#85-building-the-cta-section)
+    - [86. Writing Media Queries - Part 1](#86-writing-media-queries---part-1)
+    - [87. Writing Media Queries - Part 2](#87-writing-media-queries---part-2)
+    - [88. Wrapping up the Trillo Project: Final Considerations](#88-wrapping-up-the-trillo-project-final-considerations)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
   - [**Section 9: Nexter Project — Master CSS Grid Layouts!**](#section-9-nexter-project--master-css-grid-layouts)
   - [**Section 10: That's It, Everyone!**](#section-10-thats-it-everyone)
@@ -4431,6 +4452,68 @@ The [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 7: Trillo Project — Master Flexbox!**
+
+### 68. Why Flexbox: An Overview of the Philosophy Behind Flexbox
+**[⬆ back to top](#table-of-contents)**
+
+### 69. A Basic Intro to Flexbox: The Flex Container
+**[⬆ back to top](#table-of-contents)**
+
+### 70. A Basic Intro to Flexbox: Flex Items
+**[⬆ back to top](#table-of-contents)**
+
+### 71. A Basic Intro to Flexbox: Adding More Flex Items
+**[⬆ back to top](#table-of-contents)**
+
+### 72. Project Overview
+**[⬆ back to top](#table-of-contents)**
+
+### 73. Defining Project Settings and Custom Properties
+**[⬆ back to top](#table-of-contents)**
+
+### 74. Building the Overall Layout
+**[⬆ back to top](#table-of-contents)**
+
+### 75. Building the Header - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 76. Building the Header - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 77. Building the Header - Part 3
+**[⬆ back to top](#table-of-contents)**
+
+### 78. Building the Navigation - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 79. Building the Navigation - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 80. Building the Hotel Overview - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 81. Building the Hotel Overview - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 82. Building the Description Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 83. Building the Description Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 84. Building the User Reviews Section
+**[⬆ back to top](#table-of-contents)**
+
+### 85. Building the CTA Section
+**[⬆ back to top](#table-of-contents)**
+
+### 86. Writing Media Queries - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 87. Writing Media Queries - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 88. Wrapping up the Trillo Project: Final Considerations
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 8: A Quick Introduction to CSS Grid Layouts**
