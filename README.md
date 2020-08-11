@@ -4469,6 +4469,54 @@ Flexbox
 **[⬆ back to top](#table-of-contents)**
 
 ### 69. A Basic Intro to Flexbox: The Flex Container
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item i2">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+```
+
+```css
+*{
+ margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+.container {
+  background-color:#ccc;
+  padding:10px;
+  
+/*   use flexbox */
+  display: flex;
+  
+/*   set main axis direction */
+  flex-direction: row;
+  
+/*   control how items are positioned in main axis */
+  justify-content: center;
+  
+/*   control how items are positioned in cross axis */
+  align-items: center;
+}
+
+.item {
+   background-color:#f1425d;
+   padding:30px;
+   margin:30px;
+   color:#fff;
+   font-size:40px;
+}
+
+.i2 {
+  height: 200px;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 70. A Basic Intro to Flexbox: Flex Items
