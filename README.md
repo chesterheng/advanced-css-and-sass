@@ -174,7 +174,10 @@
       - [How to change the color of an SVG icon in CSS?](#how-to-change-the-color-of-an-svg-icon-in-css)
     - [77. Building the Header - Part 3](#77-building-the-header---part-3)
     - [78. Building the Navigation - Part 1](#78-building-the-navigation---part-1)
+      - [How to use some more advanced flexbox alignment techniques, including flex-direction, justify-content and align-items?](#how-to-use-some-more-advanced-flexbox-alignment-techniques-including-flex-direction-justify-content-and-align-items)
     - [79. Building the Navigation - Part 2](#79-building-the-navigation---part-2)
+      - [How to use scaleY and multiple transition properties with different settings, to create a creative hover effect?](#how-to-use-scaley-and-multiple-transition-properties-with-different-settings-to-create-a-creative-hover-effect)
+      - [How and why to use the currentColor CSS variable?](#how-and-why-to-use-the-currentcolor-css-variable)
     - [80. Building the Hotel Overview - Part 1](#80-building-the-hotel-overview---part-1)
     - [81. Building the Hotel Overview - Part 2](#81-building-the-hotel-overview---part-2)
     - [82. Building the Description Section - Part 1](#82-building-the-description-section---part-1)
@@ -5036,9 +5039,63 @@ User navigations Component
 **[⬆ back to top](#table-of-contents)**
 
 ### 78. Building the Navigation - Part 1
+
+```scss
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  
+  flex: 0 0 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+// SIDE NAVIGATION
+.side-nav {
+  
+  &__item {
+
+  }
+
+  &__link {
+
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+// LEGAL TEXT
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use some more advanced flexbox alignment techniques, including flex-direction, justify-content and align-items?
+
+```scss
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 79. Building the Navigation - Part 2
+
+#### How to use scaleY and multiple transition properties with different settings, to create a creative hover effect?
+**[⬆ back to top](#table-of-contents)**
+
+#### How and why to use the currentColor CSS variable?
 **[⬆ back to top](#table-of-contents)**
 
 ### 80. Building the Hotel Overview - Part 1
