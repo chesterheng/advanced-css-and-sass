@@ -4483,18 +4483,19 @@ Flexbox
 ```css
 .container {
   background-color:#ccc;
-  padding:10px;
+  padding: 10px;
+  height: 1000px;
   
-/*   use flexbox */
+  /*   use flexbox */
   display: flex;
   
-/*   set main axis direction */
+  /*   set main axis direction */
   flex-direction: row;
   
-/*   control how items are positioned in main axis */
+  /*   control how items are positioned in main axis */
   justify-content: center;
   
-/*   control how items are positioned in cross axis */
+  /*   control how items are positioned in cross axis */
   align-items: center;
 }
 ```
@@ -4521,27 +4522,27 @@ Flexbox
   color:#fff;
   font-size:40px;
   
-/*   all items grow as much as they can */
-/*   flex-grow: 1; */
-  
-/*   shorthand for flex-grow flex-shrink flex-basis*/
-/*   flex: 1; */
+  /*   all items grow as much as they can */
+  /*   flex-grow: 1; */
+    
+  /*   shorthand for flex-grow flex-shrink flex-basis*/
+  /*   flex: 1; */
 }
 
 .i2 {
   height: 200px;
   
-/*   grow 3x more than other items */
-/*   flex-grow: 3; */
-  
-/*   grow to 20% of the flex container */
-/*   flex-basis: 20%; */
-  
+  /*   grow 3x more than other items */
+  /*   flex-grow: 3; */
+    
+  /*   grow to 20% of the flex container */
+  /*   flex-basis: 20%; */
+    
   /*   grow to 300px */
-/*   flex-basis: 300px; */
-  
-/*   not allow to shrink */
-/*   flex-shrink: 0; */
+  /*   flex-basis: 300px; */
+    
+  /*   not allow to shrink */
+  /*   flex-shrink: 0; */
   
   flex: 0 1 300px;
 }
@@ -4552,10 +4553,10 @@ Flexbox
 }
 
 .i4 {
-/*   over-write align-items in container */
-  align-self: flex-end;
+  /*   over-write align-items in container */
+  /* align-self: flex-end; */
   
-/*   all flex box items order are 0 by default */
+  /*   all flex box items order are 0 by default */
   order: -1;
 }
 ```
@@ -4563,6 +4564,32 @@ Flexbox
 **[⬆ back to top](#table-of-contents)**
 
 ### 71. A Basic Intro to Flexbox: Adding More Flex Items
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item i2">2</div>
+  <div class="item i3">3</div>
+  <div class="item i4">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+  <div class="item">8</div>
+  <div class="item">9</div>
+  <div class="item">10</div>
+</div>
+```
+
+```css
+.container{
+  /*   wrap all items to new line if container width is not enough*/
+  flex-wrap: wrap;
+  
+  /*   align rows in cross axis */
+  align-content: center;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 72. Project Overview
