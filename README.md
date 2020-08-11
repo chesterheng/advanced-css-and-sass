@@ -164,6 +164,8 @@
     - [73. Defining Project Settings and Custom Properties](#73-defining-project-settings-and-custom-properties)
       - [How and why to use CSS custom properties?](#how-and-why-to-use-css-custom-properties)
     - [74. Building the Overall Layout](#74-building-the-overall-layout)
+      - [How to think about the overall layout of an app?](#how-to-think-about-the-overall-layout-of-an-app)
+      - [Use flexbox in a real-world project for the first time](#use-flexbox-in-a-real-world-project-for-the-first-time)
     - [75. Building the Header - Part 1](#75-building-the-header---part-1)
     - [76. Building the Header - Part 2](#76-building-the-header---part-2)
     - [77. Building the Header - Part 3](#77-building-the-header---part-3)
@@ -4601,6 +4603,55 @@ Flexbox
 
 ### 73. Defining Project Settings and Custom Properties
 
+```scss
+:root {
+  --color-white: #fff;
+
+  --color-primary: #eb2f64;
+  --color-primary-light: #FF3366;
+  --color-Primary-dark: #BA265D;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  --shadow-dark: 0 2rem 6rem rbga(0, 0, 0, .3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-Primary-dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 #### How and why to use CSS custom properties?
 
 ```scss
@@ -4617,8 +4668,64 @@ body {
 
 **[⬆ back to top](#table-of-contents)**
 
-
 ### 74. Building the Overall Layout
+
+#### How to think about the overall layout of an app?
+
+![](section-07/layout.jpg)
+
+```html
+<body>
+  <div class="container">
+    <header class="header">
+      Header part
+    </header>
+    <div class="content">
+      <div class="sidebar">
+        Navigation
+      </div>
+      <main class="hotel-view">
+        Hotel view
+      </main>
+    </div>
+  </div>
+</body>
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Use flexbox in a real-world project for the first time
+
+```scss
+.container {
+  max-width: 120rem;
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-2);
+  box-shadow: var(--shadow-dark);
+  min-height: 50rem;
+}
+
+.header {
+  height: 7rem;
+  background-color: var(--color-white);
+  border-bottom: var(--color-grey-light-2);
+}
+
+.content {
+  display: flex;
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 18%;
+}
+
+.hotel-view {
+  background-color: var(--color-white);  
+  flex: 1;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 75. Building the Header - Part 1

@@ -18,6 +18,8 @@ Grey dark 3: #999
 
 // similar to html selector for css
 :root {
+  --color-white: #fff;
+
   --color-primary: #eb2f64;
   --color-primary-light: #FF3366;
   --color-Primary-dark: #BA265D;
@@ -30,6 +32,8 @@ Grey dark 3: #999
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
+
+  --shadow-dark: 0 2rem 6rem rbga(0, 0, 0, .3);
 }
 
 * {
