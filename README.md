@@ -4866,6 +4866,8 @@ Components
 
 ### 76. Building the Header - Part 2
 
+Search bar Component
+
 ```scss
 header {
   font-size: 1.4rem;
@@ -4976,6 +4978,61 @@ header {
 **[⬆ back to top](#table-of-contents)**
 
 ### 77. Building the Header - Part 3
+
+User navigations Component
+
+```scss
+.user-nav {
+  align-self: stretch;
+
+  display: flex;
+
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
+  &__icon-box {
+    position: relative;
+  }
+
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-grey-dark-2);
+  }
+
+  &__notification {
+    font-size: .8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 78. Building the Navigation - Part 1
