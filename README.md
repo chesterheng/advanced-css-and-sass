@@ -170,8 +170,8 @@
       - [Why to use SVG icons vs. font icons?](#why-to-use-svg-icons-vs-font-icons)
       - [How to find, generate and use SVG sprites in HTML?](#how-to-find-generate-and-use-svg-sprites-in-html)
     - [76. Building the Header - Part 2](#76-building-the-header---part-2)
-      - [How to change the color of an SVG icon in CSS;](#how-to-change-the-color-of-an-svg-icon-in-css)
-      - [How to use more advanced flexbox alignment techniques, including justify-content, align-items, align-self and flex.](#how-to-use-more-advanced-flexbox-alignment-techniques-including-justify-content-align-items-align-self-and-flex)
+      - [How to use more advanced flexbox alignment techniques, including justify-content, align-items, align-self and flex?](#how-to-use-more-advanced-flexbox-alignment-techniques-including-justify-content-align-items-align-self-and-flex)
+      - [How to change the color of an SVG icon in CSS?](#how-to-change-the-color-of-an-svg-icon-in-css)
     - [77. Building the Header - Part 3](#77-building-the-header---part-3)
     - [78. Building the Navigation - Part 1](#78-building-the-navigation---part-1)
     - [79. Building the Navigation - Part 2](#79-building-the-navigation---part-2)
@@ -4866,10 +4866,113 @@ Components
 
 ### 76. Building the Header - Part 2
 
-#### How to change the color of an SVG icon in CSS; 
+```scss
+header {
+  font-size: 1.4rem;
+  height: 7rem;
+  background-color: var(--color-white);
+  border-bottom: var(--color-grey-light-2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// LOGO
+.logo {
+  height: 3.25rem;
+  margin-left: 3rem;
+}
+
+// SEARCH
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3.5rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3)
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
-#### How to use more advanced flexbox alignment techniques, including justify-content, align-items, align-self and flex.
+#### How to use more advanced flexbox alignment techniques, including justify-content, align-items, align-self and flex?
+
+```scss
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to change the color of an SVG icon in CSS?
+
+```scss
+.search {
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3)
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 77. Building the Header - Part 3
