@@ -167,7 +167,11 @@
       - [How to think about the overall layout of an app?](#how-to-think-about-the-overall-layout-of-an-app)
       - [Use flexbox in a real-world project for the first time](#use-flexbox-in-a-real-world-project-for-the-first-time)
     - [75. Building the Header - Part 1](#75-building-the-header---part-1)
+      - [Why to use SVG icons vs. font icons?](#why-to-use-svg-icons-vs-font-icons)
+      - [How to find, generate and use SVG sprites in HTML?](#how-to-find-generate-and-use-svg-sprites-in-html)
     - [76. Building the Header - Part 2](#76-building-the-header---part-2)
+      - [How to change the color of an SVG icon in CSS;](#how-to-change-the-color-of-an-svg-icon-in-css)
+      - [How to use more advanced flexbox alignment techniques, including justify-content, align-items, align-self and flex.](#how-to-use-more-advanced-flexbox-alignment-techniques-including-justify-content-align-items-align-self-and-flex)
     - [77. Building the Header - Part 3](#77-building-the-header---part-3)
     - [78. Building the Navigation - Part 1](#78-building-the-navigation---part-1)
     - [79. Building the Navigation - Part 2](#79-building-the-navigation---part-2)
@@ -4729,9 +4733,143 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 75. Building the Header - Part 1
+
+Components
+
+- Logo
+- Search bar
+- User navigations
+
+```html
+<header class="header">
+  <img src="img/logo.png" alt="trillo logo" class="logo">
+
+  <form action="" class="search">
+    <input type="text" class="search__input" placeholder="Search hotels">
+    <button class="search__button">
+      <svg class="search__icon">
+        <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+      </svg>
+    </button>
+  </form>
+
+  <nav class="user-nav">
+    <div class="user-nav__icon-box">
+      <svg class="user-nav__icon">
+        <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+      </svg>
+      <span class="user-nav__notification">7</span>
+    </div>
+    <div class="user-nav__icon-box">
+      <svg class="user-nav__icon">
+        <use xlink:href="img/sprite.svg#icon-chat"></use>
+      </svg>
+      <span class="user-nav__notification">13</span>
+    </div>
+    <div class="user-nav__user">
+      <img src="img/user.jpg" alt="trillo logo" class="user-nav__user-photo">
+      <span class="user-nav__user-name">Jonas</span>
+    </div>
+  </nav>
+</header>
+```
+
+```scss
+// LOGO
+.logo {
+  height: 3.25rem;
+}
+
+// SEARCH
+.search {
+  &__input {
+
+  }
+
+  &__button {
+
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+// USER NAVIGATION
+.user-nav {
+  &__icon-box {
+
+  }
+
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  &__notification {
+
+  }
+
+  &__user {
+    
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+  }
+
+  &__user-name {
+    
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Why to use SVG icons vs. font icons?
+
+- Icon fonts are mapped to individual Unicode characters, enabling you to store multiple icons within a single file. Fonts are vectors, so icons scale to any size.
+- Scalable Vector Graphics (SVG) is an XML-based vector graphics format that can scale to any size without losing clarity.
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to find, generate and use SVG sprites in HTML?
+
+- [icomoon](icomoon.io)
+- use a sprite.svg file to contain all svg to reduce backend calls to 1
+
+```html
+<header class="header">
+  <form action="" class="search">
+    <input type="text" class="search__input" placeholder="Search hotels">
+    <button class="search__button">
+      <svg class="search__icon">
+        <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+      </svg>
+    </button>
+  </form>
+
+  <nav class="user-nav">
+    <div class="user-nav__icon-box">
+      <svg class="user-nav__icon">
+        <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+      </svg>
+      <span class="user-nav__notification">7</span>
+    </div>
+  </nav>
+</header>
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 76. Building the Header - Part 2
+
+#### How to change the color of an SVG icon in CSS; 
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use more advanced flexbox alignment techniques, including justify-content, align-items, align-self and flex.
 **[⬆ back to top](#table-of-contents)**
 
 ### 77. Building the Header - Part 3
