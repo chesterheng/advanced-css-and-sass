@@ -4481,12 +4481,6 @@ Flexbox
 ```
 
 ```css
-*{
- margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 .container {
   background-color:#ccc;
   padding:10px;
@@ -4503,23 +4497,69 @@ Flexbox
 /*   control how items are positioned in cross axis */
   align-items: center;
 }
-
-.item {
-   background-color:#f1425d;
-   padding:30px;
-   margin:30px;
-   color:#fff;
-   font-size:40px;
-}
-
-.i2 {
-  height: 200px;
-}
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ### 70. A Basic Intro to Flexbox: Flex Items
+
+```html
+<div class="container">
+  <div class="item">1</div>
+  <div class="item i2">2</div>
+  <div class="item i3">3</div>
+  <div class="item i4">4</div>
+  <div class="item">5</div>
+</div>
+```
+
+```css
+.item{
+  background-color:#f1425d;
+  padding:30px;
+  margin:30px;
+  color:#fff;
+  font-size:40px;
+  
+/*   all items grow as much as they can */
+/*   flex-grow: 1; */
+  
+/*   shorthand for flex-grow flex-shrink flex-basis*/
+/*   flex: 1; */
+}
+
+.i2 {
+  height: 200px;
+  
+/*   grow 3x more than other items */
+/*   flex-grow: 3; */
+  
+/*   grow to 20% of the flex container */
+/*   flex-basis: 20%; */
+  
+  /*   grow to 300px */
+/*   flex-basis: 300px; */
+  
+/*   not allow to shrink */
+/*   flex-shrink: 0; */
+  
+  flex: 0 1 300px;
+}
+
+.i3 {
+  order: 1;
+  flex: 1;
+}
+
+.i4 {
+/*   over-write align-items in container */
+  align-self: flex-end;
+  
+/*   all flex box items order are 0 by default */
+  order: -1;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 71. A Basic Intro to Flexbox: Adding More Flex Items
