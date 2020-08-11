@@ -150,6 +150,8 @@
       - [Safari 9 - 13 still require a prefix for the related backface-visibility property](#safari-9---13-still-require-a-prefix-for-the-related-backface-visibility-property)
       - [Media Queries - Safari don't support standard min/max-resolution](#media-queries---safari-dont-support-standard-minmax-resolution)
     - [65. Setting up a Simple Build Process with NPM Scripts](#65-setting-up-a-simple-build-process-with-npm-scripts)
+      - [Build CSS workflow](#build-css-workflow)
+      - [Development workflow](#development-workflow)
     - [66. Wrapping up the Natours Project: Final Considerations](#66-wrapping-up-the-natours-project-final-considerations)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
@@ -4354,9 +4356,39 @@ The [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-
 
 **[⬆ back to top](#table-of-contents)**
 
+### 65. Setting up a Simple Build Process with NPM Scripts
+
+#### Build CSS workflow
+
+![](section-06/build.jpg)
+
+- [concat](https://github.com/gko/concat)
+- [postcss-cli](https://github.com/postcss/postcss-cli)
+- [autoprefixer](https://github.com/postcss/autoprefixer)
+- [npm-run-all](https://github.com/mysticatea/npm-run-all)
+
+```json
+"scripts": {
+  "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+  "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
+  "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+  "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+  "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
-### 65. Setting up a Simple Build Process with NPM Scripts
+#### Development workflow
+
+```json
+"scripts": {
+  "watch:sass": "node-sass sass/main.scss css/style.css -w",
+  "devserver": "live-server",
+  "start": "npm-run-all --parallel devserver watch:sass",
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 66. Wrapping up the Natours Project: Final Considerations
