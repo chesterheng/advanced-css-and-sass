@@ -153,6 +153,8 @@
       - [Build CSS workflow](#build-css-workflow)
       - [Development workflow](#development-workflow)
     - [66. Wrapping up the Natours Project: Final Considerations](#66-wrapping-up-the-natours-project-final-considerations)
+      - [Change the style of selected text](#change-the-style-of-selected-text)
+      - [Change media query to cater to touch and non-touch device](#change-media-query-to-cater-to-touch-and-non-touch-device)
   - [**Section 7: Trillo Project — Master Flexbox!**](#section-7-trillo-project--master-flexbox)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
   - [**Section 9: Nexter Project — Master CSS Grid Layouts!**](#section-9-nexter-project--master-css-grid-layouts)
@@ -4377,6 +4379,14 @@ The [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-
 }
 ```
 
+```html
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+</html>
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### Development workflow
@@ -4392,6 +4402,32 @@ The [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-
 **[⬆ back to top](#table-of-contents)**
 
 ### 66. Wrapping up the Natours Project: Final Considerations
+
+#### Change the style of selected text
+
+```scss
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Change media query to cater to touch and non-touch device
+
+![](section-06/device-type.jpg)
+
+```scss
+.card {
+
+  @media  only screen and (max-width: 56.25em), // width < 900px ?
+          only screen and (hover: none) {       // touch device
+
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 7: Trillo Project — Master Flexbox!**
