@@ -5718,6 +5718,133 @@ Hotel Overview Layout
 **[⬆ back to top](#table-of-contents)**
 
 ### 84. Building the User Reviews Section
+
+Continue using and practicing flexbox
+
+```html
+<div class="user-reviews">
+  <figure class="review">
+    <blockquote class="review__text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.
+    </blockquote>
+    <figcaption class="review__user">
+      <img src="img/user-1.jpg" alt="User 1" class="review__photo">
+      <div class="review__user-box">
+        <p class="review__user-name">Nick Smith</p>
+        <p class="review__user-date">Feb 23rd, 2017</p>
+      </div>
+      <div class="review__rating">7.8</div>
+    </figcaption>
+  </figure>
+
+  <figure class="review">
+    <blockquote class="review__text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi.
+    </blockquote>
+    <figcaption class="review__user">
+      <img src="img/user-2.jpg" alt="User 1" class="review__photo">
+      <div class="review__user-box">
+        <p class="review__user-name">Mary Thomas</p>
+        <p class="review__user-date">Sept 13th, 2017</p>
+      </div>
+      <div class="review__rating">9.3</div>
+    </figcaption>
+  </figure>
+
+  <button class="btn-inline">Show all<span>&rarr;</span></button>
+</div>
+```
+
+```scss
+.detail {
+  font-size: 1.4rem;
+}
+
+.user-reviews {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+
+  &__text {
+    margin-bottom: 2rem;
+    z-index: 20;
+    position: relative;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+  }
+
+  &__user-date {
+    font-size: 1rem;
+    color: var(--color-grey-dark-3);
+  }
+
+  &__rating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 1;
+  }
+}
+
+.btn-inline {
+  transition: all .2s;
+
+  & span {
+    margin-left: 3px;
+    transition: margin-left .2s;
+  }
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+
+    span {
+      margin-left: 8px;
+    }
+  }
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 85. Building the CTA Section
