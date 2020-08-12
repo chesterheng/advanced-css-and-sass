@@ -185,7 +185,7 @@
       - [How to create an infinite animation?](#how-to-create-an-infinite-animation)
     - [82. Building the Description Section - Part 1](#82-building-the-description-section---part-1)
     - [83. Building the Description Section - Part 2](#83-building-the-description-section---part-2)
-      - [Continue to use flexbox, including flex-wrap to build a multi-column list.](#continue-to-use-flexbox-including-flex-wrap-to-build-a-multi-column-list)
+      - [Continue to use flexbox, including flex-wrap to build a multi-column list](#continue-to-use-flexbox-including-flex-wrap-to-build-a-multi-column-list)
       - [How and why to use CSS masks with mask-image and mask-size?](#how-and-why-to-use-css-masks-with-mask-image-and-mask-size)
     - [84. Building the User Reviews Section](#84-building-the-user-reviews-section)
     - [85. Building the CTA Section](#85-building-the-cta-section)
@@ -5588,9 +5588,132 @@ Hotel Overview Layout
 
 ### 83. Building the Description Section - Part 2
 
-#### Continue to use flexbox, including flex-wrap to build a multi-column list.
+```scss
+// PARAGRAPH
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+// LIST
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: .7rem;
+  }
+
+  &__item::before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-right: .7rem;
+
+    // older browser
+    // background-image: url(../img/chevron-thin-right.svg);
+    // background-size: cover;
+
+    // newer browser
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+    mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover;
+  }
+}
+
+// RECOMMEND
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+  display: flex;
+  align-items: center;
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__photo {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid var(--color-white);
+
+    &:not(:last-child) {
+      margin-right: -1.15rem;
+    }
+  }
+}
+```
+
+#### Continue to use flexbox, including flex-wrap to build a multi-column list
+
+```html
+<ul class="list">
+  <li class="list__item">Close to the bench</li>
+  <li class="list__item">Breakfast included</li>
+  <li class="list__item">Free airport shuttle</li>
+  <li class="list__item">Free wifi in all rooms</li>
+  <li class="list__item">Air conditioning and heating</li>
+  <li class="list__item">Pets allowed</li>
+  <li class="list__item">We speak all languages</li>
+  <li class="list__item">Perfect for families</li>
+</ul>
+
+<div class="recommend">
+  <p class="recommend__count">
+    Lucy and 3 other friends recommend this hotel.
+  </p>
+  <div class="recommend__friends">
+    <img src="img/user-3.jpg" alt="Friend 1" class="recommend__photo">
+    <img src="img/user-4.jpg" alt="Friend 2" class="recommend__photo">
+    <img src="img/user-5.jpg" alt="Friend 3" class="recommend__photo">
+    <img src="img/user-6.jpg" alt="Friend 4" class="recommend__photo">
+  </div>
+</div>
+```
+
+```scss
+.list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex: 0 0 50%;
+  }
+}
+
+.recommend {
+  display: flex;
+  align-items: center;
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
 
 #### How and why to use CSS masks with mask-image and mask-size?
+
+```scss
+.list {
+
+  &__item::before {
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+    mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover;
+  }
+}
+```
 
 **[⬆ back to top](#table-of-contents)**
 
