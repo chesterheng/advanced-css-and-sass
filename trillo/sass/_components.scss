@@ -151,3 +151,49 @@
   text-align: center;
   padding: 2.5rem;
 }
+
+// GALLERY
+.gallery {
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    display: block;
+  }
+}
+
+//HOTEL OVERVIEW
+.overview {
+  display: flex;
+
+  &__heading {}
+
+  &__stars {
+    // flex: 1;
+    // current block expand to fill entire space
+    // add full margin to the right of the current content
+    margin-right: auto;
+  }
+
+  &__icon-star,
+  &__icon-location {
+    width: 1.75em;
+    height: 1.75em;
+    fill: var(--color-primary);
+  }
+
+  &__location {
+  }
+
+
+
+  &__rating {}
+
+  &__rating-average {}
+
+  &__rating-count {}
+}
+
+.btn-inline {
+
+}

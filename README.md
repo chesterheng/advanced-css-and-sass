@@ -179,7 +179,10 @@
       - [How to use scaleY and multiple transition properties with different settings, to create a creative hover effect?](#how-to-use-scaley-and-multiple-transition-properties-with-different-settings-to-create-a-creative-hover-effect)
       - [How and why to use the currentColor CSS variable?](#how-and-why-to-use-the-currentcolor-css-variable)
     - [80. Building the Hotel Overview - Part 1](#80-building-the-hotel-overview---part-1)
+    - [How to use margin: auto with flexbox, and why it’s so powerful?](#how-to-use-margin-auto-with-flexbox-and-why-its-so-powerful)
     - [81. Building the Hotel Overview - Part 2](#81-building-the-hotel-overview---part-2)
+    - [Continue to use flexbox properties for easy positioning and alignment.](#continue-to-use-flexbox-properties-for-easy-positioning-and-alignment)
+    - [How to create an infinite animation;](#how-to-create-an-infinite-animation)
     - [82. Building the Description Section - Part 1](#82-building-the-description-section---part-1)
     - [83. Building the Description Section - Part 2](#83-building-the-description-section---part-2)
     - [84. Building the User Reviews Section](#84-building-the-user-reviews-section)
@@ -5216,9 +5219,116 @@ currentColor property take the color value of itself or its parent
 **[⬆ back to top](#table-of-contents)**
 
 ### 80. Building the Hotel Overview - Part 1
+
+Hotel Overview Layout
+
+```html
+<div class="gallery">
+  <figure class="gallery__item">
+    <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo">
+  </figure>
+  <figure class="gallery__item">
+    <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo">
+  </figure>
+  <figure class="gallery__item">
+    <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo">
+  </figure>
+</div>
+
+<div class="overview">
+  <h1 class="overview__heading">Hotel Las Palmas</h1>
+  <div class="overview__stars">
+    <svg class="overview__icon-star">
+      <use xlink:href="img/sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="overview__icon-star">
+      <use xlink:href="img/sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="overview__icon-star">
+      <use xlink:href="img/sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="overview__icon-star">
+      <use xlink:href="img/sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="overview__icon-star">
+      <use xlink:href="img/sprite.svg#icon-star"></use>
+    </svg>
+  </div>
+  <div class="overview__location">
+    <svg class="overview__icon-location">
+      <use xlink:href="img/sprite.svg#icon-location-pin"></use>
+    </svg>
+    <button class="btn-inline">Albufeira, Portugal</button>
+  </div>
+  <div class="overview__rating">
+    <div class="overview__rating-average">8.6</div>
+    <div class="overview__rating-count">429 votes</div>
+  </div>                    
+</div>
+```
+
+```scss
+.gallery {
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    display: block;
+  }
+}
+
+.overview {
+  display: flex;
+
+  &__stars {
+    // flex: 1;
+    // current block expand to fill entire space
+    // add full margin to the right of the current content
+    margin-right: auto;
+  }
+
+  &__icon-star,
+  &__icon-location {
+    width: 1.75em;
+    height: 1.75em;
+    fill: var(--color-primary);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+### How to use margin: auto with flexbox, and why it’s so powerful?
+
+<div class="overview">
+  <h1 class="overview__heading">Hotel Las Palmas</h1>
+  <div class="overview__stars"></div>
+  <div class="overview__location"></div>
+  <div class="overview__rating"></div>                    
+</div>
+```
+
+```scss
+.overview {
+  display: flex;
+
+  &__stars {
+    // flex: 1;
+    // current block expand to fill entire space
+    // add full margin to the right of the current content
+    margin-right: auto;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 81. Building the Hotel Overview - Part 2
+
+### Continue to use flexbox properties for easy positioning and alignment.
+**[⬆ back to top](#table-of-contents)**
+
+### How to create an infinite animation;
 **[⬆ back to top](#table-of-contents)**
 
 ### 82. Building the Description Section - Part 1
