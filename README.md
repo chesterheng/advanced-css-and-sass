@@ -5092,10 +5092,127 @@ User navigations Component
 
 ### 79. Building the Navigation - Part 2
 
+```scss
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+  }
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform .2s, 
+                width .4s cubic-bezier(1,0,0,1) .2s, 
+                background-color .1s;
+  }
+  
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 #### How to use scaleY and multiple transition properties with different settings, to create a creative hover effect?
+
+```scss
+.side-nav {
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform .2s, 
+                width .4s cubic-bezier(1,0,0,1) .2s, 
+                background-color .1s;
+  }
+  
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### How and why to use the currentColor CSS variable?
+
+currentColor property take the color value of itself or its parent
+
+```html
+<a href="" class="side-nav__link">
+  <svg class="side-nav__icon">
+    <use xlink:href="img/sprite.svg#icon-key"></use>
+  </svg>
+  <span>Car rental</span>
+</a>
+```
+
+```scss
+.side-nav {
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+  }
+
+  &__icon {
+    fill: currentColor;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 80. Building the Hotel Overview - Part 1
