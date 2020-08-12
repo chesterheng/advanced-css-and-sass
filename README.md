@@ -185,6 +185,8 @@
       - [How to create an infinite animation?](#how-to-create-an-infinite-animation)
     - [82. Building the Description Section - Part 1](#82-building-the-description-section---part-1)
     - [83. Building the Description Section - Part 2](#83-building-the-description-section---part-2)
+      - [Continue to use flexbox, including flex-wrap to build a multi-column list.](#continue-to-use-flexbox-including-flex-wrap-to-build-a-multi-column-list)
+      - [How and why to use CSS masks with mask-image and mask-size?](#how-and-why-to-use-css-masks-with-mask-image-and-mask-size)
     - [84. Building the User Reviews Section](#84-building-the-user-reviews-section)
     - [85. Building the CTA Section](#85-building-the-cta-section)
     - [86. Writing Media Queries - Part 1](#86-writing-media-queries---part-1)
@@ -5520,9 +5522,76 @@ Hotel Overview Layout
 **[⬆ back to top](#table-of-contents)**
 
 ### 82. Building the Description Section - Part 1
+
+```html
+<div class="detail">
+  <div class="description">
+    <p class="paragraph">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi dignissimos debitis ratione sapiente saepe. Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate.
+    </p>
+    <p class="paragraph">
+      Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate delectus, inventore iure aliquid aliquam.
+    </p>
+    <ul class="list">
+      <li class="list__item">Close to the bench</li>
+      <li class="list__item">Breakfast included</li>
+      <li class="list__item">Free airport shuttle</li>
+      <li class="list__item">Free wifi in all rooms</li>
+      <li class="list__item">Air conditioning and heating</li>
+      <li class="list__item">Pets allowed</li>
+      <li class="list__item">We speak all languages</li>
+      <li class="list__item">Perfect for families</li>
+    </ul>
+    <div class="recommend">
+      <p class="recommend__count">
+        Lucy and 3 other friends recommend this hotel.
+      </p>
+      <div class="recommend__friends">
+        <img src="img/user-3.jpg" alt="Friend 1" class="recommend__photo">
+        <img src="img/user-4.jpg" alt="Friend 2" class="recommend__photo">
+        <img src="img/user-5.jpg" alt="Friend 3" class="recommend__photo">
+        <img src="img/user-6.jpg" alt="Friend 4" class="recommend__photo">
+      </div>
+    </div>
+  </div>
+  <div class="user-reviews">
+    User reviews
+  </div>
+</div>
+```
+
+```scss
+.detail {
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+}
+
+.description {
+  font-size: 1.4rem;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+}
+
+.user-reviews {
+  background-color: yellowgreen;
+  flex: 1;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 83. Building the Description Section - Part 2
+
+#### Continue to use flexbox, including flex-wrap to build a multi-column list.
+
+#### How and why to use CSS masks with mask-image and mask-size?
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 84. Building the User Reviews Section
