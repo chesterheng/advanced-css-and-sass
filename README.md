@@ -193,6 +193,21 @@
     - [87. Writing Media Queries - Part 2](#87-writing-media-queries---part-2)
     - [88. Wrapping up the Trillo Project: Final Considerations](#88-wrapping-up-the-trillo-project-final-considerations)
   - [**Section 8: A Quick Introduction to CSS Grid Layouts**](#section-8-a-quick-introduction-to-css-grid-layouts)
+    - [90. Why CSS Grid: A Whole New Mindset](#90-why-css-grid-a-whole-new-mindset)
+    - [91. Quick Setup for This Section](#91-quick-setup-for-this-section)
+    - [92. Creating Our First Grid](#92-creating-our-first-grid)
+    - [93. Getting Familiar with the fr Unit](#93-getting-familiar-with-the-fr-unit)
+    - [94. Positioning Grid Items](#94-positioning-grid-items)
+    - [95. Spanning Grid Items](#95-spanning-grid-items)
+    - [96. Grid Challenge](#96-grid-challenge)
+    - [97. Grid Challenge: A Basic Solution](#97-grid-challenge-a-basic-solution)
+    - [98. Naming Grid Lines](#98-naming-grid-lines)
+    - [99. Naming Grid Areas](#99-naming-grid-areas)
+    - [100. Implicit Grids vs. Explicit Grids](#100-implicit-grids-vs-explicit-grids)
+    - [101. Aligning Grid Items](#101-aligning-grid-items)
+    - [102. Aligning Tracks](#102-aligning-tracks)
+    - [103. Using min-content, max-content and the minmax() function](#103-using-min-content-max-content-and-the-minmax-function)
+    - [104. Responsive Layouts with auto-fit and auto-fill](#104-responsive-layouts-with-auto-fit-and-auto-fill)
   - [**Section 9: Nexter Project — Master CSS Grid Layouts!**](#section-9-nexter-project--master-css-grid-layouts)
   - [**Section 10: That's It, Everyone!**](#section-10-thats-it-everyone)
 
@@ -6178,6 +6193,50 @@ Challenges
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 8: A Quick Introduction to CSS Grid Layouts**
+
+### 90. Why CSS Grid: A Whole New Mindset
+**[⬆ back to top](#table-of-contents)**
+
+### 91. Quick Setup for This Section
+**[⬆ back to top](#table-of-contents)**
+
+### 92. Creating Our First Grid
+**[⬆ back to top](#table-of-contents)**
+
+### 93. Getting Familiar with the fr Unit
+**[⬆ back to top](#table-of-contents)**
+
+### 94. Positioning Grid Items
+**[⬆ back to top](#table-of-contents)**
+
+### 95. Spanning Grid Items
+**[⬆ back to top](#table-of-contents)**
+
+### 96. Grid Challenge
+**[⬆ back to top](#table-of-contents)**
+
+### 97. Grid Challenge: A Basic Solution
+**[⬆ back to top](#table-of-contents)**
+
+### 98. Naming Grid Lines
+**[⬆ back to top](#table-of-contents)**
+
+### 99. Naming Grid Areas
+**[⬆ back to top](#table-of-contents)**
+
+### 100. Implicit Grids vs. Explicit Grids
+**[⬆ back to top](#table-of-contents)**
+
+### 101. Aligning Grid Items
+**[⬆ back to top](#table-of-contents)**
+
+### 102. Aligning Tracks
+**[⬆ back to top](#table-of-contents)**
+
+### 103. Using min-content, max-content and the minmax() function
+**[⬆ back to top](#table-of-contents)**
+
+### 104. Responsive Layouts with auto-fit and auto-fill
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 9: Nexter Project — Master CSS Grid Layouts!**
