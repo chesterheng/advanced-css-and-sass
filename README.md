@@ -6142,6 +6142,39 @@ html {
 **[⬆ back to top](#table-of-contents)**
 
 ### 88. Wrapping up the Trillo Project: Final Considerations
+
+[caniuse](https://caniuse.com/#search=flexbox)
+
+```scss
+.list {
+
+  &__item::before {
+
+    // Older browsers
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
+
+    //Newer browsers - masks
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
+  }
+}
+```
+
+Challenges
+
+- Display some kind of user menu when hovering over the username in .user-nav;
+- Display a message menu when hovering overthe chat icon in .user-nav (maybe like facebook);
+- Display a box with search suggestions as soon as the user starts typing in the search field;
+- Create a caption for the .gallery__item with a nice hover effect;
+- Make the page 100% responsive even for viewport sizes below 500px, maybe even responsive images.
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 8: A Quick Introduction to CSS Grid Layouts**
