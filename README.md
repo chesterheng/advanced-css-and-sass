@@ -6195,6 +6195,19 @@ Challenges
 ## **Section 8: A Quick Introduction to CSS Grid Layouts**
 
 ### 90. Why CSS Grid: A Whole New Mindset
+
+CSS Grid
+
+- CSS Grid Layout is a brand new module that brings a two-dimensional grid system to CSS for the first time;
+- CSS Grid replaces float layouts, using less, and more readable and logical CSS and HTML;
+- CSS Grid works perfectly together with Flexbox, which is best to handle one-dimensional components and layouts;
+- CSS Grid completely changes the way that we envision and build two-dimensional layouts.
+
+![](section-08/grid-1.jpg)
+![](section-08/grid-2.jpg)
+![](section-08/grid-3.jpg)
+![](section-08/grid-4.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 91. Quick Setup for This Section
