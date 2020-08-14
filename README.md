@@ -6755,6 +6755,53 @@ use . to represent empty cell
 **[⬆ back to top](#table-of-contents)**
 
 ### 104. Responsive Layouts with auto-fit and auto-fill
+
+```scss
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: #ddd;
+  
+  display: grid;
+  // use min-content and max-content
+  // grid-template-rows: repeat(2, 150px);
+  // grid-template-rows: repeat(2, min-content);
+  // grid-template-columns: max-content 1fr 1fr min-content;
+  
+  // using minmax function
+  // width: 90%;
+  // grid-template-rows: repeat(2, minmax(150px, min-content));
+  // grid-template-columns: minmax(200px, 300px) repeat(3, 1fr);
+  // grid-template-columns: minmax(200px, 50%) repeat(3, 1fr);
+  // grid-template-columns: minmax(200px, 1fr) repeat(3, 1fr);
+  
+  // use auto-fill and auto-fit
+  grid-template-rows: repeat(2, minmax(150px, min-content));
+  // grid-template-columns: repeat(auto-fill, 100px);
+  // grid-template-columns: repeat(auto-fit, 100px);
+  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 150px;
+  
+  .item {
+    padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    background-color: orangered;
+    
+    &--1 { background-color: orangered; }
+    &--2 { background-color: yellowgreen; }
+    &--3 { background-color: blueviolet; }
+    &--4 { background-color: palevioletred; }
+    &--5 { background-color: royalblue; }
+    &--6 { background-color: goldenrod; }
+    &--7 { background-color: crimson; }
+    &--8 { background-color: darkslategray; }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 9: Nexter Project — Master CSS Grid Layouts!**
