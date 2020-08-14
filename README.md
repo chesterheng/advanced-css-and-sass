@@ -6451,6 +6451,44 @@ Items can be placed in the same cell.
 **[⬆ back to top](#table-of-contents)**
 
 ### 98. Naming Grid Lines
+
+```scss
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  
+  display: grid;
+  grid-template-rows: [header-start] 100px [header-end box-start] 200px [box-end main-start] 400px [main-end footer-start] 100px [footer-end];
+  grid-template-columns: repeat(3, [col-start] 1fr [col-end]) 200px [grid-end];
+  grid-gap: 30px;
+  
+  & > * {
+    background-color: orangered;
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+}
+
+.header {
+  grid-column: col-start 1 / grid-end;
+}
+
+.sidebar {
+  grid-row: box-start / main-end;
+  grid-column: col-end 3 / grid-end;
+}
+
+.main-content {
+  grid-column: col-start 1 / col-end 3;
+}
+
+.footer {
+  grid-column: col-start 1 / grid-end;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 99. Naming Grid Areas
