@@ -6337,6 +6337,58 @@ CSS Grid
 **[⬆ back to top](#table-of-contents)**
 
 ### 95. Spanning Grid Items
+
+Items can be placed in the same cell.
+
+```scss
+.item {
+  padding: 20px;
+  font-size: 30px;
+  font-family: sans-serif;
+  color: white;
+  
+  &--1 {
+    background-color: orangered;
+    grid-row: 2 / 3;
+    // grid-row-start: 2;
+    // grid-row-end: 3;
+    grid-column: 2 / 3;
+    // grid-column-start: 2;
+    // grid-column-end: 3;
+    z-index: 10;
+  }
+
+  &--2 {
+    background-color: yellowgreen;
+    // grid-column: 2 / span 2;
+    grid-column: 1 / -1;
+  }
+
+  &--3 {
+    background-color: blueviolet;
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+  }
+
+  &--4 {
+    background-color: palevioletred;
+  }
+
+  &--5 {
+    background-color: royalblue;
+    grid-area: 1 / 3 / 3 / 4;
+    // grid-row: 1 / 3;
+    // grid-column: 3 / 4;
+  }
+
+  &--6 {
+    background-color: goldenrod;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 96. Grid Challenge
