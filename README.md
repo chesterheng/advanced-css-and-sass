@@ -6644,6 +6644,59 @@ use . to represent empty cell
 **[⬆ back to top](#table-of-contents)**
 
 ### 102. Aligning Tracks
+
+```scss
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: #ddd;
+  
+  display: grid;
+  grid-gap: 30px;
+  
+  grid-auto-rows: 80px;
+  grid-auto-flow: row dense;  // patch up the hole with dense
+  grid-auto-columns: .5fr;
+  
+  // align grid items to grid area
+  // align-items: center;
+  // justify-items: center;
+  
+  // align grid tracks to grid container
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(2, 200px);
+  height: 1000px;
+  
+  justify-content: center;  //horizontal direction
+  align-content: center;  //vertical direction
+  
+  .item {
+    padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    background-color: orangered;
+    
+    &--4 {
+      background-color: crimson;
+      grid-row: 2 / span 3;
+      // align-self: start;
+      // justify-self: start;
+    }
+    
+    &--6 {
+      background-color: lightcoral;
+      grid-row: 2 / span 2;
+    }
+    
+    &--7 {
+      background-color: palevioletred;
+      grid-column: 1 / -1;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 103. Using min-content, max-content and the minmax() function
