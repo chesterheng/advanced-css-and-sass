@@ -6392,9 +6392,62 @@ Items can be placed in the same cell.
 **[⬆ back to top](#table-of-contents)**
 
 ### 96. Grid Challenge
+
+![](section-08/grid-exercise.jpg)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 97. Grid Challenge: A Basic Solution
+
+```html
+<div class="container">
+  <div class="header">Header</div>
+  <div class="small-box-1">Small box 1</div>
+  <div class="small-box-2">Small box 2</div>
+  <div class="small-box-3">Small box 3</div>
+  <div class="main-content">Main content</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="footer">Footer</div>
+</div>
+```
+
+```scss
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  
+  display: grid;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3, 1fr) 200px;
+  grid-gap: 30px;
+  
+  & > * {
+    background-color: orangered;
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+}
+
+.header {
+  grid-column: 1 / -1;
+}
+
+.sidebar {
+  grid-row: 2 / span 2;
+  grid-column: 4 / 5;
+}
+
+.main-content {
+  grid-column: 1 / span 3;
+}
+
+.footer {
+  grid-column: 1 / -1;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 98. Naming Grid Lines
