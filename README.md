@@ -6543,6 +6543,46 @@ use . to represent empty cell
 **[⬆ back to top](#table-of-contents)**
 
 ### 100. Implicit Grids vs. Explicit Grids
+
+```html
+<div class="container">
+  <div class="item item-1">Modern</div>
+  <div class="item item-2">CSS</div>
+  <div class="item item-3">with</div>
+  <div class="item item-4">Flexbox</div>
+  <div class="item item-5">and</div>
+  <div class="item item-6">Grid</div>
+  <div class="item item-7">is</div>
+  <div class="item item-8">great</div>
+</div>
+```
+
+```scss
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: #ddd;
+  
+  display: grid;
+  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  
+  grid-auto-rows: 80px;
+  
+  grid-auto-flow: column;
+  grid-auto-columns: .5fr;
+  
+  .item {
+    padding: 20px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    background-color: orangered;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 101. Aligning Grid Items
