@@ -6492,6 +6492,54 @@ Items can be placed in the same cell.
 **[⬆ back to top](#table-of-contents)**
 
 ### 99. Naming Grid Areas
+
+use . to represent empty cell
+
+```scss
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  
+  display: grid;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3, 1fr) 200px;
+  grid-gap: 30px;
+  
+  grid-template-areas: ". head head ."
+                       "box-1 box-2 box-3 side"
+                       "main main main side"
+                       "foot foot foot foot";
+  
+  & > * {
+    background-color: orangered;
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+}
+
+.header {
+  grid-area: head;
+}
+
+.small-box-1 {  grid-area: box-1; }
+.small-box-2 {  grid-area: box-2; }
+.small-box-3 {  grid-area: box-3; }
+
+.sidebar {
+  grid-area: side;
+}
+
+.main-content {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: foot;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 100. Implicit Grids vs. Explicit Grids
