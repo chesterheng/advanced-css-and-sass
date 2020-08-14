@@ -6586,6 +6586,61 @@ use . to represent empty cell
 **[⬆ back to top](#table-of-contents)**
 
 ### 101. Aligning Grid Items
+
+```html
+<div class="container">
+  <div class="item item--1">Modern</div>
+  <div class="item item--2">CSS</div>
+  <div class="item item--3">with</div>
+  <div class="item item--4">Flexbox</div>
+  <div class="item item--5">and</div>
+  <div class="item item--6">Grid</div>
+  <div class="item item--7">is</div>
+  <div class="item item--8">great</div>
+</div>
+```
+
+```scss
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: #ddd;
+  
+  display: grid;
+  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  
+  grid-auto-rows: 80px;
+  
+  grid-auto-flow: row;
+  grid-auto-columns: .5fr;
+  
+  align-items: center;
+  justify-items: center;
+  
+  .item {
+    padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    background-color: orangered;
+    
+    &--4 {
+      background-color: crimson;
+      grid-row: 2 / span 3;
+      align-self: start;
+      justify-self: start;
+    }
+    
+    &--7 {
+      background-color: palevioletred;
+      grid-column: 1 / -1;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 102. Aligning Tracks
