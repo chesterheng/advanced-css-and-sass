@@ -208,6 +208,26 @@
     - [103. Using min-content, max-content and the minmax() function](#103-using-min-content-max-content-and-the-minmax-function)
     - [104. Responsive Layouts with auto-fit and auto-fill](#104-responsive-layouts-with-auto-fit-and-auto-fill)
   - [**Section 9: Nexter Project — Master CSS Grid Layouts!**](#section-9-nexter-project--master-css-grid-layouts)
+    - [105. Project Overview and Setup](#105-project-overview-and-setup)
+    - [106. Building the Overall Layout - Part 1](#106-building-the-overall-layout---part-1)
+    - [107. Building the Overall Layout - Part 2](#107-building-the-overall-layout---part-2)
+    - [108. Building the Features Section - Part 1](#108-building-the-features-section---part-1)
+    - [109. Building the Features Section - Part 2](#109-building-the-features-section---part-2)
+    - [110. Building the Story Section - Part 1](#110-building-the-story-section---part-1)
+    - [111. Building the Story Section - Part 2](#111-building-the-story-section---part-2)
+    - [112. Building the Homes Section - Part 1](#112-building-the-homes-section---part-1)
+    - [113. Building the Homes Section - Part 2](#113-building-the-homes-section---part-2)
+    - [114. Building the Gallery - Part 1](#114-building-the-gallery---part-1)
+    - [115. Building the Gallery - Part 2](#115-building-the-gallery---part-2)
+    - [116. Building the Footer](#116-building-the-footer)
+    - [117. Building the Sidebar](#117-building-the-sidebar)
+    - [118. Building the Header - Part 1](#118-building-the-header---part-1)
+    - [119. Building the Header - Part 2](#119-building-the-header---part-2)
+    - [120. Building the Realtors Section](#120-building-the-realtors-section)
+    - [121. Writing Media Queries - Part 1](#121-writing-media-queries---part-1)
+    - [122. Writing Media Queries - Part 2](#122-writing-media-queries---part-2)
+    - [123. Browser Support for CSS Grid](#123-browser-support-for-css-grid)
+    - [124. Wrapping up the Nexter Project: Final Considerations](#124-wrapping-up-the-nexter-project-final-considerations)
   - [**Section 10: That's It, Everyone!**](#section-10-thats-it-everyone)
 
 ## **Section 1: Welcome, Welcome, Welcome!**
@@ -6805,6 +6825,65 @@ use . to represent empty cell
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 9: Nexter Project — Master CSS Grid Layouts!**
+
+### 105. Project Overview and Setup
+**[⬆ back to top](#table-of-contents)**
+
+### 106. Building the Overall Layout - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 107. Building the Overall Layout - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 108. Building the Features Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 109. Building the Features Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 110. Building the Story Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 111. Building the Story Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 112. Building the Homes Section - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 113. Building the Homes Section - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 114. Building the Gallery - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 115. Building the Gallery - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 116. Building the Footer
+**[⬆ back to top](#table-of-contents)**
+
+### 117. Building the Sidebar
+**[⬆ back to top](#table-of-contents)**
+
+### 118. Building the Header - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 119. Building the Header - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 120. Building the Realtors Section
+**[⬆ back to top](#table-of-contents)**
+
+### 121. Writing Media Queries - Part 1
+**[⬆ back to top](#table-of-contents)**
+
+### 122. Writing Media Queries - Part 2
+**[⬆ back to top](#table-of-contents)**
+
+### 123. Browser Support for CSS Grid
+**[⬆ back to top](#table-of-contents)**
+
+### 124. Wrapping up the Nexter Project: Final Considerations
 **[⬆ back to top](#table-of-contents)**
 
 ## **Section 10: That's It, Everyone!**
