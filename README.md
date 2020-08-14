@@ -6211,6 +6211,8 @@ CSS Grid
 
 ### 92. Creating Our First Grid
 
+![](section-08/first-grid.jpg)
+
 ```html
 <div class="container">
   <div class="item item--1">1: Orange</div>
@@ -6229,12 +6231,11 @@ CSS Grid
   margin: 30px auto;
   
   display: grid;
-  grid-template-rows: 150px 100px;
+  grid-template-rows: 150px 150px;
   grid-template-columns: 150px 150px 150px;
   
-  grid-row-gap: 30px;
-  grid-column-gap: 50px;
-  
+  // grid-row-gap: 30px;
+  // grid-column-gap: 30px;
   grid-gap: 30px;  // keeps all gaps the same
 }
 
