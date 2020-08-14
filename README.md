@@ -6827,6 +6827,37 @@ use . to represent empty cell
 ## **Section 9: Nexter Project — Master CSS Grid Layouts!**
 
 ### 105. Project Overview and Setup
+
+[nexter](https://nexter.netlify.app)
+
+```html
+<body class="container">
+  TEST TEXT
+</body>
+```
+
+```scss
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-grey-dark-2;
+  font-weight: 300;
+  line-height: 1.6;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 106. Building the Overall Layout - Part 1
