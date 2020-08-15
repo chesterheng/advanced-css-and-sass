@@ -8137,6 +8137,32 @@ html {
 **[⬆ back to top](#table-of-contents)**
 
 ### 123. Browser Support for CSS Grid
+
+- [caniuse](https://caniuse.com/#feat=css-grid)
+- Fallback for users with old browser
+
+```scss
+.features {
+  @supports(display: grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    align-items: start;
+  }
+}
+
+.feature {
+  float: left;
+  width: 33.3333%;
+  margin-bottom: 6rem;
+
+  @supports(display: grid) {
+    width: auto;
+    margin-bottom: 0;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 124. Wrapping up the Nexter Project: Final Considerations
