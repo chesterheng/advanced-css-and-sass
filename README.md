@@ -7437,6 +7437,81 @@ body {
 ### 113. Building the Homes Section - Part 2
 
 #### How to build a rather complex component using a mix of CSS Grid properties, overlapping and flexbox?
+
+![](section-09/home.jpg)
+
+```scss
+.home {
+  background-color: $color-grey-light-1;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 3.5rem;
+
+  &__img {
+    width: 100%;
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    z-index: 1;
+  }
+
+  &__like {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    fill: $color-primary;
+    height: 2.5rem;
+    width: 2.5rem;
+    z-index: 2;
+    justify-self: end;
+    margin: 1rem;
+  }
+
+  &__name {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: end;
+    z-index: 3;
+
+    width: 80%;
+    font-family: $font-display;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1.25rem;
+    background-color: $color-secondary;
+    color: #fff;
+    font-weight: 400;
+    transform: translateY(50%);
+  }
+
+  &__location,
+  &__rooms {
+      margin-top: 2.5rem;
+  }
+
+  &__location,
+  &__rooms,
+  &__area,
+  &__price {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+
+    display: flex;
+    align-items: center;
+    svg {
+      fill: $color-primary;
+      height: 2rem;
+      width: 2rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &__btn {
+    grid-column: 1 / -1;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 114. Building the Gallery - Part 1
