@@ -225,6 +225,7 @@
       - [How to decide if flexbox is a better tool in certain situations?](#how-to-decide-if-flexbox-is-a-better-tool-in-certain-situations)
     - [112. Building the Homes Section - Part 1](#112-building-the-homes-section---part-1)
     - [113. Building the Homes Section - Part 2](#113-building-the-homes-section---part-2)
+      - [How to build a rather complex component using a mix of CSS Grid properties, overlapping and flexbox?](#how-to-build-a-rather-complex-component-using-a-mix-of-css-grid-properties-overlapping-and-flexbox)
     - [114. Building the Gallery - Part 1](#114-building-the-gallery---part-1)
     - [115. Building the Gallery - Part 2](#115-building-the-gallery---part-2)
     - [116. Building the Footer](#116-building-the-footer)
@@ -7345,9 +7346,97 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 112. Building the Homes Section - Part 1
+
+![](section-09/homes.jpg)
+
+```html
+<section class="homes">
+  <div class="home">
+    <img src="img/house-1.jpeg" alt="House 1" class="home__img">
+    <svg class="home__like">
+      <use xlink:href="img/sprite.svg#icon-heart-full"></use>
+    </svg>
+    <h5 class="home__name">Beautiful Familiy House</h5>
+    <div class="home__location">
+      <svg>
+        <use xlink:href="img/sprite.svg#icon-map-pin"></use>
+      </svg>
+      <p>USA</p>
+    </div>
+    <div class="home__rooms">
+      <svg>
+        <use xlink:href="img/sprite.svg#icon-profile-male"></use>
+      </svg>
+      <p>5 rooms</p>
+    </div>
+    <div class="home__area">
+      <svg>
+        <use xlink:href="img/sprite.svg#icon-expand"></use>
+      </svg>
+      <p>325 m<sup>2</sup></p>
+    </div>
+    <div class="home__price">
+      <svg>
+        <use xlink:href="img/sprite.svg#icon-key"></use>
+      </svg>
+      <p>$1,200,000</p>
+    </div>
+    <button class="btn home__btn">Contact realtor</button>
+  </div>
+</section>
+```
+
+```scss
+.homes {
+  grid-column: center-start / center-end;
+  margin: 15rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 7rem;
+}
+
+.home {
+  background-color: $color-grey-light-1;
+
+  &__img {
+    width: 100%;
+  }
+
+  &__like {
+
+  }
+
+  &__name {
+
+  }
+
+  &__location,
+  &__rooms,
+  &__area,
+  &__price {
+    svg {
+      fill: $color-primary;
+      height: 2rem;
+      width: 2rem;
+    }
+
+    p {
+
+    }
+  }
+
+  &__btn {
+
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 113. Building the Homes Section - Part 2
+
+#### How to build a rather complex component using a mix of CSS Grid properties, overlapping and flexbox?
 **[⬆ back to top](#table-of-contents)**
 
 ### 114. Building the Gallery - Part 1
