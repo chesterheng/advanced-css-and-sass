@@ -211,6 +211,8 @@
     - [105. Project Overview and Setup](#105-project-overview-and-setup)
     - [106. Building the Overall Layout - Part 1](#106-building-the-overall-layout---part-1)
     - [107. Building the Overall Layout - Part 2](#107-building-the-overall-layout---part-2)
+      - [How to build a complex and modern layout using advanced CSS Grid techniques?](#how-to-build-a-complex-and-modern-layout-using-advanced-css-grid-techniques)
+      - [How to choose different row and column track sizes for different types of content?](#how-to-choose-different-row-and-column-track-sizes-for-different-types-of-content)
     - [108. Building the Features Section - Part 1](#108-building-the-features-section---part-1)
     - [109. Building the Features Section - Part 2](#109-building-the-features-section---part-2)
     - [110. Building the Story Section - Part 1](#110-building-the-story-section---part-1)
@@ -6861,9 +6863,43 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 106. Building the Overall Layout - Part 1
-**[⬆ back to top](#table-of-contents)**
+
+```html
+    <body class="container">
+        <div class="sidebar">sidebar</div>
+
+        <header class="header">header</header>
+        
+        <div class="realtors">Top 3 Realtors</div>
+        
+        <section class="features">features</section>
+        
+        <div class="story__pictures">story pictures</div>
+        <div class="story__content">story content</div>
+        
+        <section class="homes">homes</section>
+        
+        <section class="gallery">gallery</section>
+        
+        <footer class="footer">footer</footer>
+    </body>
+```
+
+```scss
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+}
+
+
+```
 
 ### 107. Building the Overall Layout - Part 2
+
+#### How to build a complex and modern layout using advanced CSS Grid techniques?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to choose different row and column track sizes for different types of content?
 **[⬆ back to top](#table-of-contents)**
 
 ### 108. Building the Features Section - Part 1
