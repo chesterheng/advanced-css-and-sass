@@ -234,6 +234,8 @@
     - [117. Building the Sidebar](#117-building-the-sidebar)
     - [118. Building the Header - Part 1](#118-building-the-header---part-1)
     - [119. Building the Header - Part 2](#119-building-the-header---part-2)
+      - [How to manage vertical spacing in a responsive layout using CSS Grid techniques?](#how-to-manage-vertical-spacing-in-a-responsive-layout-using-css-grid-techniques)
+      - [How to use ::before and ::after as grid items?](#how-to-use-before-and-after-as-grid-items)
     - [120. Building the Realtors Section](#120-building-the-realtors-section)
     - [121. Writing Media Queries - Part 1](#121-writing-media-queries---part-1)
     - [122. Writing Media Queries - Part 2](#122-writing-media-queries---part-2)
@@ -7775,9 +7777,77 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 118. Building the Header - Part 1
+
+![](section-09/header-1.jpg)
+
+```html
+<header class="header">
+  <img src="img/logo.png" alt="Nexter logo" class="header__logo">
+  <h3 class="heading-3">Your own home:</h3>
+  <h1 class="heading-1">The ultimate personal freedom</h1>
+  <button class="btn header__btn">View our properties</button>
+  <div class="header__seenon-text">Seen on</div>
+  <div class="header__seenon-logos">
+      <img src="img/logo-bbc.png" alt="Seen on logo 1">
+      <img src="img/logo-forbes.png" alt="Seen on logo 2">
+      <img src="img/logo-techcrunch.png" alt="Seen on logo 3">
+      <img src="img/logo-bi.png" alt="Seen on logo 4">
+  </div>
+</header>
+```
+
+```scss
+.heading-1 {
+  @extend %heading;
+  font-size: 4.5rem;
+  color: $color-grey-light-1;
+  line-height: 1;
+}
+
+.header {
+  background-color: $color-grey-dark-1;
+  grid-column: full-start / col-end 6;
+  background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 1.5rem;
+  justify-content: center;
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+  &__btn {
+    align-self: start;
+    justify-self: start;
+  }
+
+  &__seenon-text {
+  }
+
+  &__seenon-logos {
+    img {
+      height: 2.5rem;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 119. Building the Header - Part 2
+
+#### How to manage vertical spacing in a responsive layout using CSS Grid techniques?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to use ::before and ::after as grid items?
 **[⬆ back to top](#table-of-contents)**
 
 ### 120. Building the Realtors Section
