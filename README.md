@@ -7268,13 +7268,80 @@ body {
 
 ### 111. Building the Story Section - Part 2
 
+![](section-09/story-2.jpg)
+
+```html
+<div class="story__pictures">
+  <img src="img/story-1.jpeg" alt="Couple with new house" class="story__img--1">
+  <img src="img/story-2.jpeg" alt="New house" class="story__img--2">
+</div>
+```
+
+```scss
+.story {
+  &__pictures {
+    background-color: $color-primary;
+    grid-column: full-start / col-end 4;
+    background-image: linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)), url(../img/back.jpg);
+    background-size: cover;
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+  }
+
+  &__img--1 {
+    width: 100%;
+    grid-row: 2 / 6;
+    grid-column: 2 / 6;
+    box-shadow: 0 2rem 5rem rgba(#000, .1);
+  }
+
+  &__img--2 {
+    width: 115%;
+    grid-row: 4 / 6;
+    grid-column: 4 / 7;
+    z-index: 20;
+    box-shadow: 0 2rem 5rem rgba(#000, .2);
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 #### How to deal with overlapping grid items?
+
+```scss
+.story {
+  &__pictures {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+  }
+
+  &__img--2 {
+    width: 115%;
+    grid-row: 4 / 6;
+    grid-column: 4 / 7;
+    z-index: 20;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### Why images are special and behave differently than other grid items?
+
+- image has aspect ratio to maintain
+
 **[⬆ back to top](#table-of-contents)**
 
 #### How to decide if flexbox is a better tool in certain situations?
+
+[Quick! What’s the Difference Between Flexbox and Grid?](https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid)
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 112. Building the Homes Section - Part 1
