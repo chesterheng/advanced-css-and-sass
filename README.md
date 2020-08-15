@@ -7584,6 +7584,85 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 115. Building the Gallery - Part 2
+
+![](section-09/gallery-2.jpg)
+
+```scss
+.gallery {
+  &__item {
+    &--1 {
+      grid-row: 1 / span 2;
+      grid-column: 1 / span 2;
+    }
+
+    &--2 {
+      grid-row: 1 / span 3;
+      grid-column: 3 / span 3;
+    }
+
+    &--3 {
+      grid-row: 1 / span 2;
+      grid-column: 6 / 7;
+    }
+
+    &--4 {
+      grid-row: 1 / span 2;
+      grid-column: 7 / -1;
+    }
+
+    &--5 {
+      grid-row: 3 / span 3;
+      grid-column: 1 / span 2;
+    }
+
+    &--6 {
+      grid-row: 4 / span 2;
+      grid-column: 3 / span 2;
+    }
+
+    &--7 {
+      grid-row: 4 / 5;
+      grid-column: 5 / 6;
+    }
+
+    &--8 {
+      grid-row: 3 / span 2;
+      grid-column: 6 / span 2;
+    }
+
+    &--9 {
+      grid-row: 3 / span 3;
+      grid-column: 8 / -1;
+    }
+
+    &--10 {
+      grid-row: 6 / span 2;
+      grid-column: 1 / 2;
+    }
+
+    &--11 {
+      grid-row: 6 / span 2;
+      grid-column: 2 / span 2;
+    }
+
+    &--12 {
+      grid-row: 6 / span 2;
+      grid-column: 4 / 5;
+    }
+
+    &--13 {
+      grid-row: 5 / span 3;
+      grid-column: 5 / span 3;
+    }
+
+    &--14 {
+      grid-row: 6 / span 2;
+      grid-column: 8 / -1;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 116. Building the Footer
