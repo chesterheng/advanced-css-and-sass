@@ -7990,9 +7990,150 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 121. Writing Media Queries - Part 1
-**[⬆ back to top](#table-of-contents)**
-
 ### 122. Writing Media Queries - Part 2
+
+```scss
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;   // 1200px
+$bp-large: 62.5em;   // 1000px
+$bp-medium: 50em;    // 800px;
+$bp-small: 37.5em;    // 600px;
+
+html {
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  // 1140 / 0 = 140px = 14rem
+  // center content on the page up to 1140px
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-rows: 6rem calc(100vh - 6rem);
+  }
+}
+
+.sidebar {
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
+
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.nav-btn {
+  margin-top: 4rem;
+
+  &::before { transform: translateY(-1.5rem); }
+  &::after { transform: translateY(1.3rem); }
+
+  @media only screen and (max-width: $bp-large) {
+    margin-top: 0;
+    margin-right: 3rem;
+
+    &::before { transform: translateY(-1.2rem); }
+    &::after { transform: translateY(1rem); }
+  }
+}
+
+.header {
+  grid-column: full-start / col-end 6;
+  padding: 8rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / -1;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 5rem;
+  }
+}
+
+.realtors {
+  grid-column: col-start 7 / full-end;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / -1;
+}
+
+  &__list {
+    grid-template-columns: min-content max-content;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: min-content max-content;
+    }
+  }
+}
+
+.story {
+  &__pictures {
+    grid-column: full-start / col-end 4;
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+      padding: 6rem;
+    }
+  }
+
+  &__img--1 {
+    grid-row: 2 / 6;
+    grid-column: 2 / 6;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 5;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__img--2 {
+    width: 115%;
+    grid-row: 4 / 6;
+    grid-column: 4 / 7;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-row: 1 / -1;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    grid-column: col-start 5 / full-end;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+      grid-row: 5 / 6;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 123. Browser Support for CSS Grid
