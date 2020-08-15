@@ -7844,10 +7844,84 @@ body {
 
 ### 119. Building the Header - Part 2
 
+![](section-09/header-2.png)
+
+```scss
+.header {
+  &__seenon-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+
+  &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 3rem;
+    justify-items: center;
+    align-items: center;
+
+    img {
+      height: 2.5rem;
+      max-width: 100%;
+      filter: brightness(70%);
+    }
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
 #### How to manage vertical spacing in a responsive layout using CSS Grid techniques?
+
+![](section-09/header-1.jpg)
+
+```scss
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-row-gap: 1.5rem;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### How to use ::before and ::after as grid items?
+
+```scss
+.header {
+  &__seenon-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 120. Building the Realtors Section
