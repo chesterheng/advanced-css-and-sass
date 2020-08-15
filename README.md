@@ -227,6 +227,8 @@
     - [113. Building the Homes Section - Part 2](#113-building-the-homes-section---part-2)
       - [How to build a rather complex component using a mix of CSS Grid properties, overlapping and flexbox?](#how-to-build-a-rather-complex-component-using-a-mix-of-css-grid-properties-overlapping-and-flexbox)
     - [114. Building the Gallery - Part 1](#114-building-the-gallery---part-1)
+      - [How to create a complex grid-looking gallery?](#how-to-create-a-complex-grid-looking-gallery)
+      - [Using object-fit together with images for grid items](#using-object-fit-together-with-images-for-grid-items)
     - [115. Building the Gallery - Part 2](#115-building-the-gallery---part-2)
     - [116. Building the Footer](#116-building-the-footer)
     - [117. Building the Sidebar](#117-building-the-sidebar)
@@ -7515,6 +7517,70 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 114. Building the Gallery - Part 1
+
+#### How to create a complex grid-looking gallery?
+
+![](section-09/gallery.jpg)
+
+```html
+<section class="gallery">
+  <figure class="gallery__item gallery__item--1"><img src="img/gal-1.jpeg" alt="Gallery image 1" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--2"><img src="img/gal-2.jpeg" alt="Gallery image 2" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--3"><img src="img/gal-3.jpeg" alt="Gallery image 3" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--4"><img src="img/gal-4.jpeg" alt="Gallery image 4" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--5"><img src="img/gal-5.jpeg" alt="Gallery image 5" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--6"><img src="img/gal-6.jpeg" alt="Gallery image 6" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--7"><img src="img/gal-7.jpeg" alt="Gallery image 7" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--8"><img src="img/gal-8.jpeg" alt="Gallery image 8" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--9"><img src="img/gal-9.jpeg" alt="Gallery image 9" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--10"><img src="img/gal-10.jpeg" alt="Gallery image 10" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--11"><img src="img/gal-11.jpeg" alt="Gallery image 11" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--12"><img src="img/gal-12.jpeg" alt="Gallery image 12" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--13"><img src="img/gal-13.jpeg" alt="Gallery image 13" class="gallery__img"></figure>
+  <figure class="gallery__item gallery__item--14"><img src="img/gal-14.jpeg" alt="Gallery image 14" class="gallery__img"></figure>
+</section>
+```
+
+```scss
+.gallery {
+  background-color: $color-grey-light-1;
+  grid-column: full-start / full-end;
+
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(7, 5vw);
+  grid-gap: 1.5rem;
+  padding: 1.5rem;
+
+  &__item {
+    &--1 {
+      grid-row: 1 / span 2;
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### Using object-fit together with images for grid items
+
+```scss
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 115. Building the Gallery - Part 2
