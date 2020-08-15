@@ -6869,7 +6869,6 @@ body {
         <div class="sidebar">sidebar</div>
 
         <header class="header">header</header>
-        
         <div class="realtors">Top 3 Realtors</div>
         
         <section class="features">features</section>
@@ -6890,16 +6889,118 @@ body {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
 }
-
-
 ```
 
 ### 107. Building the Overall Layout - Part 2
 
+![](section-09/layout.jpg)
+
+```scss
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+
+  // 1140 / 0 = 140px = 14rem
+  // center content on the page up to 1140px
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+}
+
+.sidebar {
+  background-color: $color-primary;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
+}
+
+.header {
+  background-color: $color-grey-dark-1;
+  grid-column: full-start / col-end 6;
+}
+
+.realtors {
+  background-color: $color-secondary;
+  grid-column: col-start 7 / full-end;
+}
+
+.features {
+  background-color: $color-grey-light-2;
+  grid-column: center-start / center-end;
+}
+
+.story {
+  &__pictures {
+    background-color: $color-primary;
+    grid-column: full-start /col-end 4;
+  }
+
+  &__content {
+    background-color: $color-grey-light-1;
+    grid-column: col-start 5 /full-end;
+  }
+}
+
+.homes {
+  background-color: $color-secondary;
+  grid-column: center-start / center-end;
+}
+
+.gallery {
+  background-color: $color-grey-dark-1;
+  grid-column: full-start / full-end;
+}
+
+.footer {
+  background-color: $color-secondary;
+  grid-column: full-start / full-end;
+}
+```
+
 #### How to build a complex and modern layout using advanced CSS Grid techniques?
+
+- Determine the layput
+- sidebar: 1 column
+- content
+  - left: 1 column
+  - center: 8 columns (max: 1140px)
+  - right: 1 column
+
+```scss
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+
+  // 1140 / 0 = 140px = 14rem
+  // center content on the page up to 1140px
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 #### How to choose different row and column track sizes for different types of content?
+
+```scss
+.sidebar {
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
+}
+
+.header { grid-column: full-start / col-end 6;  }
+.realtors { grid-column: col-start 7 / full-end;  }
+
+.features { grid-column: center-start / center-end; }
+
+.story {
+  &__pictures { grid-column: full-start /col-end 4; }
+  &__content {  grid-column: col-start 5 /full-end; }
+}
+
+.homes {  grid-column: center-start / center-end; }
+
+.gallery {  grid-column: full-start / full-end; }
+
+.footer { grid-column: full-start / full-end; }
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 108. Building the Features Section - Part 1
