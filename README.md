@@ -215,9 +215,9 @@
       - [How to choose different row and column track sizes for different types of content?](#how-to-choose-different-row-and-column-track-sizes-for-different-types-of-content)
     - [108. Building the Features Section - Part 1](#108-building-the-features-section---part-1)
       - [How and why to create grids inside of grids?](#how-and-why-to-create-grids-inside-of-grids)
-      - [How to create a responsive component without?](#how-to-create-a-responsive-component-without)
-      - [How to build a small component using CSS Grid?](#how-to-build-a-small-component-using-css-grid)
     - [109. Building the Features Section - Part 2](#109-building-the-features-section---part-2)
+      - [How to build a small component using CSS Grid?](#how-to-build-a-small-component-using-css-grid)
+      - [How to create a responsive component without media queries?](#how-to-create-a-responsive-component-without-media-queries)
     - [110. Building the Story Section - Part 1](#110-building-the-story-section---part-1)
     - [111. Building the Story Section - Part 2](#111-building-the-story-section---part-2)
     - [112. Building the Homes Section - Part 1](#112-building-the-homes-section---part-1)
@@ -7065,22 +7065,120 @@ body {
 
 ```scss
 .features {
+  grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 6rem;
 }
 ```
 
+**[⬆ back to top](#table-of-contents)**
+
 #### How and why to create grids inside of grids?
-**[⬆ back to top](#table-of-contents)**
 
-#### How to create a responsive component without?
-**[⬆ back to top](#table-of-contents)**
+```scss
+.features {
+  grid-column: center-start / center-end;
 
-#### How to build a small component using CSS Grid?
+  margin: 15rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 109. Building the Features Section - Part 2
+
+![](section-09/features-2.jpg)
+
+```scss
+.features {
+  grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 6rem;
+  align-items: start;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+}
+
+%heading {
+  font-family: $font-display;
+  font-weight: 400;
+}
+
+.heading-4 {
+  @extend %heading;
+  font-size: 1.9rem;
+
+  &--light { color: $color-grey-light-1; }
+  &--dark { color: $color-grey-dark-1; }
+}
+```
+
+#### How to build a small component using CSS Grid?
+
+![](section-09/feature.jpg)
+
+```html
+<div class="feature">
+  <svg class="feature__icon">
+    <use xlink:href="img/sprite.svg#icon-lock"></use>
+  </svg>
+  <h4 class="heading-4 heading-4--dark">Secure payments on nexter</h4>
+  <p class="feature__text">Pariatur voluptatibus quidem consequatur harum, voluptatum mollitia quae.</p>
+</div>
+```
+
+```scss
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    grid-row: 1 / span 2;
+  }
+}
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+#### How to create a responsive component without media queries?
+
+```scss
+.features {
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 110. Building the Story Section - Part 1
