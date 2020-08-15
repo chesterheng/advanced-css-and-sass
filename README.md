@@ -220,6 +220,9 @@
       - [How to create a responsive component without media queries?](#how-to-create-a-responsive-component-without-media-queries)
     - [110. Building the Story Section - Part 1](#110-building-the-story-section---part-1)
     - [111. Building the Story Section - Part 2](#111-building-the-story-section---part-2)
+      - [How to deal with overlapping grid items?](#how-to-deal-with-overlapping-grid-items)
+      - [Why images are special and behave differently than other grid items?](#why-images-are-special-and-behave-differently-than-other-grid-items)
+      - [How to decide if flexbox is a better tool in certain situations?](#how-to-decide-if-flexbox-is-a-better-tool-in-certain-situations)
     - [112. Building the Homes Section - Part 1](#112-building-the-homes-section---part-1)
     - [113. Building the Homes Section - Part 2](#113-building-the-homes-section---part-2)
     - [114. Building the Gallery - Part 1](#114-building-the-gallery---part-1)
@@ -7182,9 +7185,96 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 110. Building the Story Section - Part 1
+
+![](section-09/story-1.jpg)
+
+```html
+<div class="story__content">
+  <h3 class="heading-3 mb-sm">Happy Customers</h3>
+  <h2 class="heading-2 heading-2--dark mb-md">&ldquo;The best decision of our lives&rdquo;</h2>
+  <p class="story__text">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus. Quidem consequatur harum volupta!
+  </p>
+  <button class="btn">Find your own home</button>
+</div>
+```
+
+```scss
+.story {
+  &__content {
+    background-color: $color-grey-light-1;
+    grid-column: col-start 5 / full-end;
+
+    padding: 6rem 8vw;
+
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: flex-start;
+
+    display: grid;
+    align-content: center;
+    justify-items: start;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 4rem;
+  }
+}
+
+.heading-2 {
+  @extend %heading;
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1;
+
+  &--light { color: $color-grey-light-1; }
+  &--dark { color: $color-grey-dark-1; }
+}
+
+.heading-3 {
+  @extend %heading;
+  font-size: 1.6rem;
+  color: $color-primary;
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+      background-color: $color-primary-dark;
+  }
+}
+
+.mb-sm { margin-bottom: 2rem; }
+.mb-md { margin-bottom: 3rem; }
+.mb-lg { margin-bottom: 4rem; }
+.mb-hg { margin-bottom: 8rem; }
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 111. Building the Story Section - Part 2
+
+#### How to deal with overlapping grid items?
+**[⬆ back to top](#table-of-contents)**
+
+#### Why images are special and behave differently than other grid items?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to decide if flexbox is a better tool in certain situations?
 **[⬆ back to top](#table-of-contents)**
 
 ### 112. Building the Homes Section - Part 1
