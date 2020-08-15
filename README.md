@@ -214,6 +214,9 @@
       - [How to build a complex and modern layout using advanced CSS Grid techniques?](#how-to-build-a-complex-and-modern-layout-using-advanced-css-grid-techniques)
       - [How to choose different row and column track sizes for different types of content?](#how-to-choose-different-row-and-column-track-sizes-for-different-types-of-content)
     - [108. Building the Features Section - Part 1](#108-building-the-features-section---part-1)
+      - [How and why to create grids inside of grids?](#how-and-why-to-create-grids-inside-of-grids)
+      - [How to create a responsive component without?](#how-to-create-a-responsive-component-without)
+      - [How to build a small component using CSS Grid?](#how-to-build-a-small-component-using-css-grid)
     - [109. Building the Features Section - Part 2](#109-building-the-features-section---part-2)
     - [110. Building the Story Section - Part 1](#110-building-the-story-section---part-1)
     - [111. Building the Story Section - Part 2](#111-building-the-story-section---part-2)
@@ -7004,6 +7007,77 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 108. Building the Features Section - Part 1
+
+![](section-09/features-1.jpg)
+
+```html
+<section class="features">
+  <div class="feature">
+    <svg class="feature__icon">
+      <use xlink:href="img/sprite.svg#icon-global"></use>
+    </svg>
+    <h4 class="heading-4 heading-4--dark">World's best luxury homes</h4>
+    <p class="feature__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus.</p>
+  </div>
+
+  <div class="feature">
+    <svg class="feature__icon">
+      <use xlink:href="img/sprite.svg#icon-trophy"></use>
+    </svg>
+    <h4 class="heading-4 heading-4--dark">Only the best properties</h4>
+    <p class="feature__text">Voluptatum mollitia quae. Vero ipsum sapiente molestias accusamus rerum sed a eligendi aut quia.</p>
+  </div>
+
+  <div class="feature">
+    <svg class="feature__icon">
+      <use xlink:href="img/sprite.svg#icon-map-pin"></use>
+    </svg>
+    <h4 class="heading-4 heading-4--dark">All homes in in top locations</h4>
+    <p class="feature__text">Tenetur distinctio necessitatibus pariatur voluptatibus quidem consequatur harum.</p>
+  </div>
+
+  <div class="feature">
+    <svg class="feature__icon">
+      <use xlink:href="img/sprite.svg#icon-key"></use>
+    </svg>
+    <h4 class="heading-4 heading-4--dark">New home in one week</h4>
+    <p class="feature__text">Vero ipsum sapiente molestias accusamus rerum. Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </div>
+
+  <div class="feature">
+    <svg class="feature__icon">
+      <use xlink:href="img/sprite.svg#icon-presentation"></use>
+    </svg>
+    <h4 class="heading-4 heading-4--dark">Top 1% realtors</h4>
+    <p class="feature__text">Quidem consequatur harum, voluptatum mollitia quae. Tenetur distinctio necessitatibus pariatur voluptatibus.</p>
+  </div>
+
+  <div class="feature">
+    <svg class="feature__icon">
+      <use xlink:href="img/sprite.svg#icon-lock"></use>
+    </svg>
+    <h4 class="heading-4 heading-4--dark">Secure payments on nexter</h4>
+    <p class="feature__text">Pariatur voluptatibus quidem consequatur harum, voluptatum mollitia quae.</p>
+  </div>
+
+</section>
+```
+
+```scss
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+}
+```
+
+#### How and why to create grids inside of grids?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to create a responsive component without?
+**[⬆ back to top](#table-of-contents)**
+
+#### How to build a small component using CSS Grid?
 **[⬆ back to top](#table-of-contents)**
 
 ### 109. Building the Features Section - Part 2
