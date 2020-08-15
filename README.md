@@ -7925,6 +7925,68 @@ body {
 **[⬆ back to top](#table-of-contents)**
 
 ### 120. Building the Realtors Section
+
+![](section-09/realtors.png)
+
+```html
+<div class="realtors">
+  <h3 class="heading-3">Top 3 Realtors</h3>
+  <div class="realtors__list">
+    <img src="img/realtor-1.jpeg" alt="Realtor 1" class="realtors__img">
+    <div class="realtors__details">
+      <h4 class="heading-4 heading-4--light">Erik Feinman</h4>
+      <p class="realtors__sold">245 houses sold</p>
+    </div>
+
+    <img src="img/realtor-2.jpeg" alt="Realtor 2" class="realtors__img">
+    <div class="realtors__details">
+      <h4 class="heading-4 heading-4--light">Kim Brown</h4>
+      <p class="realtors__sold">212 houses sold</p>
+    </div>
+
+    <img src="img/realtor-3.jpeg" alt="Realtor 3" class="realtors__img">
+    <div class="realtors__details">
+      <h4 class="heading-4 heading-4--light">Toby Ramsey</h4>
+      <p class="realtors__sold">198 houses sold</p>
+    </div>
+  </div>
+</div>
+```
+
+```scss
+.realtors {
+  background-color: $color-secondary;
+  grid-column: col-start 7 / full-end;
+  padding: 3rem;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  grid-row-gap: 2rem;
+
+  &__list {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-column-gap: 2rem;
+    grid-row-gap: 5vh;
+    align-items: center;
+  }
+
+  &__img {
+    width: 7rem;
+    border-radius: 50%;
+    display: block;
+  }
+
+  &__sold {
+    text-transform: uppercase;
+    color: $color-grey-light-2;
+    margin-top: -3px;
+  }
+}
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### 121. Writing Media Queries - Part 1
